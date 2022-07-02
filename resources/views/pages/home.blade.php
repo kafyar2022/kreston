@@ -178,8 +178,7 @@
 
     <section class="main__feedback feedback container">
       <form class="feedback__form feedback-form">
-        <h2 class="feedback-form__title">Получите бесплатную
-          консультацию</h2>
+        <h2 class="feedback-form__title">@lang('Получите бесплатную <br> консультацию')</h2>
 
         <label class="feedback-form__label">
           <span class="visually-hidden">@lang('Ваше имя')</span>
@@ -195,7 +194,7 @@
         </label>
 
         <div class="feedback-form__footer">
-          <p class="feedback-form__aware">Нажимая «Отправить», вы соглашаетесь предоставить Вашу информацию Kreston AC на обработку.</p>
+          <p class="feedback-form__aware">@lang('Нажимая «Отправить», вы соглашаетесь предоставить Вашу информацию Kreston AC на обработку.')</p>
           <button class="feedback-form__button button">@lang('Отправить')</button>
         </div>
       </form>
