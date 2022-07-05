@@ -1,0 +1,99 @@
+.page-footer {
+  background-color: @brand-dark;
+  color: @basic-white;
+}
+
+.page-footer__nav {
+  display: flex;
+  justify-content: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  @media (max-width: (@desktop-width - 1px)) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+.page-footer__nav-item {
+  max-width: 225px;
+
+  &:not(:last-child) {
+    margin-right: 80px;
+
+    @media (max-width: (@desktop-width - 1px)) {
+      margin-right: 32px;
+    }
+  }
+}
+
+.page-footer__nav-term {
+  margin: 0;
+  margin-bottom: 16px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+
+  @media (max-width: (@desktop-width - 1px)) {
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+}
+
+.page-footer__nav-description {
+  margin: 0;
+  margin-bottom: 4px;
+  color: @gray;
+
+  &:hover {
+    color: @basic-white;
+  }
+
+  @media (max-width: (@desktop-width - 1px)) {
+    font-size: 14px;
+  }
+}
+
+.page-footer__inner {
+  background-color: @primary-color;
+}
+
+.page-footer__container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding: 28px 0;
+  flex-direction: column;
+
+  @media (max-width: (@desktop-width - 1px)) {
+    padding: 24px 0;
+  }
+}
+
+.page-footer__company-details {
+  margin-right: 112px;
+
+  @media (max-width: (@desktop-width - 1px)) {
+    margin-right: 0;
+    order: 2;
+    margin-top: 24px;
+  }
+}
+
+.page-footer__copyright {
+  font-size: 11px;
+  line-height: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: pre-line;
+  padding: 24px 0;
+
+  & span {
+    color: @primary-color;
+  }
+}

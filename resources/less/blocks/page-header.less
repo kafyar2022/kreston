@@ -1,16 +1,98 @@
+.page-header__top-nav-list {
+  background-color: @primary-color;
+
+  @media (max-width: (@tablet-width - 1px)) {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom, @primary-color 50%, transparent 50%);
+  }
+}
+
 .page-header__container {
   padding-top: 28px;
   padding-bottom: 34px;
   display: flex;
   align-items: center;
+
+  @media (max-width: (@desktop-width - 1px)) {
+    padding-top: 24px;
+    padding-bottom: 32px;
+  }
+
+  @media (max-width: (@tablet-width - 1px)) {
+    padding-top: 0px;
+    padding-bottom: 16px;
+    flex-wrap: wrap;
+  }
+}
+
+.page-header__company-details {
+  @media (max-width: (@tablet-width - 1px)) {
+    margin-top: 16px;
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 .page-header__logo {
   display: block;
   margin-right: 80px;
+  min-width: max-content;
+
+  @media (max-width: (@desktop-width - 1px)) {
+    margin-right: 40px;
+  }
+
+  @media (max-width: (@tablet-width - 1px)) {
+    order: -2;
+  }
+
+  img {
+    @media (max-width: (@desktop-width - 1px)) {
+      width: 130px;
+      height: 62px;
+    }
+
+    @media (max-width: (@tablet-width - 1px)) {
+      width: 102px;
+      height: 49px;
+    }
+  }
 }
+
 
 .page-header__feedback-button {
   margin-left: auto;
+
+  @media (max-width: (@desktop-width - 1px)) {
+    span {
+      max-width: 104px;
+      text-align: start;
+    }
+  }
+
+  @media (max-width: (@tablet-width - 1px)) {
+    order: -1;
+
+    span {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      border: 0;
+      padding: 0;
+      white-space: nowrap;
+      -webkit-clip-path: inset(100%);
+      clip-path: inset(100%);
+      clip: rect(0 0 0 0);
+      overflow: hidden;
+    }
+  }
 }
 
+.page-header__feedback-icon {
+  margin-right: 10px;
+
+  @media (max-width: (@tablet-width - 1px)) {
+    margin-right: 0;
+  }
+}

@@ -19,6 +19,14 @@
   &--shown {
     visibility: visible;
   }
+
+  @media (max-width: (@desktop-width - 1px)) {
+    right: 30px;
+  }
+
+  @media (max-width: (@tablet-width - 1px)) {
+    padding-top: 40px;
+  }
 }
 
 .locale-list__item {
@@ -28,8 +36,8 @@
 
   &--current {
     position: absolute;
-    right: 0  ;
-    top: 14px;
+    right: 0;
+    top: 10px;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -37,18 +45,6 @@
   }
 }
 
-.locale-list__item--current .locale-list__link {
-  display: flex;
-  align-items: center;
-
-  &::after {
-    content: "";
-    display: block;
-    margin-left: 10px;
-    width: 12px;
-    height: 8px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2 10.59.59 6 5.17 1.41.59 0 2l6 6 6-6Z' fill='%23fff'/%3E%3C/svg%3E");
-  }
+.locale-list__icon {
+  margin-left: 10px;
 }

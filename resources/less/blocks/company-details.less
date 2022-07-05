@@ -11,27 +11,27 @@
 
   &:not(:last-child) {
     margin-right: 48px;
+
   }
 
-  &::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 24px;
-    height: 24px;
-    background-repeat: no-repeat;
-    background-position: center;
+  @media (max-width: (@desktop-width - 1px)) {
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
   }
 
-  &--phone::before {
-    background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 9h2c0-2.76-2.24-5-5-5v2c1.66 0 3 1.34 3 3Zm4 0h2a9 9 0 0 0-9-9v2c3.87 0 7 3.13 7 7Zm1 3.5c-1.25 0-2.45-.2-3.57-.57-.1-.03-.21-.05-.31-.05-.26 0-.51.1-.71.29l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 5.5 1c0-.55-.45-1-1-1H1C.45 0 0 .45 0 1c0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1ZM2.03 2h1.5c.07.88.22 1.75.45 2.58l-1.2 1.21c-.4-1.21-.66-2.47-.75-3.79ZM16 15.97c-1.32-.09-2.6-.35-3.8-.76l1.2-1.2c.85.24 1.72.39 2.6.45v1.51Z' fill='%23243746'/%3E%3C/svg%3E");
+  @media (max-width: (@tablet-width - 1px)) {
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
   }
+}
 
-  &--worktime::before {
-    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.99 0C4.47 0 0 4.48 0 10s4.47 10 9.99 10C15.52 20 20 15.52 20 10S15.52 0 9.99 0ZM10 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8ZM9.78 5h-.06c-.4 0-.72.32-.72.72v4.72c0 .35.18.68.49.86l4.15 2.49c.34.2.78.1.98-.24a.71.71 0 0 0-.25-.99l-3.87-2.3V5.72c0-.4-.32-.72-.72-.72Z' fill='%23243746'/%3E%3C/svg%3E");
-  }
+.company-details__icon {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .company-details__term {

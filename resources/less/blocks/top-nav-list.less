@@ -2,20 +2,51 @@
   font-size: 14px;
   color: @basic-white;
   line-height: 20px;
-  background-color: @primary-color;
   list-style: none;
-  margin: 0;
-  padding: 14px 0;
+  padding-top: 14px;
+  padding-bottom: 14px;
   display: flex;
   justify-content: center;
+
+  @media (max-width: (@desktop-width - 1px)) {
+    justify-content: flex-start;
+  }
+
+  @media (max-width: (@tablet-width - 1px)) {
+    padding-top: 0;
+    padding-bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
 }
 
 .top-nav-list__item {
+
+  &--current {
+    color: @brand-dark;
+  }
+
   &:not(:last-child) {
     margin-right: 32px;
   }
 
-  &--current {
-    color: @brand-dark;
+
+  @media (max-width: (@tablet-width - 1px)) {
+    padding: 10px 0;
+
+    &:nth-child(2),
+    &:last-child {
+      grid-row: 2/3;
+      color: @brand-dark;
+    }
+
+    &--current:nth-child(2),
+    &--current:last-child {
+      color: @primary-color;
+    }
+
+    &:not(:last-child) {
+      margin-right: 0;
+    }
   }
 }

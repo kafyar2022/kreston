@@ -33,4 +33,14 @@ a {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 64px;
+
+  @media (max-width: (@desktop-width - 1px)) {
+    max-width: @tablet-width;
+    padding: 0 30px;
+  }
+
+  @media (max-width: (@tablet-width - 1px)) {
+    max-width: @mobile-width;
+    padding: 0 16px;
+  }
 }

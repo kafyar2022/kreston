@@ -20,6 +20,7 @@
 </head>
 
 <body class="page__body">
+  @include('layouts.sprites')
   @include('layouts.header')
 
   @yield('content')

@@ -16,6 +16,10 @@
 
   &:not(:last-child) {
     margin-right: 64px;
+
+    @media (max-width: (@desktop-width - 1px)) {
+      margin-right: 40px;
+    }
   }
 }
 
@@ -25,17 +29,11 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+}
 
-  &::after {
-    content: "";
-    display: block;
-    width: 12px;
-    height: 8px;
-    margin-left: 10px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2 10.59.59 6 5.17 1.41.59 0 2l6 6 6-6Z' fill='%23189CD8'/%3E%3C/svg%3E");
-  }
+.page-nav__icon {
+  margin-left: 10px;
+  color: @primary-color;
 }
 
 .page-nav__item--current .page-nav__button {

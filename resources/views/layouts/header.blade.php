@@ -4,22 +4,29 @@
       @foreach (config('app.locales') as $lang)
         <li class="locale-list__item @if ($locale == $lang['locale']) locale-list__item--current @endif">
           <a class="locale-list__link" @if ($locale != $lang['locale']) href="{{ route($route, ['locale' => $lang['locale'], 'slug' => request('slug')]) }}" @endif>{{ $lang['title'] }}</a>
+          @if ($locale == $lang['locale'])
+            <svg class="locale-list__icon" width="12" height="8">
+              <use xlink:href="#arrow-down"></use>
+            </svg>
+          @endif
         </li>
       @endforeach
     </ul>
   </div>
 
-  <ul class="page-header__top-nav-list top-nav-list">
-    <li class="top-nav-list__item">
-      <a class="top-nav-list__link" href="https://www.kreston.com/" target="_blank">@lang('Kreston Global')</a>
-    </li>
-    <li class="top-nav-list__item @if ($route == 'news' || $route == 'news.show') top-nav-list__item--current @endif">
-      <a class="top-nav-list__link" @if ($route != 'news' && $route != 'news.show') href="{{ route('news', $locale) }}" @endif>@lang('Новости Kreston AC')</a>
-    </li>
-    <li class="top-nav-list__item @if ($route == 'regulations') top-nav-list__item--current @endif">
-      <a class="top-nav-list__link" @if ($route != 'regulations') href="{{ route('regulations', $locale) }}" @endif>@lang('Нормативные документы')</a>
-    </li>
-  </ul>
+  <div class="page-header__top-nav-list">
+    <ul class="top-nav-list container">
+      <li class="top-nav-list__item">
+        <a class="top-nav-list__link" href="https://www.kreston.com/" target="_blank">@lang('Kreston Global')</a>
+      </li>
+      <li class="top-nav-list__item @if ($route == 'news' || $route == 'news.show') top-nav-list__item--current @endif">
+        <a class="top-nav-list__link" @if ($route != 'news' && $route != 'news.show') href="{{ route('news', $locale) }}" @endif>@lang('Новости Kreston AC')</a>
+      </li>
+      <li class="top-nav-list__item @if ($route == 'regulations') top-nav-list__item--current @endif">
+        <a class="top-nav-list__link" @if ($route != 'regulations') href="{{ route('regulations', $locale) }}" @endif>@lang('Нормативные документы')</a>
+      </li>
+    </ul>
+  </div>
 
   <div class="page-header__container container">
     <a class="page-header__logo" @if ($route != 'home') href="{{ route('home', $locale) }}" @endif>
@@ -27,25 +34,43 @@
     </a>
 
     <dl class="page-header__company-details company-details">
-      <div class="company-details__item company-details__item--phone">
+      <div class="company-details__item">
         <dt class="company-details__term">Связь с нами:</dt>
         <dd class="company-details__description">
+          <svg class="company-details__icon" width="18" height="18">
+            <use xlink:href="#phone"></use>
+          </svg>
           <a class="company-details__link" href="tel:907032322">90 703 23 222</a>
         </dd>
       </div>
-      <div class="company-details__item company-details__item--worktime">
+      <div class="company-details__item">
         <dt class="company-details__term">Время работы:</dt>
-        <dd class="company-details__description">пн-пт с 09:00 - 18:00</dd>
+        <dd class="company-details__description">
+          <svg class="company-details__icon" width="20" height="20">
+            <use xlink:href="#time"></use>
+          </svg>
+          пн-пт с 09:00 - 18:00
+        </dd>
       </div>
     </dl>
 
-    <button class="page-header__feedback-button button button--feedback" type="button">@lang('Бесплатная консультация')</button>
+    <button class="page-header__feedback-button button button--feedback" type="button">
+      <svg class="page-header__feedback-icon" width="20" height="20">
+        <use xlink:href="#message-icon"></use>
+      </svg>
+      <span>@lang('Бесплатная консультация')</span>
+    </button>
   </div>
 
   <nav class="page-header__page-nav page-nav">
     <ul class="page-nav__list">
       <li class="page-nav__item @if ($route == 'about' || $route == 'advantage' || $route == 'team') page-nav__item--current @endif">
-        <button class="page-nav__button">@lang('Kreston AC')</button>
+        <button class="page-nav__button">
+          @lang('Kreston AC')
+          <svg class="page-nav__icon" width="12" height="8">
+            <use xlink:href="#arrow-down"></use>
+          </svg>
+        </button>
 
         <ul class="page-nav__extra-list">
           <li class="page-nav__extra-item @if ($route == 'about') page-nav__extra-item--current @endif">
@@ -61,7 +86,12 @@
       </li>
 
       <li class="page-nav__item @if ($route == 'service') page-nav__item--current @endif">
-        <button class="page-nav__button">@lang('Услуги')</button>
+        <button class="page-nav__button">
+          @lang('Услуги')
+          <svg class="page-nav__icon" width="12" height="8">
+            <use xlink:href="#arrow-down"></use>
+          </svg>
+        </button>
 
         <ul class="page-nav__extra-list">
           <li class="page-nav__extra-item">
@@ -95,7 +125,12 @@
       </li>
 
       <li class="page-nav__item">
-        <button class="page-nav__button">@lang('Направления')</button>
+        <button class="page-nav__button">
+          @lang('Направления')
+          <svg class="page-nav__icon" width="12" height="8">
+            <use xlink:href="#arrow-down"></use>
+          </svg>
+        </button>
 
         <ul class="page-nav__extra-list">
           <li class="page-nav__extra-item">
