@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdvantageController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashController;
 use App\Http\Controllers\DirectionController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\HomeController;
@@ -41,4 +43,12 @@ Route::group(['prefix' => '{locale}'], function () {
   Route::get('/direction/{slug}', [DirectionController::class, 'index'])->name('direction');
   Route::get('/experience', [ExperienceController::class, 'index'])->name('experience');
   Route::get('/contacts', [ContactController::class, 'index'])->name('contacts');
+
+  Route::post('/auth/check', [AuthController::class, 'check'])->name('auth.check');
+  Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
+  Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
+
+  Route::group(['middleware' => ['AuthCheck']], function () {
+    Route::get('/dashboard', [DashController::class, 'index'])->name('dashboard');
+  });
 });

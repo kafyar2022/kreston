@@ -16,8 +16,13 @@ class Localization
    */
   public function handle(Request $request, Closure $next)
   {
-    app()->setLocale($request->locale);
+    $locale = $request->locale;
 
-    return $next($request);
+    if ($locale == 'ru' || $locale == 'en') {
+      app()->setLocale($request->locale);
+      return $next($request);
+    }
+
+    return redirect(route('home', 'ru'));
   }
 }
