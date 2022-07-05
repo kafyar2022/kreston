@@ -1,0 +1,21 @@
+.top-nav-list {
+  font-size: 14px;
+  color: @basic-white;
+  line-height: 20px;
+  background-color: @primary-color;
+  list-style: none;
+  margin: 0;
+  padding: 14px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.top-nav-list__item {
+  &:not(:last-child) {
+    margin-right: 32px;
+  }
+
+  &--current {
+    color: @brand-dark;
+  }
+}

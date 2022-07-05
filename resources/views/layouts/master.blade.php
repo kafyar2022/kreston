@@ -11,7 +11,7 @@
 
   <title>@yield('title')</title>
 
-  {{-- <link rel="stylesheet" href="{{ mix('css/style.css') }}"> --}}
+  <link rel="stylesheet" href="{{ mix('css/style.css') }}">
 
   <link rel="icon" href="{{ asset('favicon.ico') }}">
   <link rel="icon" href="{{ asset('favicon/icon.svg') }}" type="image/svg+xml">
@@ -26,7 +26,44 @@
 
   @include('layouts.footer')
 
-  <script src="{{ asset('js/main.js') }}"></script>
+  <script type="module">
+    const localeToggleEl = document.querySelector('.locale-list__item--current');
+    const localesEl = document.querySelector('.locale-list');
+
+    const showLocales = () => {
+      localesEl.classList.remove('locale-list--hidden');
+      localesEl.classList.add('locale-list--shown');
+      document.addEventListener('keydown', documentEscapeKeydownHandler)
+      document.addEventListener('click', documentClickHandler)
+    };
+
+    const hideLocales = () => {
+      localesEl.classList.add('locale-list--hidden');
+      localesEl.classList.remove('locale-list--shown');
+      document.removeEventListener('keydown', documentEscapeKeydownHandler);
+      document.removeEventListener('click', documentClickHandler);
+    };
+
+    function documentEscapeKeydownHandler(evt) {
+      if (evt.keyCode === 27) {
+        hideLocales();
+      }
+    }
+
+    function documentClickHandler(evt) {
+      if (!evt.target.closest('.locale-list')) {
+        hideLocales();
+      }
+    }
+
+    localeToggleEl.addEventListener('click', () => {
+      if (localesEl.classList.contains('locale-list--hidden')) {
+        showLocales();
+        return;
+      }
+      hideLocales();
+    });
+  </script>
   @yield('script')
 </body>
 

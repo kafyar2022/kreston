@@ -1,23 +1,23 @@
 <header class="page-header">
   <div class="container" style="position: relative">
-    <ul class="page-header__locale-list locale-list">
+    <ul class="page-header__locale-list locale-list locale-list--hidden">
       @foreach (config('app.locales') as $lang)
-      <li class="locale-list__item @if ($locale == $lang['locale']) locale-list__item--current @endif">
-        <a class="locale-list__link" @if ($locale != $lang['locale']) href="{{ route($route, ['locale' => $lang['locale'], 'slug' => request('slug')]) }}" @endif>{{ $lang['title'] }}</a>
-      </li>
+        <li class="locale-list__item @if ($locale == $lang['locale']) locale-list__item--current @endif">
+          <a class="locale-list__link" @if ($locale != $lang['locale']) href="{{ route($route, ['locale' => $lang['locale'], 'slug' => request('slug')]) }}" @endif>{{ $lang['title'] }}</a>
+        </li>
       @endforeach
     </ul>
   </div>
 
-  <ul class="top-nav-list">
+  <ul class="page-header__top-nav-list top-nav-list">
     <li class="top-nav-list__item">
-      <a class="top-nav-list__link" href="#">@lang('Kreston Global')</a>
+      <a class="top-nav-list__link" href="https://www.kreston.com/" target="_blank">@lang('Kreston Global')</a>
     </li>
-    <li class="top-nav-list__item">
-      <a class="top-nav-list__link" href="#">@lang('Новости Kreston AC')</a>
+    <li class="top-nav-list__item @if ($route == 'news' || $route == 'news.show') top-nav-list__item--current @endif">
+      <a class="top-nav-list__link" @if ($route != 'news' && $route != 'news.show') href="{{ route('news', $locale) }}" @endif>@lang('Новости Kreston AC')</a>
     </li>
-    <li class="top-nav-list__item">
-      <a class="top-nav-list__link" href="#">@lang('Нормативные документы')</a>
+    <li class="top-nav-list__item @if ($route == 'regulations') top-nav-list__item--current @endif">
+      <a class="top-nav-list__link" @if ($route != 'regulations') href="{{ route('regulations', $locale) }}" @endif>@lang('Нормативные документы')</a>
     </li>
   </ul>
 
@@ -44,23 +44,23 @@
 
   <nav class="page-header__page-nav page-nav">
     <ul class="page-nav__list">
-      <li class="page-nav__item">
+      <li class="page-nav__item @if ($route == 'about' || $route == 'advantage' || $route == 'team') page-nav__item--current @endif">
         <button class="page-nav__button">@lang('Kreston AC')</button>
 
         <ul class="page-nav__extra-list">
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">@lang('О нашей компании')</a>
+          <li class="page-nav__extra-item @if ($route == 'about') page-nav__extra-item--current @endif">
+            <a class="page-nav__link" @if ($route != 'about') href="{{ route('about', $locale) }}" @endif>@lang('О нашей компании')</a>
           </li>
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">@lang('Наши преимущества')</a>
+          <li class="page-nav__extra-item @if ($route == 'advantage') page-nav__extra-item--current @endif">
+            <a class="page-nav__link" @if ($route != 'advantage') href="{{ route('advantage', $locale) }}" @endif>@lang('Наши преимущества')</a>
           </li>
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">@lang('Наша команда')</a>
+          <li class="page-nav__extra-item @if ($route == 'team') page-nav__extra-item--current @endif">
+            <a class="page-nav__link" @if ($route != 'team') href="{{ route('team', $locale) }}" @endif>@lang('Наша команда')</a>
           </li>
         </ul>
       </li>
 
-      <li class="page-nav__item">
+      <li class="page-nav__item @if ($route == 'service') page-nav__item--current @endif">
         <button class="page-nav__button">@lang('Услуги')</button>
 
         <ul class="page-nav__extra-list">
@@ -129,11 +129,11 @@
       </li>
 
       <li class="page-nav__item">
-        <a class="page-nav__link" href="#">@lang('Наш опыт')</a>
+        <a class="page-nav__link @if ($route == 'experience') page-nav__link--current @endif" @if ($route != 'experience') href="{{ route('experience', $locale) }}" @endif>@lang('Наш опыт')</a>
       </li>
 
       <li class="page-nav__item">
-        <a class="page-nav__link" href="#">@lang('Контакты')</a>
+        <a class="page-nav__link @if ($route == 'contacts') page-nav__link--current @endif" @if ($route != 'contacts') href="{{ route('contacts', $locale) }}" @endif>@lang('Контакты')</a>
       </li>
     </ul>
   </nav>

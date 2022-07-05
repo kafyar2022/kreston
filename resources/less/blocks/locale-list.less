@@ -1,0 +1,54 @@
+.locale-list {
+  color: @basic-white;
+  line-height: 20px;
+  font-size: 14px;
+  list-style: none;
+  background-color: #189cd8;
+  margin: 0;
+  position: absolute;
+  right: 64px;
+  top: 0;
+  padding: 48px 16px 8px 16px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+
+  &--hidden {
+    visibility: hidden;
+  }
+
+  &--shown {
+    visibility: visible;
+  }
+}
+
+.locale-list__item {
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+
+  &--current {
+    position: absolute;
+    right: 0  ;
+    top: 14px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    visibility: visible;
+  }
+}
+
+.locale-list__item--current .locale-list__link {
+  display: flex;
+  align-items: center;
+
+  &::after {
+    content: "";
+    display: block;
+    margin-left: 10px;
+    width: 12px;
+    height: 8px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2 10.59.59 6 5.17 1.41.59 0 2l6 6 6-6Z' fill='%23fff'/%3E%3C/svg%3E");
+  }
+}
