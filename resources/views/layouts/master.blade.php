@@ -28,42 +28,13 @@
   @include('layouts.footer')
 
   <script type="module">
-    const localeToggleEl = document.querySelector('.locale-list__item--current');
-    const localesEl = document.querySelector('.locale-list');
+    import { initLocaleList } from '/js/locale-list.js';
+    import { initPageNav } from '/js/page-nav.js';
+    import { initFooter } from '/js/page-footer.js';
 
-    const showLocales = () => {
-      localesEl.classList.remove('locale-list--hidden');
-      localesEl.classList.add('locale-list--shown');
-      document.addEventListener('keydown', documentEscapeKeydownHandler)
-      document.addEventListener('click', documentClickHandler)
-    };
-
-    const hideLocales = () => {
-      localesEl.classList.add('locale-list--hidden');
-      localesEl.classList.remove('locale-list--shown');
-      document.removeEventListener('keydown', documentEscapeKeydownHandler);
-      document.removeEventListener('click', documentClickHandler);
-    };
-
-    function documentEscapeKeydownHandler(evt) {
-      if (evt.keyCode === 27) {
-        hideLocales();
-      }
-    }
-
-    function documentClickHandler(evt) {
-      if (!evt.target.closest('.locale-list')) {
-        hideLocales();
-      }
-    }
-
-    localeToggleEl.addEventListener('click', () => {
-      if (localesEl.classList.contains('locale-list--hidden')) {
-        showLocales();
-        return;
-      }
-      hideLocales();
-    });
+    initLocaleList();
+    initPageNav();
+    initFooter();
   </script>
   @yield('script')
 </body>

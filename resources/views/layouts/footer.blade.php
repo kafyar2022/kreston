@@ -1,7 +1,12 @@
 <footer class="page-footer">
   <dl class="page-footer__nav container">
     <div class="page-footer__nav-item">
-      <dt class="page-footer__nav-term">@lang('Kreston AC')</dt>
+      <dt class="page-footer__nav-term">
+        @lang('Kreston AC')
+        <svg class="page-footer__nav-icon" width="8" height="16">
+          <use xlink:href="#more-icon"></use>
+        </svg>
+      </dt>
 
       <dd class="page-footer__nav-description">
         <a class="page-footer__nav-link" href="{{ route('about', $locale) }}">@lang('О нашей компании')</a>
@@ -15,7 +20,12 @@
     </div>
 
     <div class="page-footer__nav-item">
-      <dt class="page-footer__nav-term">@lang('Услуги')</dt>
+      <dt class="page-footer__nav-term">
+        @lang('Услуги')
+        <svg class="page-footer__nav-icon" width="8" height="16">
+          <use xlink:href="#more-icon"></use>
+        </svg>
+      </dt>
 
       <dd class="page-footer__nav-description">
         <a class="page-footer__nav-link" href="#">Аудиторские услуги</a>
@@ -47,7 +57,12 @@
     </div>
 
     <div class="page-footer__nav-item">
-      <dt class="page-footer__nav-term">@lang('Направления')</dt>
+      <dt class="page-footer__nav-term">
+        @lang('Направления')
+        <svg class="page-footer__nav-icon" width="8" height="16">
+          <use xlink:href="#more-icon"></use>
+        </svg>
+      </dt>
 
       <dd class="page-footer__nav-description">
         <a class="page-footer__nav-link" href="#">Промышленное производство</a>
@@ -79,7 +94,12 @@
     </div>
 
     <div class="page-footer__nav-item">
-      <dt class="page-footer__nav-term">@lang('Остальные ссылки')</dt>
+      <dt class="page-footer__nav-term">
+        @lang('Остальные ссылки')
+        <svg class="page-footer__nav-icon" width="8" height="16">
+          <use xlink:href="#more-icon"></use>
+        </svg>
+      </dt>
 
       <dd class="page-footer__nav-description">
         <a class="page-footer__nav-link" href="https://www.kreston.com/">@lang('Kreston Global')</a>

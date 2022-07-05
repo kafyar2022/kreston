@@ -63,113 +63,115 @@
   </div>
 
   <nav class="page-header__page-nav page-nav">
-    <ul class="page-nav__list">
-      <li class="page-nav__item @if ($route == 'about' || $route == 'advantage' || $route == 'team') page-nav__item--current @endif">
-        <button class="page-nav__button">
-          @lang('Kreston AC')
-          <svg class="page-nav__icon" width="12" height="8">
-            <use xlink:href="#arrow-down"></use>
-          </svg>
-        </button>
+    <div class="page-nav__container container">
+      <ul class="page-nav__list">
+        <li class="page-nav__item @if ($route == 'about' || $route == 'advantage' || $route == 'team') page-nav__item--current @endif">
+          <button class="page-nav__button">
+            @lang('Kreston AC')
+            <svg class="page-nav__icon" width="12" height="8">
+              <use xlink:href="#arrow-down"></use>
+            </svg>
+          </button>
 
-        <ul class="page-nav__extra-list">
-          <li class="page-nav__extra-item @if ($route == 'about') page-nav__extra-item--current @endif">
-            <a class="page-nav__link" @if ($route != 'about') href="{{ route('about', $locale) }}" @endif>@lang('О нашей компании')</a>
-          </li>
-          <li class="page-nav__extra-item @if ($route == 'advantage') page-nav__extra-item--current @endif">
-            <a class="page-nav__link" @if ($route != 'advantage') href="{{ route('advantage', $locale) }}" @endif>@lang('Наши преимущества')</a>
-          </li>
-          <li class="page-nav__extra-item @if ($route == 'team') page-nav__extra-item--current @endif">
-            <a class="page-nav__link" @if ($route != 'team') href="{{ route('team', $locale) }}" @endif>@lang('Наша команда')</a>
-          </li>
-        </ul>
-      </li>
+          <ul class="page-nav__extra-list page-nav__extra-list--hidden">
+            <li class="page-nav__extra-item @if ($route == 'about') page-nav__extra-item--current @endif">
+              <a class="page-nav__link" @if ($route != 'about') href="{{ route('about', $locale) }}" @endif>@lang('О нашей компании')</a>
+            </li>
+            <li class="page-nav__extra-item @if ($route == 'advantage') page-nav__extra-item--current @endif">
+              <a class="page-nav__link" @if ($route != 'advantage') href="{{ route('advantage', $locale) }}" @endif>@lang('Наши преимущества')</a>
+            </li>
+            <li class="page-nav__extra-item @if ($route == 'team') page-nav__extra-item--current @endif">
+              <a class="page-nav__link" @if ($route != 'team') href="{{ route('team', $locale) }}" @endif>@lang('Наша команда')</a>
+            </li>
+          </ul>
+        </li>
 
-      <li class="page-nav__item @if ($route == 'service') page-nav__item--current @endif">
-        <button class="page-nav__button">
-          @lang('Услуги')
-          <svg class="page-nav__icon" width="12" height="8">
-            <use xlink:href="#arrow-down"></use>
-          </svg>
-        </button>
+        <li class="page-nav__item @if ($route == 'service') page-nav__item--current @endif">
+          <button class="page-nav__button">
+            @lang('Услуги')
+            <svg class="page-nav__icon" width="12" height="8">
+              <use xlink:href="#arrow-down"></use>
+            </svg>
+          </button>
 
-        <ul class="page-nav__extra-list">
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">Аудиторские услуги</a>
-          </li>
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">Бухгалтерские услуги</a>
-          </li>
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">Оценка</a>
-          </li>
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">Инвентаризация</a>
-          </li>
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">Аутсорсинг</a>
-          </li>
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">Налоговый консалтинг</a>
-          </li>
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">Юридический консалтинг</a>
-          </li>
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">Маркетинговый консалтинг</a>
-          </li>
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">Бизнес консалтинг</a>
-          </li>
-        </ul>
-      </li>
+          <ul class="page-nav__extra-list page-nav__extra-list--hidden">
+            <li class="page-nav__extra-item">
+              <a class="page-nav__link" href="#">Аудиторские услуги</a>
+            </li>
+            <li class="page-nav__extra-item">
+              <a class="page-nav__link" href="#">Бухгалтерские услуги</a>
+            </li>
+            <li class="page-nav__extra-item">
+              <a class="page-nav__link" href="#">Оценка</a>
+            </li>
+            <li class="page-nav__extra-item">
+              <a class="page-nav__link" href="#">Инвентаризация</a>
+            </li>
+            <li class="page-nav__extra-item">
+              <a class="page-nav__link" href="#">Аутсорсинг</a>
+            </li>
+            <li class="page-nav__extra-item">
+              <a class="page-nav__link" href="#">Налоговый консалтинг</a>
+            </li>
+            <li class="page-nav__extra-item">
+              <a class="page-nav__link" href="#">Юридический консалтинг</a>
+            </li>
+            <li class="page-nav__extra-item">
+              <a class="page-nav__link" href="#">Маркетинговый консалтинг</a>
+            </li>
+            <li class="page-nav__extra-item">
+              <a class="page-nav__link" href="#">Бизнес консалтинг</a>
+            </li>
+          </ul>
+        </li>
 
-      <li class="page-nav__item">
-        <button class="page-nav__button">
-          @lang('Направления')
-          <svg class="page-nav__icon" width="12" height="8">
-            <use xlink:href="#arrow-down"></use>
-          </svg>
-        </button>
+        <li class="page-nav__item">
+          <button class="page-nav__button">
+            @lang('Направления')
+            <svg class="page-nav__icon" width="12" height="8">
+              <use xlink:href="#arrow-down"></use>
+            </svg>
+          </button>
 
-        <ul class="page-nav__extra-list">
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">Промышленное производство</a>
-          </li>
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">Строительство</a>
-          </li>
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">Телекоммуникации</a>
-          </li>
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">Торговля</a>
-          </li>
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">Энергетика</a>
-          </li>
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">Агропромышленный сектор</a>
-          </li>
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">Банковское дело и финансы</a>
-          </li>
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">Горнодобывающая промышленность, нефть и газ</a>
-          </li>
-          <li class="page-nav__extra-item">
-            <a class="page-nav__link" href="#">Гостиницы</a>
-          </li>
-        </ul>
-      </li>
+          <ul class="page-nav__extra-list page-nav__extra-list--hidden">
+            <li class="page-nav__extra-item">
+              <a class="page-nav__link" href="#">Промышленное производство</a>
+            </li>
+            <li class="page-nav__extra-item">
+              <a class="page-nav__link" href="#">Строительство</a>
+            </li>
+            <li class="page-nav__extra-item">
+              <a class="page-nav__link" href="#">Телекоммуникации</a>
+            </li>
+            <li class="page-nav__extra-item">
+              <a class="page-nav__link" href="#">Торговля</a>
+            </li>
+            <li class="page-nav__extra-item">
+              <a class="page-nav__link" href="#">Энергетика</a>
+            </li>
+            <li class="page-nav__extra-item">
+              <a class="page-nav__link" href="#">Агропромышленный сектор</a>
+            </li>
+            <li class="page-nav__extra-item">
+              <a class="page-nav__link" href="#">Банковское дело и финансы</a>
+            </li>
+            <li class="page-nav__extra-item">
+              <a class="page-nav__link" href="#">Горнодобывающая промышленность, нефть и газ</a>
+            </li>
+            <li class="page-nav__extra-item">
+              <a class="page-nav__link" href="#">Гостиницы</a>
+            </li>
+          </ul>
+        </li>
 
-      <li class="page-nav__item">
-        <a class="page-nav__link @if ($route == 'experience') page-nav__link--current @endif" @if ($route != 'experience') href="{{ route('experience', $locale) }}" @endif>@lang('Наш опыт')</a>
-      </li>
+        <li class="page-nav__item">
+          <a class="page-nav__link @if ($route == 'experience') page-nav__link--current @endif" @if ($route != 'experience') href="{{ route('experience', $locale) }}" @endif>@lang('Наш опыт')</a>
+        </li>
 
-      <li class="page-nav__item">
-        <a class="page-nav__link @if ($route == 'contacts') page-nav__link--current @endif" @if ($route != 'contacts') href="{{ route('contacts', $locale) }}" @endif>@lang('Контакты')</a>
-      </li>
-    </ul>
+        <li class="page-nav__item">
+          <a class="page-nav__link @if ($route == 'contacts') page-nav__link--current @endif" @if ($route != 'contacts') href="{{ route('contacts', $locale) }}" @endif>@lang('Контакты')</a>
+        </li>
+      </ul>
+    </div>
   </nav>
 </header>

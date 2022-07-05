@@ -37,11 +37,17 @@
   &--current {
     position: absolute;
     right: 0;
-    top: 10px;
+    top: 14px;
     display: flex;
     align-items: center;
     cursor: pointer;
     visibility: visible;
+  }
+
+  @media (max-width: (@tablet-width - 1px)) {
+    &--current {
+      top: 10px;
+    }
   }
 }
 
