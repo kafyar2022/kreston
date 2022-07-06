@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-  public function index()
+  public function index($locale)
   {
-    return view('pages.home');
+    $data['banners'] = Banner::where('locale', $locale)
+      ->get();
+
+    return view('pages.home', compact('data'));
   }
 }

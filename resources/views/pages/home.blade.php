@@ -8,14 +8,43 @@
   <main class="main page-content">
     <h1 class="visually-hidden">@lang('Kreston AC')</h1>
 
-    <ul class="main__banner-list banner-list">
-      <li class="banner-list__item">
-        <h3 class="banner-list__title">Kreston AC LLC</h3>
+    <div class="banner glide">
+      <div class="banner__track glide__track" data-glide-el="track">
+        <ul class="banner__slides glide__slides">
+          @foreach ($data['banners'] as $banner)
+            <li class="banner__slide glide__slide" style="background-image: url('/files/banners/img/{{ $banner->img }}');">
+              <div class="banner__content container">
+                <div data-type="banner">{!! $banner->content !!}</div>
+              </div>
+            </li>
+          @endforeach
+          @if ($data['banners']->count() == 0)
+            <li class="banner__slide glide__slide">
+              <div class="banner__content container"></div>
+            </li>
+          @endif
+        </ul>
+      </div>
 
-        <p class="banner-list__description">Предлагает налоговые, финансовые, деловые и юридические консультации</p>
-        <a class="banner-list__link" href="#">Подробнее</a>
-      </li>
-    </ul>
+      <div class="banner__arrows glide__arrows container" data-glide-el="controls">
+        <button class="banner__arrow banner__arrow--left" data-glide-dir="<">
+          <svg width="10" height="16">
+            <use xlink:href="#more-icon"></use>
+          </svg>
+        </button>
+        <button class="banner__arrow banner__arrow--right" data-glide-dir=">">
+          <svg width="10" height="16">
+            <use xlink:href="#more-icon"></use>
+          </svg>
+        </button>
+      </div>
+
+      <div class="banner__bullets" data-glide-el="controls[nav]">
+        @foreach ($data['banners'] as $key => $banner)
+          <button class="banner__bullet" data-glide-dir="={{ $key }}"></button>
+        @endforeach
+      </div>
+    </div>
 
     <div class="main__about-wrap container">
       <section class="main__about-creston about-creston">
@@ -200,4 +229,15 @@
       </form>
     </section>
   </main>
+@endsection
+
+@section('script')
+  <script>
+    new Glide('.banner', {
+      type: 'carousel',
+      startAt: 0,
+      perView: 1,
+      gap: 0,
+    }).mount()
+  </script>
 @endsection

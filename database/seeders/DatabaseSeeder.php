@@ -19,5 +19,9 @@ class DatabaseSeeder extends Seeder
       'role' => 'user',
       'password' => bcrypt('yj87QsP#'),
     ]);
+
+    $this->call([
+      BannersSeeder::class,
+    ]);
   }
 }
