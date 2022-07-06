@@ -47,19 +47,17 @@
     </div>
 
     <div class="main__about-wrap container">
-      <section class="main__about-creston about-creston">
-        <h2 class="about-creston__title">O Kreston AC</h2>
+      <div class="main__about-creston about-creston" style="background-image: url('/files/main-about-bg.jpg')">
+        <div class="about-creston__content">
+          <div class="about-creston__simditor simditor" data-content="main-about-{{ $locale }}">{!! $data['contents']['main-about-' . $locale] !!}</div>
+        </div>
+      </div>
 
-        <p class="about-creston__description">KRESTON AC LLC — это профессиональная компания с полным спектром услуг, которая стремится предоставлять выдающиеся налоговые, финансовые, деловые и юридические консультационные услуги государственным и частным компаниям, иностранным дочерним компаниям, семейным предприятиям и частным лицам.</p>
-        <a class="about-creston__button button" href="#">Подробнее</a>
-      </section>
-
-      <section class="main__our-experience our-experience">
-        <h2 class="our-experience__title">Наш опыт</h2>
-
-        <p class="our-experience__description">За годы работы KRESTON АС приобрела успешный опыт сотрудничества с различными компаниями и организациями и на сегодняшний день занимает прочные позиции на рынке, реализуя всевозможные проекты.</p>
-        <a class="our-experience__link" href="#">Подробнее</a>
-      </section>
+      <div class="main__our-experience our-experience">
+        <div class="our-experience__content">
+          <div class="our-experience__simditor" data-content="main-our-experience-{{ $locale }}">{!! $data['contents']['main-our-experience-' . $locale] !!}</div>
+        </div>
+      </div>
     </div>
 
     <section class="main__company-in-numbers company-in-numbers container">

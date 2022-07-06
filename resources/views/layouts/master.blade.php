@@ -18,10 +18,8 @@
   <link rel="manifest" href="{{ asset('manifest.webmanifest') }}">
 
   <link rel="stylesheet" href="{{ asset('glide/glide.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('simditor/simditor.css') }}">
   <link rel="stylesheet" href="{{ mix('css/style.css') }}">
-  @if (session()->has('loggedUser'))
-    <link rel="stylesheet" type="text/css" href="{{ asset('simditor/simditor.css') }}">
-  @endif
 </head>
 
 <body class="page__body">
