@@ -1178,14 +1178,23 @@ a {
 .action--save {
   background-color: #00D72F;
 }
+.action--save svg {
+  margin-top: 2px;
+}
 .action--cancel {
   background-color: #959595;
   right: 90px;
+}
+.action--cancel:hover {
+  background-color: red;
+  z-index: 1;
 }
 .action--save:disabled,
 .action--cancel:disabled {
   background-color: #959595;
   cursor: context-menu;
+  z-index: 0;
+  pointer-events: none;
 }
 .action__icon {
   margin-right: 5px;

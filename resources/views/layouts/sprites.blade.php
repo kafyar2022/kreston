@@ -40,8 +40,16 @@
     <path d="M5.473 7.766c.39-.648.723-1.336.995-2.055a7.19 7.19 0 0 0 .474-2.031l2.305 3.857a.835.835 0 0 1-.002.934l-4.017 6.722a4.301 4.301 0 0 1-.131.22c-.126.193-.441.587-.895.587H.5l4.973-8.233Z" fill="currentColor" />
   </symbol>
 
-  <svg id="action-edit" viewBox="0 0 16 16" fill="none">
+  <symbol id="action-edit" viewBox="0 0 16 16" fill="none">
     <path d="M7.333 2.667H2.667A1.333 1.333 0 0 0 1.333 4v9.333a1.333 1.333 0 0 0 1.334 1.334H12a1.333 1.333 0 0 0 1.333-1.334V8.667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
     <path d="M12.333 1.667a1.414 1.414 0 1 1 2 2L8 10l-2.667.667L6 8l6.333-6.333Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-  </svg>
+  </symbol>
+
+  <symbol id="action-save" viewBox="0 0 14 10" fill="none">
+    <path d="M12.3333 1L4.99996 8.33333L1.66663 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  </symbol>
+
+  <symbol id="action-cancel" viewBox="0 0 14 14" fill="none">
+    <path d="M13 1 1 13M1 1l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  </symbol>
 </svg>

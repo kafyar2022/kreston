@@ -21,15 +21,26 @@
     background-color: #00D72F;
   }
 
+  &--save svg {
+    margin-top: 2px;
+  }
+
   &--cancel {
     background-color: #959595;
     right: 90px;
+
+    &:hover {
+      background-color: red;
+      z-index: 1;
+    }
   }
 
   &--save:disabled,
   &--cancel:disabled {
     background-color: #959595;
     cursor: context-menu;
+    z-index: 0;
+    pointer-events: none;
   }
 }
 

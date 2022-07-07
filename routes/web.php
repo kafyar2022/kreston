@@ -50,5 +50,6 @@ Route::group(['prefix' => '{locale}'], function () {
 
   Route::group(['middleware' => ['AuthCheck']], function () {
     Route::get('/dashboard', [DashController::class, 'index'])->name('dashboard');
+    Route::post('/content/update', [DashController::class, 'updateContent']);
   });
 });

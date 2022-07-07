@@ -1,3 +1,4 @@
+import { updateContent } from './api.js';
 import { createElement } from '/js/util.js';
 
 const Mode = {
@@ -18,16 +19,16 @@ const ActionTemplate = {
     </button>
   `,
   SAVE: `
-    <button class="action action--save" disabled>
-      <svg class="action__icon" width="16" height="16">
+    <button class="action action--save">
+      <svg class="action__icon" width="14" height="10">
         <use xlink:href="#action-save"></use>
       </svg>
       Save
     </button>
   `,
   CANCEL: `
-    <button class="action action--cancel" disabled>
-      <svg class="action__icon" width="16" height="16">
+    <button class="action action--cancel">
+      <svg class="action__icon" width="11" height="11">
         <use xlink:href="#action-cancel"></use>
       </svg>
       Cancel
@@ -37,95 +38,128 @@ const ActionTemplate = {
 
 class ContentManager {
   #element = null;
-  #content = null;
-  #mode = Mode.DEFAULT;
   #editEl = null;
   #saveEl = null;
   #cancelEl = null;
-  #dataContent = null;
-  #prevElement = null;
   #simditor = null;
+  #initialContent = null;
+  #mode = Mode.DEFAULT;
 
-  init = () => {
-    document.addEventListener('mouseover', this.#documentMouseOverHandler);
-  }
+  init = () => document.addEventListener('mouseover', this.#documentMouseOverHandler);
 
   #changeMode = (mode) => {
     switch (mode) {
       case Mode.DEFAULT:
         document.addEventListener('mouseover', this.#documentMouseOverHandler);
+        document.body.removeAttribute('style');
         this.#element.removeAttribute('style');
         this.#element.removeEventListener('mouseleave', this.#elementMouseLeaveHandler);
+        if (this.#editEl) {
+          this.#editEl.remove();
+        }
+        if (this.#saveEl) {
+          this.#saveEl.remove();
+        }
+        if (this.#cancelEl) {
+          this.#cancelEl.remove();
+        }
+        if (this.#simditor) {
+          const textEl = this.#element.querySelector('textarea').cloneNode(true);
+          this.#simditor.destroy();
+          this.#element.querySelector('textarea').remove();
+          this.#element.querySelector('[data-type="content"]').innerHTML = textEl.value;
+          if (this.#initialContent) {
+            textEl.value = this.#initialContent;
+          }
+          this.#element.append(textEl);
+        }
+        if (this.#initialContent) {
+          this.#element.querySelector('[data-type="content"]').innerHTML = this.#initialContent;
+        }
+
         this.#element = null;
-        this.#content = null;
-        this.#editEl.remove();
         this.#editEl = null;
+        this.#saveEl = null;
+        this.#cancelEl = null;
+        this.#simditor = null;
+        this.#initialContent = null;
+
         this.#mode = mode;
         break;
 
       case Mode.HOVER:
-        this.#renderEditEl();
-        this.#element.setAttribute('style', 'outline: 1px solid red;');
         document.removeEventListener('mouseover', this.#documentMouseOverHandler);
+
+        this.#element.setAttribute('style', 'outline: 1px solid red;');
         this.#element.addEventListener('mouseleave', this.#elementMouseLeaveHandler);
+        this.#renderEditEl();
+
         this.#mode = mode;
         break;
 
       case Mode.EDIT:
-        if (this.#prevElement) {
-          this.#saveEl.remove();
-          this.#cancelEl.remove();
-          this.#saveEl = null;
-          this.#cancelEl = null;
-          this.#prevElement.setAttribute('data-content', this.#dataContent);
-          this.#dataContent = null;
-          this.#prevElement.removeAttribute('style');
-          this.#prevElement = null;
-        }
-        this.#mode = Mode.EDIT;
-        this.#editEl.remove();
-        this.#editEl = null;
+        document.body.removeAttribute('style');
+        document.addEventListener('keydown', this.#documentKeydownHandler);
         this.#element.setAttribute('style', 'outline: 1px solid #959595;');
-        this.#renderSaveEl();
-        this.#renderCancelEl();
-        this.#dataContent = this.#element.dataset.content;
-        this.#element.removeAttribute('data-content');
+        this.#element.querySelector('[data-type="content"]').innerHTML = '';
+        if (this.#editEl) {
+          this.#editEl.remove();
+        }
+        if (!this.#cancelEl) {
+          this.#renderCancelEl();
+        }
+        if (!this.#saveEl) {
+          this.#renderSaveEl();
+        }
+        this.#saveEl.setAttribute('disabled', 'disabled');
 
-        this.#simditor = new Simditor({
-          textarea: this.#element.querySelector('textarea'),
-          cleanPaste: true,
-          toolbar: ['title', 'bold', 'italic', 'underline', 'strikethrough', 'fontScale', 'color', 'ol', 'ul', 'blockquote', 'code', 'table', 'link', 'hr', 'indent', 'outdent', 'alignment']
-        });
+        if (!this.#simditor) {
+          this.#simditor = new Simditor({
+            textarea: this.#element.querySelector('textarea'),
+            cleanPaste: true,
+            toolbar: ['title', 'bold', 'italic', 'underline', 'strikethrough', 'fontScale', 'color', 'ol', 'ul', 'link', 'hr', 'indent', 'outdent', 'alignment'],
+          });
+
+          const simditorBody = this.#element.querySelector('.simditor-body');
+          simditorBody.addEventListener('input', this.#simditorInputHandler);
+          simditorBody.addEventListener('keydown', this.#simditorKeydownHandler);
+          this.#initialContent = simditorBody.innerHTML;
+        }
+        this.#element.scrollIntoView({ block: 'center', behavior: 'smooth' });
+
+        this.#editEl = null;
+        this.#mode = mode;
         break;
 
       case Mode.SAVE:
-        //
+        this.#element.setAttribute('style', 'outline: 1px solid #00D72F; pointer-events: all;');
+        this.#saveEl.removeAttribute('disabled');
+        this.#cancelEl.removeAttribute('disabled');
+        document.body.setAttribute('style', 'pointer-events: none');
+
+        this.#mode = mode;
         break;
 
       case Mode.CANCEL:
-        //
+        this.#element.setAttribute('style', 'outline: 1px solid red; pointer-events: all;');
         break;
     }
   };
 
   #documentMouseOverHandler = (evt) => {
-    if (evt.target.closest('[data-content]')) {
-      this.#element = evt.target.closest('[data-content]');
-      this.#content = this.#element.innerHTML;
+    const contentEl = evt.target.closest('[data-content]');
+
+    if (contentEl && this.#mode === Mode.DEFAULT) {
+      this.#element = contentEl;
       this.#changeMode(Mode.HOVER);
+      return;
     }
   };
 
-  #documentClickHandler = (evt) => {
-    if (this.#prevElement && !this.#prevElement.contains(evt.target)) {
-      this.#saveEl.remove();
-      this.#cancelEl.remove();
-      this.#saveEl = null;
-      this.#cancelEl = null;
-      this.#prevElement.setAttribute('data-content', this.#dataContent);
-      this.#dataContent = null;
-      this.#prevElement.removeAttribute('style');
-      this.#prevElement = null;
+  #documentKeydownHandler = (evt) => {
+    if (evt.keyCode === 27 && this.#mode === Mode.EDIT) {
+      this.#changeMode(Mode.DEFAULT);
+      document.removeEventListener('keydown', this.#documentKeydownHandler);
     }
   };
 
@@ -134,17 +168,30 @@ class ContentManager {
       case Mode.HOVER:
         this.#changeMode(Mode.DEFAULT);
         break;
-      case Mode.EDIT:
-        document.addEventListener('mouseover', this.#documentMouseOverHandler);
-        document.addEventListener('click', this.#documentClickHandler);
-        this.#prevElement = this.#element;
-        break;
+    }
+  };
+
+  #simditorInputHandler = () => {
+    const simditorContent = this.#element.querySelector('.simditor-body').innerHTML;
+    if (simditorContent === this.#initialContent) {
+      this.#changeMode(Mode.EDIT);
+    } else {
+      this.#changeMode(Mode.SAVE);
+    }
+  };
+
+  #simditorKeydownHandler = (evt) => {
+    if (evt.keyCode == 90 && evt.ctrlKey) {
+      const simditorContent = this.#element.querySelector('.simditor-body').innerHTML;
+      if (simditorContent === this.#initialContent) {
+        this.#changeMode(Mode.EDIT);
+      }
     }
   };
 
   #renderEditEl = () => {
     this.#editEl = createElement(ActionTemplate.EDIT);
-    this.#element.insertAdjacentElement('beforeend', this.#editEl);
+    this.#element.append(this.#editEl);
 
     this.#editEl.addEventListener('click', this.#editElClickHandler);
   };
@@ -153,13 +200,43 @@ class ContentManager {
 
   #renderSaveEl = () => {
     this.#saveEl = createElement(ActionTemplate.SAVE);
-    this.#element.insertAdjacentElement('beforeend', this.#saveEl);
+    this.#saveEl.addEventListener('click', this.#saveElClickHandler)
+    this.#element.append(this.#saveEl);
+  };
+
+  #saveElClickHandler = async () => {
+    await updateContent(
+      {
+        slug: this.#element.dataset.content,
+        content: this.#element.querySelector('.simditor-body').innerHTML,
+      },
+      () => { location.reload() },
+      () => { console.log('failure') }
+    );
   };
 
   #renderCancelEl = () => {
     this.#cancelEl = createElement(ActionTemplate.CANCEL);
-    this.#element.insertAdjacentElement('beforeend', this.#cancelEl);
+    this.#cancelEl.addEventListener('mouseenter', this.#cancelElMouseEnterHandler);
+
+    this.#element.append(this.#cancelEl);
   };
+
+  #cancelElMouseEnterHandler = () => {
+    this.#changeMode(Mode.CANCEL);
+    this.#cancelEl.addEventListener('mouseleave', this.#cancelElMouseLeaveHandler);
+    this.#cancelEl.addEventListener('click', this.#cancelElClickHandler);
+    this.#cancelEl.removeEventListener('mouseenter', this.#cancelElMouseEnterHandler);
+  };
+
+  #cancelElMouseLeaveHandler = () => {
+    this.#cancelEl.addEventListener('mouseenter', this.#cancelElMouseEnterHandler);
+    this.#cancelEl.removeEventListener('mouseleave', this.#cancelElMouseLeaveHandler);
+    this.#cancelEl.removeEventListener('click', this.#cancelElClickHandler);
+    this.#changeMode(this.#mode);
+  };
+
+  #cancelElClickHandler = () => this.#changeMode(Mode.DEFAULT);
 }
 
 const contentManager = new ContentManager();

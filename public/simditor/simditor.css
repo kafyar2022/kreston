@@ -170,6 +170,7 @@
   position: relative;
   z-index: 1;
   background: transparent;
+  outline: none;
 }
 
 .simditor .simditor-body a.selected {
