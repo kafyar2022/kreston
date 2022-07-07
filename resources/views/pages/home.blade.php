@@ -48,14 +48,16 @@
 
     <div class="main__about-wrap container">
       <div class="main__about-creston about-creston" style="background-image: url('/files/main-about-bg.jpg')">
-        <div class="about-creston__content">
-          <div class="about-creston__simditor simditor" data-content="main-about-{{ $locale }}">{!! $data['contents']['main-about-' . $locale] !!}</div>
+        <div class="about-creston__simditor" data-content="main-about-{{ $locale }}">
+          <div data-type="content">{!! $data['contents']['main-about-' . $locale] !!}</div>
+          <textarea style="display: none">{{ $data['contents']['main-about-' . $locale] }}</textarea>
         </div>
       </div>
 
       <div class="main__our-experience our-experience">
-        <div class="our-experience__content">
-          <div class="our-experience__simditor" data-content="main-our-experience-{{ $locale }}">{!! $data['contents']['main-our-experience-' . $locale] !!}</div>
+        <div class="our-experience__simditor" data-content="main-our-experience-{{ $locale }}">
+          <div data-type="content">{!! $data['contents']['main-our-experience-' . $locale] !!}</div>
+          <textarea style="display: none">{{ $data['contents']['main-our-experience-' . $locale] }}</textarea>
         </div>
       </div>
     </div>
@@ -238,4 +240,13 @@
       gap: 0,
     }).mount()
   </script>
+  @if (session()->has('loggedUser'))
+    <script type="module">
+      import {
+        initContentManager
+      } from '/js/content-manager.js';
+
+      initContentManager();
+    </script>
+  @endif
 @endsection
