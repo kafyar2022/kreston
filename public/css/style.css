@@ -875,10 +875,10 @@ a {
   align-content: center;
   justify-content: center;
   padding: 28px 0;
-  flex-direction: column;
 }
 @media (max-width: 1279px) {
   .page-footer__container {
+    flex-direction: column;
     padding: 24px 0;
   }
 }
@@ -910,7 +910,6 @@ a {
 }
 .banner {
   width: 100vw;
-  height: 520px;
   color: #fff;
 }
 .banner__overlay {
@@ -942,9 +941,27 @@ a {
   background-size: cover;
   background-position: center;
 }
+@media (max-width: 1279px) {
+  .banner__slide {
+    height: 400px;
+  }
+  .banner__slide::before {
+    right: 22%;
+  }
+}
+@media (max-width: 767px) {
+  .banner__slide::before {
+    right: 0;
+  }
+}
 .banner__arrows {
   position: relative;
   max-height: 0;
+}
+@media (max-width: 767px) {
+  .banner__arrows {
+    display: none;
+  }
 }
 .banner__arrow {
   position: absolute;
@@ -965,12 +982,28 @@ a {
 .banner__arrow--right {
   right: 64px;
 }
+@media (max-width: 1279px) {
+  .banner__arrow {
+    top: -200px;
+  }
+  .banner__arrow--left {
+    left: 30px;
+  }
+  .banner__arrow--right {
+    right: 30px;
+  }
+}
 .banner__bullets {
   position: absolute;
   bottom: 32px;
   left: 50%;
   display: flex;
   transform: translateX(-50%);
+}
+@media (max-width: 1279px) {
+  .banner__bullets {
+    bottom: 16px;
+  }
 }
 .banner__bullet {
   display: block;
@@ -1035,6 +1068,31 @@ a {
   background-position: center;
   background-repeat: no-repeat;
 }
+@media (max-width: 1279px) {
+  .banner__content {
+    margin: 40px auto;
+    padding-left: 80px;
+    padding-right: 240px;
+  }
+  .banner__content h2,
+  .banner__content h3 {
+    font-size: 50px;
+  }
+}
+@media (max-width: 767px) {
+  .banner__content {
+    margin: 32px auto;
+    padding: 0 16px;
+  }
+  .banner__content h2,
+  .banner__content h3 {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+  .banner__content p {
+    font-size: 20px;
+  }
+}
 .main__about-wrap {
   margin-top: 80px;
   margin-bottom: 80px;
@@ -1042,6 +1100,14 @@ a {
   grid-template-columns: 1fr 460px;
   grid-template-rows: 1fr;
   gap: 24px;
+}
+@media (max-width: 1279px) {
+  .main__about-wrap {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
 .about-creston {
   position: relative;
@@ -1198,6 +1264,9 @@ a {
 }
 .action__icon {
   margin-right: 5px;
+}
+.company-in-numbers__simditor {
+  position: relative;
 }
 
 

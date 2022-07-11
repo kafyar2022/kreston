@@ -50,22 +50,23 @@
       <div class="main__about-creston about-creston" style="background-image: url('/files/main-about-bg.jpg')">
         <div class="about-creston__simditor" data-content="main-about-{{ $locale }}">
           <div data-type="content">{!! $data['contents']['main-about-' . $locale] !!}</div>
-          <textarea style="display: none">{{ $data['contents']['main-about-' . $locale] }}</textarea>
+          <textarea style="display: none;">{{ $data['contents']['main-about-' . $locale] }}</textarea>
         </div>
       </div>
 
       <div class="main__our-experience our-experience">
         <div class="our-experience__simditor" data-content="main-our-experience-{{ $locale }}">
           <div data-type="content">{!! $data['contents']['main-our-experience-' . $locale] !!}</div>
-          <textarea style="display: none">{{ $data['contents']['main-our-experience-' . $locale] }}</textarea>
+          <textarea style="display: none;">{{ $data['contents']['main-our-experience-' . $locale] }}</textarea>
         </div>
       </div>
     </div>
 
     <section class="main__company-in-numbers company-in-numbers container">
-      <h2 class="company-in-numbers__title">Компания в цифрах</h2>
-      <p class="company-in-numbers__subtitle">Предоставление профессиональных аудиторских услуг на высоком уровне с учетом
-        потребностей рынка и ориентацией на нужды и предпочтения клиентов.</p>
+      <div class="company-in-numbers__simditor" data-content="company-in-numbers-{{ $locale }}">
+        <div data-type="content">{!! $data['contents']['company-in-numbers-' . $locale] !!}</div>
+        <textarea style="display: none;">{{ $data['contents']['company-in-numbers-' . $locale] }}</textarea>
+      </div>
 
       <ul class="company-in-numbers__list">
         <li class="company-in-numbers__item">
