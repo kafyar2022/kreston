@@ -121,8 +121,8 @@ class ContentManager {
           });
 
           const simditorBody = this.#element.querySelector('.simditor-body');
-          simditorBody.addEventListener('input', this.#simditorInputHandler);
           simditorBody.addEventListener('keydown', this.#simditorKeydownHandler);
+          this.#simditor.on('valuechanged', this.#simditorChangeHandler);
           this.#initialContent = simditorBody.innerHTML;
         }
         this.#element.scrollIntoView({ block: 'center', behavior: 'smooth' });
@@ -171,9 +171,10 @@ class ContentManager {
     }
   };
 
-  #simditorInputHandler = () => {
+  #simditorChangeHandler = () => {
     const simditorContent = this.#element.querySelector('.simditor-body').innerHTML;
-    if (simditorContent === this.#initialContent) {
+    
+    if (simditorContent.replace(/<\/?[^>]+(>|$)/g, '').length === 0 || simditorContent === this.#initialContent) {
       this.#changeMode(Mode.EDIT);
     } else {
       this.#changeMode(Mode.SAVE);

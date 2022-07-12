@@ -1265,8 +1265,27 @@ a {
 .action__icon {
   margin-right: 5px;
 }
+.company-in-numbers {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
 .company-in-numbers__simditor {
   position: relative;
+  min-height: 48px;
+  margin-bottom: 40px;
+}
+.company-in-numbers__simditor h2,
+.company-in-numbers__simditor h3 {
+  color: #243746;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.company-in-numbers__simditor p {
+  margin: 0;
 }
 
 
