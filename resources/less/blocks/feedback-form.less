@@ -1,0 +1,58 @@
+.feedback-form {
+  width: 564px;
+  height: 373px;
+  padding: 32px;
+  background-color: @value-card-color;
+  color: @basic-white;
+  border-radius: 8px;
+  box-shadow: 0px 74px 80px rgba(115, 115, 115, 0.13), 0px 47.963px 46.8519px rgba(115, 115, 115, 0.0987037), 0px 28.5037px 25.4815px rgba(115, 115, 115, 0.078963), 0px 14.8px 13px rgba(115, 115, 115, 0.065), 0px 6.02963px 6.51852px rgba(115, 115, 115, 0.051037), 0px 1.37037px 3.14815px rgba(115, 115, 115, 0.0312963);
+}
+
+.feedback-form__title {
+  .title();
+  margin-bottom: 16px;
+  color: @brand-dark;
+}
+
+.feedback-form__label {
+  display: block;
+  border-radius: 8px;
+  background-color: @brand-dark;
+  padding: 12px 32px;
+  font-size: 16px;
+  line-height: 1.4;
+
+  &:not(:last-of-type) {
+    margin-bottom: 8px;
+  }
+}
+
+.feedback-form__field {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.feedback-form__footer {
+  display: flex;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.feedback-form__aware {
+  margin: 0;
+  margin-right: 16px;
+  font-size: 11px;
+}
+
+.feedback-form__button {
+  border: none;
+  background-color: @primary-color;
+  min-width: max-content;
+  cursor: pointer;
+}

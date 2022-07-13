@@ -1,0 +1,41 @@
+.value-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.value-list__item {
+  border-radius: 8px;
+  background-color: @value-card-color;
+  min-height: 184px;
+  color: @basic-white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 8px;
+  font-size: 20px;
+}
+
+.value-list__icon {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 8px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.value-list__term {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.value-list__description {
+  font-size: 14px;
+  color: @brand-dark;
+  white-space: pre-line;
+}

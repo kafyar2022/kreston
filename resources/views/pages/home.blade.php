@@ -68,41 +68,41 @@
         <textarea style="display: none;">{{ $data['contents']['company-in-numbers-' . $locale] }}</textarea>
       </div>
 
-      <ul class="company-in-numbers__list">
-        <li class="company-in-numbers__item">
-          <span class="company-in-numbers__icon"></span>
-          <b class="company-in-numbers__term">1 971</b>
-          <span class="company-in-numbers__description">Год
+      <ul class="value-list">
+        <li class="value-list__item">
+          <span class="value-list__icon" style="background-image: url('/files/values/value-1.svg');"></span>
+          <b class="value-list__term">1 971</b>
+          <span class="value-list__description">Год
             основания</span>
         </li>
-        <li class="company-in-numbers__item">
-          <span class="company-in-numbers__icon"></span>
-          <b class="company-in-numbers__term">25 000+</b>
-          <span class="company-in-numbers__description">Сотрудников
+        <li class="value-list__item">
+          <span class="value-list__icon" style="background-image: url('/files/values/value-2.svg');"></span>
+          <b class="value-list__term">25 000+</b>
+          <span class="value-list__description">Сотрудников
             по всему миру</span>
         </li>
-        <li class="company-in-numbers__item">
-          <span class="company-in-numbers__icon"></span>
-          <b class="company-in-numbers__term">700+</b>
-          <span class="company-in-numbers__description">Офисов
+        <li class="value-list__item">
+          <span class="value-list__icon" style="background-image: url('/files/values/value-3.svg');"></span>
+          <b class="value-list__term">700+</b>
+          <span class="value-list__description">Офисов
             обслуживания</span>
         </li>
-        <li class="company-in-numbers__item">
-          <span class="company-in-numbers__icon"></span>
-          <b class="company-in-numbers__term">125+</b>
-          <span class="company-in-numbers__description">Стран
+        <li class="value-list__item">
+          <span class="value-list__icon" style="background-image: url('/files/values/value-4.svg');"></span>
+          <b class="value-list__term">125+</b>
+          <span class="value-list__description">Стран
             присутствия</span>
         </li>
-        <li class="company-in-numbers__item">
-          <span class="company-in-numbers__icon"></span>
-          <b class="company-in-numbers__term">12-я</b>
-          <span class="company-in-numbers__description">Крупнейшая глобальная
+        <li class="value-list__item">
+          <span class="value-list__icon" style="background-image: url('/files/values/value-5.svg');"></span>
+          <b class="value-list__term">12-я</b>
+          <span class="value-list__description">Крупнейшая глобальная
             бухгалтерская сеть</span>
         </li>
-        <li class="company-in-numbers__item">
-          <span class="company-in-numbers__icon"></span>
-          <b class="company-in-numbers__term">$2,3 млрд+</b>
-          <span class="company-in-numbers__description">Доходов
+        <li class="value-list__item">
+          <span class="value-list__icon" style="background-image: url('/files/values/value-6.svg');"></span>
+          <b class="value-list__term">$2,3 млрд+</b>
+          <span class="value-list__description">Доходов
             за 2021 год</span>
         </li>
       </ul>
@@ -110,100 +110,49 @@
 
     <section class="main__advantage-provide advantage-provide">
       <div class="advantage-provide__container container">
-        <span class="advantage-provide__img"></span>
-        <div class="advantage-provide__inner">
-          <h2 class="advantage-provide__title">Преимущества которые мы
-            предоставляем:</h2>
+        <div class="advantage-provide__img" style="background-image: url('/files/advantage-provide.jpg')"></div>
 
-          <p class="advantage-provide__text">Уникальность и надежность
-            Индивидуальный подход
-            Качество
-            Местные знания и мировой опыт
-            Персональное обслуживание
-            Лояльность клиентов
-            Набор дополнительных услуг</p>
-          <a class="advantage-provide__link" href="#">Подробнее</a>
+        <div class="advantage-provide__simditor" data-content="main-advantage-provide-{{ $locale }}">
+          <div data-type="content">{!! $data['contents']['main-advantage-provide-' . $locale] !!}</div>
+          <textarea style="display: none;">{{ $data['contents']['main-advantage-provide-' . $locale] }}</textarea>
         </div>
       </div>
     </section>
 
     <section class="main__our-partners our-partners container">
-      <h2 class="our-partners__title">Нам доверяют</h2>
-      <p class="our-partners__subtitle">Множество компаний со всего Таджикистана и за ее пределами
-        являются нашими клиентами на протяжении многих лет.</p>
+      <div class="our-partners__simditor" data-content="main-our-partners-{{ $locale }}">
+        <div data-type="content">{!! $data['contents']['main-our-partners-' . $locale] !!}</div>
+        <textarea style="display: none;">{{ $data['contents']['main-our-partners-' . $locale] }}</textarea>
+      </div>
 
-      <ul class="our-partners__partners-list partners-list">
-        <li class="partners-list__item">
-          <a class="partners-list__link" href="#">
-            <img class="partners-list__img" src="{{ asset('files/partners/img/tajik-air.png') }}" width="180" height="64" alt="Tajik Air">
-          </a>
-        </li>
-        <li class="partners-list__item">
-          <a class="partners-list__link" href="#">
-            <img class="partners-list__img" src="{{ asset('files/partners/img/tajik-air.png') }}" width="180" height="64" alt="Tajik Air">
-          </a>
-        </li>
-        <li class="partners-list__item">
-          <a class="partners-list__link" href="#">
-            <img class="partners-list__img" src="{{ asset('files/partners/img/tajik-air.png') }}" width="180" height="64" alt="Tajik Air">
-          </a>
-        </li>
-        <li class="partners-list__item">
-          <a class="partners-list__link" href="#">
-            <img class="partners-list__img" src="{{ asset('files/partners/img/tajik-air.png') }}" width="180" height="64" alt="Tajik Air">
-          </a>
-        </li>
-        <li class="partners-list__item">
-          <a class="partners-list__link" href="#">
-            <img class="partners-list__img" src="{{ asset('files/partners/img/tajik-air.png') }}" width="180" height="64" alt="Tajik Air">
-          </a>
-        </li>
-      </ul>
+      <div class="partner-glide glide">
+        <div class="partner-glide__track glide__track" data-glide-el="track">
+          <ul class="partner-glide__slides glide__slides">
+            @foreach ($data['partners'] as $partner)
+              <li class="partner-glide__slide glide__slide">
+                <a class="partner-glide__link" @if ($partner->url) href="{{ $partner->url }}" @endif>
+                  <img class="partner-glide__img" src="{{ asset('files/partners/img/' . $partner->logo) }}" width="180" height="64" alt="{{ $partner->title }}">
+                </a>
+              </li>
+            @endforeach
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section class="main__last-news last-news container">
-      <h2 class="last-news__title">Наши новости</h2>
-      <p class="last-news__subtitle">Актуальные новости касающиеся
-        нашей деятельности <a class="last-news__button button" href="#">Все новости</a></p>
+    <section class="main__last-news last-news">
+      <div class="container">
+        <div class="last-news__simditor" data-content="main-last-news-{{ $locale }}">
+          <div data-type="content">{!! $data['contents']['main-last-news-' . $locale] !!}</div>
+          <textarea style="display: none;">{{ $data['contents']['main-last-news-' . $locale] }}</textarea>
+        </div>
 
-      <ul class="last-news__news-list news-list">
-        <li class="news-list__item">
-          <h3 class="news-list__title">Kreston’s Global Mobility Network Grows</h3>
-
-          <time class="news-list__datetime" datetime="27-12-2021 00:00">27.12.2021</time>
-          <img class="news-list__img" src="{{ asset('files/news/img/news.jpg') }}" width="100%" height="220" alt="Kreston’s Global Mobility Network Grows">
-          <p class="news-list__description">KRESTON AC LLC — это профессиональная компания с полным спектром услуг, которая стремится предоставлять выдающиеся налоговые, финансовые, деловые и юридические консультационные услуги государственным и частным компаниям, иностранным дочерним компаниям, семейным предприятиям и частным лицам. Фирма была основана с целью повышения прибыльности малого и среднего бизнеса в Таджикистане при минимизации затрат на соблюдение требований и налогообложения. KRESTON AC сочетает в себе глубокий практический опыт в области налогообложения, бизнеса, финансов и права в Таджикистане с поддержкой одной из крупнейших в мире бухгалтерских сетей – Kreston International, чтобы помочь клиентам воспользоваться возможностями, которые приумножают их доход.</p>
-
-          <a class="news-list__link" href="#">Подробнее</a>
-        </li>
-        <li class="news-list__item">
-          <h3 class="news-list__title">Kreston’s Global Mobility Network Grows</h3>
-
-          <time class="news-list__datetime" datetime="27-12-2021 00:00">27.12.2021</time>
-          <img class="news-list__img" src="{{ asset('files/news/img/news.jpg') }}" width="100%" height="220" alt="Kreston’s Global Mobility Network Grows">
-          <p class="news-list__description">KRESTON AC LLC — это профессиональная компания с полным спектром услуг, которая стремится предоставлять выдающиеся налоговые, финансовые, деловые и юридические консультационные услуги государственным и частным компаниям, иностранным дочерним компаниям, семейным предприятиям и частным лицам. Фирма была основана с целью повышения прибыльности малого и среднего бизнеса в Таджикистане при минимизации затрат на соблюдение требований и налогообложения. KRESTON AC сочетает в себе глубокий практический опыт в области налогообложения, бизнеса, финансов и права в Таджикистане с поддержкой одной из крупнейших в мире бухгалтерских сетей – Kreston International, чтобы помочь клиентам воспользоваться возможностями, которые приумножают их доход.</p>
-
-          <a class="news-list__link" href="#">Подробнее</a>
-        </li>
-        <li class="news-list__item">
-          <h3 class="news-list__title">Kreston’s Global Mobility Network Grows</h3>
-
-          <time class="news-list__datetime" datetime="27-12-2021 00:00">27.12.2021</time>
-          <img class="news-list__img" src="{{ asset('files/news/img/news.jpg') }}" width="100%" height="220" alt="Kreston’s Global Mobility Network Grows">
-          <p class="news-list__description">KRESTON AC LLC — это профессиональная компания с полным спектром услуг, которая стремится предоставлять выдающиеся налоговые, финансовые, деловые и юридические консультационные услуги государственным и частным компаниям, иностранным дочерним компаниям, семейным предприятиям и частным лицам. Фирма была основана с целью повышения прибыльности малого и среднего бизнеса в Таджикистане при минимизации затрат на соблюдение требований и налогообложения. KRESTON AC сочетает в себе глубокий практический опыт в области налогообложения, бизнеса, финансов и права в Таджикистане с поддержкой одной из крупнейших в мире бухгалтерских сетей – Kreston International, чтобы помочь клиентам воспользоваться возможностями, которые приумножают их доход.</p>
-
-          <a class="news-list__link" href="#">Подробнее</a>
-        </li>
-        <li class="news-list__item">
-          <h3 class="news-list__title">Kreston’s Global Mobility Network Grows</h3>
-
-          <time class="news-list__datetime" datetime="27-12-2021 00:00">27.12.2021</time>
-          <img class="news-list__img" src="{{ asset('files/news/img/news.jpg') }}" width="100%" height="220" alt="Kreston’s Global Mobility Network Grows">
-          <p class="news-list__description">KRESTON AC LLC — это профессиональная компания с полным спектром услуг, которая стремится предоставлять выдающиеся налоговые, финансовые, деловые и юридические консультационные услуги государственным и частным компаниям, иностранным дочерним компаниям, семейным предприятиям и частным лицам. Фирма была основана с целью повышения прибыльности малого и среднего бизнеса в Таджикистане при минимизации затрат на соблюдение требований и налогообложения. KRESTON AC сочетает в себе глубокий практический опыт в области налогообложения, бизнеса, финансов и права в Таджикистане с поддержкой одной из крупнейших в мире бухгалтерских сетей – Kreston International, чтобы помочь клиентам воспользоваться возможностями, которые приумножают их доход.</p>
-
-          <a class="news-list__link" href="#">Подробнее</a>
-        </li>
-      </ul>
+        <div class="last-news__news">
+          @foreach ($data['last-news'] as $news)
+            <x-news-card :news="$news" />
+          @endforeach
+        </div>
+      </div>
     </section>
 
     <section class="main__feedback feedback container">
@@ -212,20 +161,20 @@
 
         <label class="feedback-form__label">
           <span class="visually-hidden">@lang('Ваше имя')</span>
-          <input class="feedback-form__field" type="text" name="name" placeholder="@lang('Неопознанный Енот')" required>
+          <input class="feedback-form__field" type="text" name="name" placeholder="@lang('Неопознанный Енот')" value="@lang('Ваше имя')" required>
         </label>
         <label class="feedback-form__label">
           <span class="visually-hidden">@lang('Номер телефона')</span>
-          <input class="feedback-form__field" type="tel" name="tel" placeholder="+992 987-65-43-21" required>
+          <input class="feedback-form__field" type="tel" name="tel" placeholder="+992 987-65-43-21" value="@lang('Номер телефона')" required>
         </label>
         <label class="feedback-form__label">
           <span class="visually-hidden">@lang('Электронная почта')</span>
-          <input class="feedback-form__field" type="email" name="email" placeholder="example@gmail.com" required>
+          <input class="feedback-form__field" type="email" name="email" placeholder="example@gmail.com" value="@lang('Электронная почта')" required>
         </label>
 
         <div class="feedback-form__footer">
           <p class="feedback-form__aware">@lang('Нажимая «Отправить», вы соглашаетесь предоставить Вашу информацию Kreston AC на обработку.')</p>
-          <button class="feedback-form__button button">@lang('Отправить')</button>
+          <button class="feedback-form__button button button--more">@lang('Отправить')</button>
         </div>
       </form>
     </section>
@@ -239,8 +188,18 @@
       startAt: 0,
       perView: 1,
       gap: 0,
+      autoplay: 2500,
+    }).mount()
+
+    new Glide('.partner-glide', {
+      type: 'carousel',
+      startAt: 0,
+      perView: 6,
+      gap: 60,
+      autoplay: 2500,
     }).mount()
   </script>
+
   @if (session()->has('loggedUser'))
     <script type="module">
       import {
