@@ -56,48 +56,7 @@
       </div>
     </div>
 
-    <section class="company-in-numbers container">
-      <div data-content="company-in-numbers-{{ $locale }}">{!! $data['company-in-numbers-' . $locale] !!}</div>
-
-      <ul class="value-list">
-        <li class="value-list__item">
-          <span class="value-list__icon" style="background-image: url('/files/values/value-1.svg');"></span>
-          <b class="value-list__term">1 971</b>
-          <span class="value-list__description">Год
-            основания</span>
-        </li>
-        <li class="value-list__item">
-          <span class="value-list__icon" style="background-image: url('/files/values/value-2.svg');"></span>
-          <b class="value-list__term">25 000+</b>
-          <span class="value-list__description">Сотрудников
-            по всему миру</span>
-        </li>
-        <li class="value-list__item">
-          <span class="value-list__icon" style="background-image: url('/files/values/value-3.svg');"></span>
-          <b class="value-list__term">700+</b>
-          <span class="value-list__description">Офисов
-            обслуживания</span>
-        </li>
-        <li class="value-list__item">
-          <span class="value-list__icon" style="background-image: url('/files/values/value-4.svg');"></span>
-          <b class="value-list__term">125+</b>
-          <span class="value-list__description">Стран
-            присутствия</span>
-        </li>
-        <li class="value-list__item">
-          <span class="value-list__icon" style="background-image: url('/files/values/value-5.svg');"></span>
-          <b class="value-list__term">12-я</b>
-          <span class="value-list__description">Крупнейшая глобальная
-            бухгалтерская сеть</span>
-        </li>
-        <li class="value-list__item">
-          <span class="value-list__icon" style="background-image: url('/files/values/value-6.svg');"></span>
-          <b class="value-list__term">$2,3 млрд+</b>
-          <span class="value-list__description">Доходов
-            за 2021 год</span>
-        </li>
-      </ul>
-    </section>
+    <x-company-in-numbers :locale="$locale" :data="$data" />
 
     <section class="advantage-provide">
       <div class="advantage-provide__container container">
@@ -137,27 +96,7 @@
     </section>
 
     <section class="feedback container">
-      <form class="feedback__form feedback-form">
-        <h2 class="feedback-form__title">@lang('Получите бесплатную <br> консультацию')</h2>
-
-        <label class="feedback-form__label">
-          <span class="visually-hidden">@lang('Ваше имя')</span>
-          <input class="feedback-form__field" type="text" name="name" placeholder="@lang('Неопознанный Енот')" value="@lang('Ваше имя')" required>
-        </label>
-        <label class="feedback-form__label">
-          <span class="visually-hidden">@lang('Номер телефона')</span>
-          <input class="feedback-form__field" type="tel" name="tel" placeholder="+992 987-65-43-21" value="@lang('Номер телефона')" required>
-        </label>
-        <label class="feedback-form__label">
-          <span class="visually-hidden">@lang('Электронная почта')</span>
-          <input class="feedback-form__field" type="email" name="email" placeholder="example@gmail.com" value="@lang('Электронная почта')" required>
-        </label>
-
-        <div class="feedback-form__footer">
-          <p class="feedback-form__aware">@lang('Нажимая «Отправить», вы соглашаетесь предоставить Вашу информацию Kreston AC на обработку.')</p>
-          <button class="feedback-form__button button button--more">@lang('Отправить')</button>
-        </div>
-      </form>
+      <x-feedback-form />
     </section>
   </main>
 @endsection
