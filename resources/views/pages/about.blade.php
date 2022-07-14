@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-  <main class="about">
+  <main class="about-page">
     About our company
   </main>
 @endsection

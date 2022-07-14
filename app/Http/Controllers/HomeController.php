@@ -12,7 +12,7 @@ class HomeController extends Controller
 {
   public function index($locale)
   {
-    $data['contents'] = Helper::getContents($locale, 'home');
+    $data = Helper::getContents($locale, 'home');
 
     $data['banners'] = Banner::where('locale', $locale)
       ->get();

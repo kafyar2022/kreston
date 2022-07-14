@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-  <main class="main page-content">
+  <main class="main-page">
     <h1 class="visually-hidden">@lang('Kreston AC')</h1>
 
     <div class="banner glide">
@@ -46,27 +46,18 @@
       </div>
     </div>
 
-    <div class="main__about-wrap container">
-      <div class="main__about-creston about-creston" style="background-image: url('/files/main-about-bg.jpg')">
-        <div class="about-creston__simditor" data-content="main-about-{{ $locale }}">
-          <div data-type="content">{!! $data['contents']['main-about-' . $locale] !!}</div>
-          <textarea style="display: none;">{{ $data['contents']['main-about-' . $locale] }}</textarea>
-        </div>
+    <div class="main-page__grid container">
+      <div class="about-creston" style="background-image: linear-gradient(rgba(24, 156, 216, 0.8), rgba(24, 156, 216, 0.8)), url('/files/main-about-bg.jpg')">
+        <div data-content="main-page-about-{{ $locale }}">{!! $data['main-page-about-' . $locale] !!}</div>
       </div>
 
-      <div class="main__our-experience our-experience">
-        <div class="our-experience__simditor" data-content="main-our-experience-{{ $locale }}">
-          <div data-type="content">{!! $data['contents']['main-our-experience-' . $locale] !!}</div>
-          <textarea style="display: none;">{{ $data['contents']['main-our-experience-' . $locale] }}</textarea>
-        </div>
+      <div class="our-experience">
+        <div data-content="main-page-experience-{{ $locale }}">{!! $data['main-page-experience-' . $locale] !!}</div>
       </div>
     </div>
 
-    <section class="main__company-in-numbers company-in-numbers container">
-      <div class="company-in-numbers__simditor" data-content="company-in-numbers-{{ $locale }}">
-        <div data-type="content">{!! $data['contents']['company-in-numbers-' . $locale] !!}</div>
-        <textarea style="display: none;">{{ $data['contents']['company-in-numbers-' . $locale] }}</textarea>
-      </div>
+    <section class="company-in-numbers container">
+      <div data-content="company-in-numbers-{{ $locale }}">{!! $data['company-in-numbers-' . $locale] !!}</div>
 
       <ul class="value-list">
         <li class="value-list__item">
@@ -108,22 +99,15 @@
       </ul>
     </section>
 
-    <section class="main__advantage-provide advantage-provide">
+    <section class="advantage-provide">
       <div class="advantage-provide__container container">
         <div class="advantage-provide__img" style="background-image: url('/files/advantage-provide.jpg')"></div>
-
-        <div class="advantage-provide__simditor" data-content="main-advantage-provide-{{ $locale }}">
-          <div data-type="content">{!! $data['contents']['main-advantage-provide-' . $locale] !!}</div>
-          <textarea style="display: none;">{{ $data['contents']['main-advantage-provide-' . $locale] }}</textarea>
-        </div>
+        <div data-content="main-page-advantage-{{ $locale }}">{!! $data['main-page-advantage-' . $locale] !!}</div>
       </div>
     </section>
 
-    <section class="main__our-partners our-partners container">
-      <div class="our-partners__simditor" data-content="main-our-partners-{{ $locale }}">
-        <div data-type="content">{!! $data['contents']['main-our-partners-' . $locale] !!}</div>
-        <textarea style="display: none;">{{ $data['contents']['main-our-partners-' . $locale] }}</textarea>
-      </div>
+    <section class="our-partners container">
+      <div data-content="our-partners-{{ $locale }}">{!! $data['our-partners-' . $locale] !!}</div>
 
       <div class="partner-glide glide">
         <div class="partner-glide__track glide__track" data-glide-el="track">
@@ -140,12 +124,9 @@
       </div>
     </section>
 
-    <section class="main__last-news last-news">
+    <section class="last-news">
       <div class="container">
-        <div class="last-news__simditor" data-content="main-last-news-{{ $locale }}">
-          <div data-type="content">{!! $data['contents']['main-last-news-' . $locale] !!}</div>
-          <textarea style="display: none;">{{ $data['contents']['main-last-news-' . $locale] }}</textarea>
-        </div>
+        <div data-content="main-page-news-{{ $locale }}">{!! $data['main-page-news-' . $locale] !!}</div>
 
         <div class="last-news__news">
           @foreach ($data['last-news'] as $news)
@@ -155,7 +136,7 @@
       </div>
     </section>
 
-    <section class="main__feedback feedback container">
+    <section class="feedback container">
       <form class="feedback__form feedback-form">
         <h2 class="feedback-form__title">@lang('Получите бесплатную <br> консультацию')</h2>
 
