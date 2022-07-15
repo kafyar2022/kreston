@@ -16,11 +16,15 @@ class AboutController extends Controller
 
   public function advantage($locale)
   {
-    return view('pages.about.advantage');
+    $data = Helper::getContents($locale, 'about.advantage');
+
+    return view('pages.about.advantage', compact('data'));
   }
 
   public function team($locale)
   {
-    return view('pages.about.team');
+    $data = Helper::getContents($locale, 'about.team');
+
+    return view('pages.about.team', compact('data'));
   }
 }

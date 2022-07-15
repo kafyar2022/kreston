@@ -53,5 +53,9 @@
     <symbol id="action-cancel" viewBox="0 0 14 14" fill="none">
       <path d="M13 1 1 13M1 1l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
     </symbol>
+
+    <symbol id="view-icon" viewBox="0 0 23 16" fill="none">
+      <path d="M11.5.5C6.5.5 2.23 3.61.5 8c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5Zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3Z" fill="currentColor" />
+    </symbol>
   </svg>
 </div>

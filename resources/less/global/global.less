@@ -47,8 +47,34 @@ a {
 
 .title() {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 16px;
   font-weight: 600;
   font-size: 20px;
   line-height: 1.4;
+}
+
+.button() {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 14.5px 32px;
+  border: 2px solid @basic-white;
+  border-radius: 24px;
+  font-size: 16px;
+  line-height: 19px;
+  color: @basic-white;
+  text-align: center;
+  max-width: max-content;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 24px;
+    min-width: 24px;
+    height: 19px;
+    margin-left: 4px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("data:image/svg+xml,%3Csvg width='9' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.436 7.41s2.132-3.422 1.092-5.223C4.488.386 4.655.69 4.655.69S4.296 0 3.699 0H.015l4.421 7.41Z' fill='%23fff'/%3E%3Cpath d='M4.973 7.766c.39-.648.723-1.336.995-2.055.255-.645.415-1.33.474-2.031l2.305 3.857a.835.835 0 0 1-.002.934l-4.017 6.722a4.301 4.301 0 0 1-.131.22c-.126.193-.441.587-.895.587H0l4.973-8.234Z' fill='%23fff'/%3E%3C/svg%3E%0A");
+  }
 }

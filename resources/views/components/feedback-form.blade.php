@@ -1,4 +1,4 @@
-<form class="feedback__form feedback-form">
+<form class="feedback-form">
   <h2 class="feedback-form__title">@lang('Получите бесплатную <br> консультацию')</h2>
 
   <label class="feedback-form__label">

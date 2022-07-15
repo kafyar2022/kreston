@@ -1,0 +1,48 @@
+.certificate {
+  background-color: @primary-color;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  color: @basic-white;
+  background-image: url("../../img/certificate-bg.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  [data-content] {
+    margin-bottom: 50px;
+
+    h2 {
+      .title();
+    }
+  }
+}
+
+.certificate__list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: repeat(3, minmax(360px, 1fr));
+  gap: 24px;
+  list-style: none;
+}
+
+.certificate__item {
+  background: @basic-white;
+  border-radius: 8px;
+  padding: 32px;
+  color: @brand-dark;
+}
+
+.certificate__title {
+  .title();
+  white-space: pre-line;
+}
+
+.certificate__description {
+  white-space: pre-line;
+  margin: 0;
+}
+
+.certificate__link {
+  margin-top: 32px;
+  max-width: max-content;
+}
