@@ -20,7 +20,7 @@
         <a class="top-nav-list__link" href="https://www.kreston.com/" target="_blank">@lang('Kreston Global')</a>
       </li>
       <li class="top-nav-list__item @if ($route == 'news' || $route == 'news.show') top-nav-list__item--current @endif">
-        <a class="top-nav-list__link" @if ($route != 'news' && $route != 'news.show') href="{{ route('news', $locale) }}" @endif>@lang('Новости Kreston AC')</a>
+        <a class="top-nav-list__link" @if ($route != 'news') href="{{ route('news', $locale) }}" @endif>@lang('Новости Kreston AC')</a>
       </li>
       <li class="top-nav-list__item @if ($route == 'regulations') top-nav-list__item--current @endif">
         <a class="top-nav-list__link" @if ($route != 'regulations') href="{{ route('regulations', $locale) }}" @endif>@lang('Нормативные документы')</a>

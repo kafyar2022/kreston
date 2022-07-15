@@ -1936,6 +1936,110 @@ a {
   max-width: max-content;
   align-self: center;
 }
+.news-page__content {
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+.news-page__content h1 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+}
+.news-page__news {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.news-page__pagination {
+  margin-top: 40px;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+}
+.pagination {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  font-size: 14px;
+}
+.pagination__item:not(:nth-last-child(2)) {
+  margin-right: 8px;
+}
+.pagination__item:first-child {
+  order: -2;
+}
+.pagination__item:last-child {
+  order: -1;
+}
+.pagination__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
+.pagination__link--current {
+  background-color: #189cd8;
+  color: #fff;
+}
+.pagination__link--disabled {
+  color: #949699;
+}
+.pagination__icon--prev {
+  transform: scaleX(-1);
+}
+.news-show-page {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 48px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+.news-show-page__date {
+  display: block;
+  margin-bottom: 32px;
+}
+.news-show-page__title {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  white-space: pre-line;
+}
+.news-show-page__links {
+  display: flex;
+  margin-top: 80px;
+}
+.news-show-page__link--prev {
+  margin-right: 84px;
+  border: 2px solid #243746;
+  color: #243746;
+  padding: 12.5px 32px;
+}
+.news-show-page__link--prev svg {
+  display: block;
+  margin-right: 12px;
+  transform: scaleX(-1);
+}
+.news-show-page__link--next {
+  background-color: #189cd8;
+  border: none;
+}
+.news-show-page__img {
+  width: 470px;
+  min-width: 470px;
+  height: 530px;
+  border-radius: 8px;
+  box-shadow: 0px 74px 80px rgba(115, 115, 115, 0.13), 0px 47.963px 46.8519px rgba(115, 115, 115, 0.0987037), 0px 28.5037px 25.4815px rgba(115, 115, 115, 0.078963), 0px 14.8px 13px rgba(115, 115, 115, 0.065), 0px 6.02963px 6.51852px rgba(115, 115, 115, 0.051037), 0px 1.37037px 3.14815px rgba(115, 115, 115, 0.0312963);
+}
 
 
 /*# sourceMappingURL=style.css.map*/

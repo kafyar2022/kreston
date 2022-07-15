@@ -57,5 +57,9 @@
     <symbol id="view-icon" viewBox="0 0 23 16" fill="none">
       <path d="M11.5.5C6.5.5 2.23 3.61.5 8c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5Zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3Z" fill="currentColor" />
     </symbol>
+
+    <symbol id="pagination-icon" viewBox="0 0 9 12" fill="none">
+      <path d="M.84 1.41 5.42 6 .84 10.59 2.25 12l6-6-6-6L.84 1.41Z" fill="currentColor" />
+    </symbol>
   </svg>
 </div>

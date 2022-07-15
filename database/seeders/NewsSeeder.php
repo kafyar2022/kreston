@@ -36,7 +36,7 @@ help with ESG reporting?',
       ],
     ];
 
-    foreach (range(1,9) as $value) {
+    foreach (range(1, 29) as $value) {
       foreach ($news as $new) {
         News::create([
           'locale' => 'ru',
