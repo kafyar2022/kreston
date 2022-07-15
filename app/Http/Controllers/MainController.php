@@ -6,13 +6,12 @@ use App\Helpers\Helper;
 use App\Models\Banner;
 use App\Models\News;
 use App\Models\Partner;
-use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class MainController extends Controller
 {
   public function index($locale)
   {
-    $data = Helper::getContents($locale, 'home');
+    $data = Helper::getContents($locale, 'main');
 
     $data['banners'] = Banner::where('locale', $locale)
       ->get();
@@ -25,6 +24,6 @@ class HomeController extends Controller
       ->take(4)
       ->get();
 
-    return view('pages.home', compact('data'));
+    return view('pages.main.index', compact('data'));
   }
 }

@@ -12,10 +12,10 @@
         <a class="page-footer__nav-link" href="{{ route('about', $locale) }}">@lang('О нашей компании')</a>
       </dd>
       <dd class="page-footer__nav-description">
-        <a class="page-footer__nav-link" href="{{ route('advantage', $locale) }}">@lang('Наши преимущества')</a>
+        <a class="page-footer__nav-link" href="{{ route('about.advantage', $locale) }}">@lang('Наши преимущества')</a>
       </dd>
       <dd class="page-footer__nav-description">
-        <a class="page-footer__nav-link" href="{{ route('team', $locale) }}">@lang('Наша команда')</a>
+        <a class="page-footer__nav-link" href="{{ route('about.team', $locale) }}">@lang('Наша команда')</a>
       </dd>
     </div>
 
@@ -111,7 +111,7 @@
         <a class="page-footer__nav-link" href="{{ route('regulations', $locale) }}">@lang('Нормативные документы')</a>
       </dd>
       <dd class="page-footer__nav-description">
-        <a class="page-footer__nav-link" href="{{ route('partners', $locale) }}">@lang('Нам доверяют')</a>
+        <a class="page-footer__nav-link" href="{{ route('about.team', $locale) }}#partners">@lang('Нам доверяют')</a>
       </dd>
       <dd class="page-footer__nav-description">
         <a class="page-footer__nav-link" href="{{ route('contacts', $locale) }}">@lang('Контакты')</a>

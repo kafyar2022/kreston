@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-  <main class="news-show">
+  <main class="news-show-page">
     <h1>News show</h1>
   </main>
 @endsection

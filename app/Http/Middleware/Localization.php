@@ -23,6 +23,6 @@ class Localization
       return $next($request);
     }
 
-    return redirect(route('home', 'ru'));
+    return redirect(route('main', 'ru'));
   }
 }

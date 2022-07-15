@@ -8,6 +8,7 @@ use App\Http\Controllers\DashController;
 use App\Http\Controllers\DirectionController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\RegulationsController;
@@ -29,18 +30,17 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/', '/ru');
 
 Route::group(['prefix' => '{locale}'], function () {
-  Route::get('/', [HomeController::class, 'index'])->name('home');
-  Route::get('/regulations', [RegulationsController::class, 'index'])->name('regulations');
+  Route::get('/', [MainController::class, 'index'])->name('main');
 
   Route::get('/news', [NewsController::class, 'index'])->name('news');
   Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news.show');
+  Route::get('/regulations', [RegulationsController::class, 'index'])->name('regulations');
 
   Route::get('/about', [AboutController::class, 'index'])->name('about');
-  Route::get('/advantage', [AdvantageController::class, 'index'])->name('advantage');
-  Route::get('/team', [TeamController::class, 'index'])->name('team');
-  Route::get('/partners', [PartnerController::class, 'index'])->name('partners');
-  Route::get('/service/{slug}', [ServiceController::class, 'index'])->name('service');
-  Route::get('/direction/{slug}', [DirectionController::class, 'index'])->name('direction');
+  Route::get('/about/advantage', [AboutController::class, 'advantage'])->name('about.advantage');
+  Route::get('/about/team', [AboutController::class, 'team'])->name('about.team');
+  Route::get('/services/{slug}', [ServiceController::class, 'index'])->name('services');
+  Route::get('/directions/{slug}', [DirectionController::class, 'index'])->name('directions');
   Route::get('/experience', [ExperienceController::class, 'index'])->name('experience');
   Route::get('/contacts', [ContactController::class, 'index'])->name('contacts');
 
@@ -50,6 +50,5 @@ Route::group(['prefix' => '{locale}'], function () {
 
   Route::group(['middleware' => ['AuthCheck']], function () {
     Route::get('/dashboard', [DashController::class, 'index'])->name('dashboard');
-    Route::post('/content/update', [DashController::class, 'updateContent']);
   });
 });

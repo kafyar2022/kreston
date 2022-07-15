@@ -8,6 +8,6 @@ class RegulationsController extends Controller
 {
   public function index()
   {
-    return view('pages.regulations');
+    return view('pages.regulations.index');
   }
 }

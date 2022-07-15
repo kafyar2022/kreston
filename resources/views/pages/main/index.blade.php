@@ -102,31 +102,5 @@
 @endsection
 
 @section('script')
-  <script>
-    new Glide('.banner', {
-      type: 'carousel',
-      startAt: 0,
-      perView: 1,
-      gap: 0,
-      autoplay: 2500,
-    }).mount()
-
-    new Glide('.partner-glide', {
-      type: 'carousel',
-      startAt: 0,
-      perView: 6,
-      gap: 60,
-      autoplay: 2500,
-    }).mount()
-  </script>
-
-  @if (session()->has('loggedUser'))
-    <script type="module">
-      import {
-        initContentManager
-      } from '/js/content-manager.js';
-
-      initContentManager();
-    </script>
-  @endif
+  <script src="{{ asset('js/pages/main.js') }}" type="module"></script>
 @endsection

@@ -29,7 +29,7 @@
   </div>
 
   <div class="page-header__container container">
-    <a class="page-header__logo" @if ($route != 'home') href="{{ route('home', $locale) }}" @endif>
+    <a class="page-header__logo" @if ($route != 'main') href="{{ route('main', $locale) }}" @endif>
       <img src="{{ asset('img/logo.svg') }}" alt="@lang('Логотип Kreston AC')" width="172" height="82">
     </a>
 
@@ -65,7 +65,7 @@
   <nav class="page-header__page-nav page-nav">
     <div class="page-nav__container container">
       <ul class="page-nav__list">
-        <li class="page-nav__item @if ($route == 'about' || $route == 'advantage' || $route == 'team') page-nav__item--current @endif">
+        <li class="page-nav__item @if ($route == 'about' || $route == 'about.advantage' || $route == 'about.team') page-nav__item--current @endif">
           <button class="page-nav__button">
             @lang('Kreston AC')
             <svg class="page-nav__icon" width="12" height="8">
@@ -77,11 +77,11 @@
             <li class="page-nav__extra-item @if ($route == 'about') page-nav__extra-item--current @endif">
               <a class="page-nav__link" @if ($route != 'about') href="{{ route('about', $locale) }}" @endif>@lang('О нашей компании')</a>
             </li>
-            <li class="page-nav__extra-item @if ($route == 'advantage') page-nav__extra-item--current @endif">
-              <a class="page-nav__link" @if ($route != 'advantage') href="{{ route('advantage', $locale) }}" @endif>@lang('Наши преимущества')</a>
+            <li class="page-nav__extra-item @if ($route == 'about.advantage') page-nav__extra-item--current @endif">
+              <a class="page-nav__link" @if ($route != 'about.advantage') href="{{ route('about.advantage', $locale) }}" @endif>@lang('Наши преимущества')</a>
             </li>
-            <li class="page-nav__extra-item @if ($route == 'team') page-nav__extra-item--current @endif">
-              <a class="page-nav__link" @if ($route != 'team') href="{{ route('team', $locale) }}" @endif>@lang('Наша команда')</a>
+            <li class="page-nav__extra-item @if ($route == 'about.team') page-nav__extra-item--current @endif">
+              <a class="page-nav__link" @if ($route != 'about.team') href="{{ route('about.team', $locale) }}" @endif>@lang('Наша команда')</a>
             </li>
           </ul>
         </li>
