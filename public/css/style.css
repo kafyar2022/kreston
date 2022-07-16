@@ -2199,6 +2199,36 @@ a {
 .industry-experience__right {
   background-color: #43bbc7;
 }
+.contacts-page {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+.contacts-page__content {
+  margin-bottom: 40px;
+}
+.contacts-page__content h1 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+}
+.contacts-page__details {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+.contacts-page__company-details {
+  display: flex;
+  padding: 32px;
+  justify-content: center;
+  background-color: #43bbc7;
+  color: #fff;
+}
+.contacts-page__map {
+  height: 480px;
+  background-color: lightgray;
+}
 
 
 /*# sourceMappingURL=style.css.map*/
