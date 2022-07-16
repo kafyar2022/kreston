@@ -111,7 +111,7 @@
         <a class="page-footer__nav-link" href="{{ route('regulations', $locale) }}">@lang('Нормативные документы')</a>
       </dd>
       <dd class="page-footer__nav-description">
-        <a class="page-footer__nav-link" href="{{ route('about.team', $locale) }}#partners">@lang('Нам доверяют')</a>
+        <a class="page-footer__nav-link" href="{{ route('experience', $locale) }}#partners">@lang('Нам доверяют')</a>
       </dd>
       <dd class="page-footer__nav-description">
         <a class="page-footer__nav-link" href="{{ route('contacts', $locale) }}">@lang('Контакты')</a>

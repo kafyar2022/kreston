@@ -2040,6 +2040,96 @@ a {
   border-radius: 8px;
   box-shadow: 0px 74px 80px rgba(115, 115, 115, 0.13), 0px 47.963px 46.8519px rgba(115, 115, 115, 0.0987037), 0px 28.5037px 25.4815px rgba(115, 115, 115, 0.078963), 0px 14.8px 13px rgba(115, 115, 115, 0.065), 0px 6.02963px 6.51852px rgba(115, 115, 115, 0.051037), 0px 1.37037px 3.14815px rgba(115, 115, 115, 0.0312963);
 }
+.accordion-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+}
+.accordion-menu__item {
+  position: relative;
+  background-color: #243746;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.accordion-menu__item:not(:last-child) {
+  margin-bottom: 8px;
+}
+.accordion-menu__dropdown-button {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  text-align: start;
+  padding: 12px 64px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.accordion-menu__dropdown-icon {
+  position: absolute;
+  right: 40px;
+  top: 16px;
+  transition: 0.6s;
+}
+.accordion-menu__item--open .accordion-menu__dropdown-icon {
+  transform: rotate(90deg);
+}
+.accordion-menu__list {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.regulations-page {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+.regulations-page [data-content] {
+  margin-bottom: 40px;
+}
+.regulations-page [data-content] h1 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+}
+.regulations-page__regulations-category {
+  margin: 0;
+  font-size: 16px;
+}
+.regulation-page__regulation {
+  display: block;
+  padding: 4px 64px 12px 64px;
+}
+.regulation-page__regulation-icon {
+  display: inline-block;
+  margin: 2px;
+  margin-right: 20px;
+  vertical-align: top;
+}
+.regulation-page__regulation-title {
+  display: inline-block;
+  margin: 0;
+  vertical-align: top;
+}
+.regulation-page__regulation:hover .regulation-page__regulation-title {
+  color: #43bbc7;
+}
+.regulation-page__redulation-info {
+  display: block;
+  font-size: inherit;
+}
+.regulation-page__regulation:hover .regulation-page__redulation-info {
+  color: #189cd8;
+}
+.regulation-page__redulation-extension {
+  text-transform: uppercase;
+}
+.regulation-page__redulation-size {
+  text-transform: lowercase;
+}
 
 
 /*# sourceMappingURL=style.css.map*/
