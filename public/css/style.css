@@ -1280,13 +1280,10 @@ a {
 }
 .company-in-numbers [data-content] h2 {
   margin-top: 0;
+  margin-bottom: 16px;
   font-weight: 600;
   font-size: 20px;
   line-height: 1.4;
-  margin-bottom: 16px;
-}
-.company-in-numbers [data-content] p {
-  margin: 0;
 }
 .value-list {
   display: grid;
@@ -1400,13 +1397,31 @@ a {
 }
 .our-partners [data-content] h2 {
   margin-top: 0;
+  margin-bottom: 16px;
   font-weight: 600;
   font-size: 20px;
   line-height: 1.4;
-  margin-bottom: 16px;
 }
-.our-partners [data-content] p {
+.our-partners__list {
+  list-style: none;
   margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  -moz-column-gap: 60px;
+       column-gap: 60px;
+  row-gap: 72px;
+}
+.our-partners__item {
+  width: 180px;
+  height: 64px;
+}
+.our-partners__link {
+  display: block;
+}
+.our-partners__img {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .partner-glide::after {
   content: "";
@@ -1432,10 +1447,10 @@ a {
 }
 .last-news [data-content] h2 {
   margin-top: 0;
+  margin-bottom: 16px;
   font-weight: 600;
   font-size: 20px;
   line-height: 1.4;
-  margin-bottom: 16px;
 }
 .last-news [data-content] p a {
   position: absolute;
@@ -1465,9 +1480,6 @@ a {
   background-repeat: no-repeat;
   background-position: center;
   background-image: url("data:image/svg+xml,%3Csvg width='9' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.436 7.41s2.132-3.422 1.092-5.223C4.488.386 4.655.69 4.655.69S4.296 0 3.699 0H.015l4.421 7.41Z' fill='%23fff'/%3E%3Cpath d='M4.973 7.766c.39-.648.723-1.336.995-2.055.255-.645.415-1.33.474-2.031l2.305 3.857a.835.835 0 0 1-.002.934l-4.017 6.722a4.301 4.301 0 0 1-.131.22c-.126.193-.441.587-.895.587H0l4.973-8.234Z' fill='%23fff'/%3E%3C/svg%3E%0A");
-}
-.last-news [data-content] p {
-  margin: 0;
 }
 .last-news__news {
   display: grid;
@@ -2065,6 +2077,7 @@ a {
   font-size: 16px;
   font-weight: 600;
   line-height: 1.4;
+  cursor: pointer;
 }
 .accordion-menu__dropdown-icon {
   position: absolute;
@@ -2129,6 +2142,62 @@ a {
 }
 .regulation-page__redulation-size {
   text-transform: lowercase;
+}
+.experience-page__content {
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+.experience-page__content h1 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+}
+.experience-page__img {
+  height: 500px;
+  background-color: lightgray;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.industry-experience {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  -moz-column-gap: 24px;
+       column-gap: 24px;
+}
+.industry-experience__top {
+  grid-column: span 2;
+  margin-bottom: 40px;
+}
+.industry-experience__top h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+}
+.industry-experience__left,
+.industry-experience__right {
+  box-shadow: 0px 74px 80px rgba(115, 115, 115, 0.13), 0px 47.963px 46.8519px rgba(115, 115, 115, 0.0987037), 0px 28.5037px 25.4815px rgba(115, 115, 115, 0.078963), 0px 14.8px 13px rgba(115, 115, 115, 0.065), 0px 6.02963px 6.51852px rgba(115, 115, 115, 0.051037), 0px 1.37037px 3.14815px rgba(115, 115, 115, 0.0312963);
+  border-radius: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg width='327' height='400' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='.1' fill='%23243746'%3E%3Cpath d='M272.008 179.356s-130.24-155.88-66.694-237.917c63.546-82.037 53.355-68.247 53.355-68.247s21.876-31.369 58.371-31.369h225.052L272.008 179.356Z'/%3E%3Cpath d='M239.195 195.57c-23.815-29.542-44.165-60.892-60.771-93.625-15.558-29.372-25.338-60.605-28.972-92.523L8.647 185.128c-4.984 5.406-7.951 11.894-8.539 18.67-.587 6.777 1.23 13.548 5.231 19.485a34.04 34.04 0 0 0 3.415 4.406l245.434 306.164c3.788 4.846 4.855 6.168 4.962 6.256a55.711 55.711 0 0 0 3.041 3.745c7.683 8.812 26.945 26.744 54.689 26.744H543L239.195 195.57Z'/%3E%3C/g%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: contain;
+  padding: 40px 24px 40px 80px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+.industry-experience__left {
+  background-color: #189cd8;
+}
+.industry-experience__right {
+  background-color: #43bbc7;
 }
 
 

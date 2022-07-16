@@ -37,7 +37,7 @@ class ContentSeeder extends Seeder
       ],
       [
         'slug' => 'our-partners',
-        'page' => 'main',
+        'page' => null,
         'content' => '<h2>Нам доверяют</h2><p>Множество компаний со всего Таджикистана и за ее пределами <br> являются нашими клиентами на протяжении многих лет.</p>',
       ],
       [
@@ -104,11 +104,6 @@ class ContentSeeder extends Seeder
         'slug' => 'news-page-content',
         'page' => 'news',
         'content' => '<h1>Наши новости</h1><p>Актуальные новости касающиеся <br> нашей деятельности</p>',
-      ],
-      [
-        'slug' => 'regulations-page-content',
-        'page' => 'regulations',
-        'content' => '<h1>Нормативные документы</h1><p>Donec in ex dictum ante sagittis iaculis id in quam. Maecenas ac aliquam lorem, sed consectetur <br> diam. Cras blandit vulputate justo, sit amet posuere ex fermentum in. Nam rutrum libero <br> malesuada diam pretium, vitae pharetra magna laoreet. Sed lobortis convallis eros ac tempus. <br> Vivamus efficitur nisl eget sem accumsan, ut laoreet libero molestie. Quisque imperdiet sapien et <br> ante dapibus elementum pharetra a nisi. Ut tempus ut felis eget consequat. In vel viverra enim.</p>',
       ],
       [
         'slug' => '',
