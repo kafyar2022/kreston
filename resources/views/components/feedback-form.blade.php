@@ -1,6 +1,6 @@
 <form class="feedback-form">
   <h2 class="feedback-form__title">@lang('Получите бесплатную <br> консультацию')</h2>
-
+  @csrf
   <label class="feedback-form__label">
     <span class="visually-hidden">@lang('Ваше имя')</span>
     <input class="feedback-form__field" type="text" name="name" placeholder="@lang('Неопознанный Енот')" value="@lang('Ваше имя')" required>

@@ -5,4 +5,13 @@ const createElement = (template) => {
   return newElement.firstElementChild;
 };
 
-export {createElement};
+const debounce = (callback, timeoutDelay = 500) => {
+  let timeoutId;
+
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+};
+
+export { createElement, debounce };

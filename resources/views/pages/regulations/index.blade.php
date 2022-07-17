@@ -7,7 +7,7 @@
 @section('content')
   <main class="regulations-page container">
     <div data-content="regulations-page-content-{{ $locale }}">{!! $data['regulations-page-content-' . $locale] !!}</div>
-
+    
     <ul class="accordion-menu">
       <li class="accordion-menu__item">
         <button class="accordion-menu__dropdown-button">

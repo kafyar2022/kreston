@@ -46,5 +46,7 @@ Route::group(['prefix' => '{locale}'], function () {
 
   Route::group(['middleware' => ['AuthCheck']], function () {
     Route::get('/dashboard', [DashController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/toggle-state', [DashController::class, 'toggleState']);
+    Route::get('/dashboard/toggle-mode', [DashController::class, 'toggleMode'])->name('mode');
   });
 });

@@ -25,7 +25,7 @@
   <main class="login-page">
     <form class="login-form" action="{{ route('auth.check', $locale) }}" method="post">
       <h1 class="login-form__title">Вход</h1>
-
+      @csrf
       <div class="login-form__element login-form__element--login">
         <label class="login-form__label">
           <input class="login-form__field" type="text" name="login" placeholder="example@domain.com" autocomplete="off" required data-pristine-required-message="Объязательное поле">

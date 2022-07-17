@@ -27,7 +27,9 @@ class AuthController extends Controller
     }
 
     if (Hash::check($request->password, $user->password)) {
-      $request->session()->put('loggedUser', $user->id);
+      session()->put('loggedUser', $user->id);
+      session()->put('editMode', true);
+      session()->put('dashboard', 'shown');
 
       return json_encode(['message' => 'success']);
     } else {
@@ -39,6 +41,8 @@ class AuthController extends Controller
   {
     if (session()->has('loggedUser')) {
       session()->pull('loggedUser');
+      session()->pull('dashboard');
+      session()->put('editMode');
       return redirect(route('main', $locale));
     }
   }

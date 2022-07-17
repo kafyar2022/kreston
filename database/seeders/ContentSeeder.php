@@ -126,6 +126,11 @@ class ContentSeeder extends Seeder
         'content' => '<ul><li>Агропромышленный сектор</li><li>Банковское дело и финансы</li><li>Авиакомпании</li><li>Горнодобывающая промышленность, нефть и газ</li><li>Гостиницы</li></ul>',
       ],
       [
+        'slug' => 'regulations-page-content',
+        'page' => 'regulations',
+        'content' => '<h1>Нормотивные документы</h1><p>Donec in ex dictum ante sagittis iaculis id in quam. Maecenas ac aliquam lorem, sed consectetur <br> diam. Cras blandit vulputate justo, sit amet posuere ex fermentum in. Nam rutrum libero <br> malesuada diam pretium, vitae pharetra magna laoreet. Sed lobortis convallis eros ac tempus. <br> Vivamus efficitur nisl eget sem accumsan, ut laoreet libero molestie. Quisque imperdiet sapien et <br> ante dapibus elementum pharetra a nisi. Ut tempus ut felis eget consequat. In vel viverra enim.</p>',
+      ],
+      [
         'slug' => '',
         'page' => '',
         'content' => '',
