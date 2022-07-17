@@ -1,19 +1,15 @@
 <?php
 
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\AdvantageController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashController;
 use App\Http\Controllers\DirectionController;
 use App\Http\Controllers\ExperienceController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\RegulationsController;
 use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 
 /*

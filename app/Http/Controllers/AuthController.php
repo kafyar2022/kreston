@@ -23,14 +23,15 @@ class AuthController extends Controller
     $user = User::where('login', '=', $request->login)->first();
 
     if (!$user) {
-      return back()->with('fail', 'Мы не узнаем ваш адрес для входа');
+      return json_encode(['message' => 'not found']);
     }
 
     if (Hash::check($request->password, $user->password)) {
       $request->session()->put('loggedUser', $user->id);
-      return redirect(route('dashboard', $request->locale));
+
+      return json_encode(['message' => 'success']);
     } else {
-      return back()->with('fail', 'Неверный пароль');
+      return json_encode(['message' => 'not matched']);
     }
   }
 
@@ -38,7 +39,7 @@ class AuthController extends Controller
   {
     if (session()->has('loggedUser')) {
       session()->pull('loggedUser');
-      return redirect(route('home', $locale));
+      return redirect(route('main', $locale));
     }
   }
 }
