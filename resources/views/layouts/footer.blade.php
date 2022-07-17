@@ -188,5 +188,5 @@
     </div>
   </div>
 
-  <div class="page-footer__copyright">2022, Kreston AC. <span>All rights reserved.</span></div>
+  <div class="page-footer__copyright">{{ date('Y') }}, Kreston AC. <span>All rights reserved.</span></div>
 </footer>
