@@ -17,8 +17,8 @@
     </a>
 
     <ul class="dashboard__menu">
-      <li class="dashboard__menu-item dashboard__menu-item--current">
-        <a class="dashboard__link" href="#">Баннеры</a>
+      <li class="dashboard__menu-item @if ($route == 'banners' || $route == 'banners.show' || $route == 'banners.create') dashboard__menu-item--current @endif">
+        <a class="dashboard__link" href="{{ route('banners', 'ru') }}">Баннеры</a>
       </li>
       <li class="dashboard__menu-item">
         <a class="dashboard__link" href="#">Наши партнеры</a>

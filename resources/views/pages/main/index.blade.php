@@ -8,51 +8,48 @@
   <main class="main-page">
     <h1 class="visually-hidden">@lang('Kreston AC')</h1>
 
-    <div class="banner glide">
-      <div class="banner__track glide__track" data-glide-el="track">
-        <ul class="banner__slides glide__slides">
-          @foreach ($data['banners'] as $banner)
-            <li class="banner__slide glide__slide" style="background-image: url('/files/banners/img/{{ $banner->img }}');">
-              <div class="banner__content container">
-                <div data-type="banner">{!! $banner->content !!}</div>
-              </div>
-            </li>
+    @if ($data['banners']->count() != 0)
+      <div class="banner glide">
+        <div class="banner__track glide__track" data-glide-el="track">
+          <ul class="banner__slides glide__slides">
+            @foreach ($data['banners'] as $banner)
+              <li class="banner__slide glide__slide" style="background-image: url('/files/banners/img/{{ $banner->img }}');">
+                <div class="banner__content container">
+                  <div data-type="banner">{!! $banner->content !!}</div>
+                </div>
+              </li>
+            @endforeach
+          </ul>
+        </div>
+
+        <div class="banner__arrows glide__arrows container" data-glide-el="controls">
+          <button class="banner__arrow banner__arrow--left" data-glide-dir="<">
+            <svg width="10" height="16">
+              <use xlink:href="#more-icon"></use>
+            </svg>
+          </button>
+          <button class="banner__arrow banner__arrow--right" data-glide-dir=">">
+            <svg width="10" height="16">
+              <use xlink:href="#more-icon"></use>
+            </svg>
+          </button>
+        </div>
+
+        <div class="banner__bullets" data-glide-el="controls[nav]">
+          @foreach ($data['banners'] as $key => $banner)
+            <button class="banner__bullet" data-glide-dir="={{ $key }}"></button>
           @endforeach
-          @if ($data['banners']->count() == 0)
-            <li class="banner__slide glide__slide">
-              <div class="banner__content container"></div>
-            </li>
-          @endif
-        </ul>
+        </div>
       </div>
-
-      <div class="banner__arrows glide__arrows container" data-glide-el="controls">
-        <button class="banner__arrow banner__arrow--left" data-glide-dir="<">
-          <svg width="10" height="16">
-            <use xlink:href="#more-icon"></use>
-          </svg>
-        </button>
-        <button class="banner__arrow banner__arrow--right" data-glide-dir=">">
-          <svg width="10" height="16">
-            <use xlink:href="#more-icon"></use>
-          </svg>
-        </button>
-      </div>
-
-      <div class="banner__bullets" data-glide-el="controls[nav]">
-        @foreach ($data['banners'] as $key => $banner)
-          <button class="banner__bullet" data-glide-dir="={{ $key }}"></button>
-        @endforeach
-      </div>
-    </div>
+    @endif
 
     <div class="main-page__grid container">
       <div class="about-creston" style="background-image: linear-gradient(rgba(24, 156, 216, 0.8), rgba(24, 156, 216, 0.8)), url('/files/main-about-bg.jpg')">
-        <div data-content="main-page-about-{{ $locale }}">{!! $data['main-page-about-' . $locale] !!}</div>
+        <div class="about-creston__content" data-content="main-page-about-{{ $locale }}">{!! $data['main-page-about-' . $locale] !!}</div>
       </div>
 
       <div class="our-experience">
-        <div data-content="main-page-experience-{{ $locale }}">{!! $data['main-page-experience-' . $locale] !!}</div>
+        <div class="our-experience__content" data-content="main-page-experience-{{ $locale }}">{!! $data['main-page-experience-' . $locale] !!}</div>
       </div>
     </div>
 
@@ -61,12 +58,12 @@
     <section class="advantage-provide">
       <div class="advantage-provide__container container">
         <div class="advantage-provide__img" style="background-image: url('/files/advantage-provide.jpg')"></div>
-        <div data-content="main-page-advantage-{{ $locale }}">{!! $data['main-page-advantage-' . $locale] !!}</div>
+        <div class="our-experience__content" data-content="main-page-advantage-{{ $locale }}">{!! $data['main-page-advantage-' . $locale] !!}</div>
       </div>
     </section>
 
     <section class="our-partners container">
-      <div data-content="our-partners-{{ $locale }}">{!! $data['our-partners-' . $locale] !!}</div>
+      <div class="our-partners__content" data-content="our-partners-{{ $locale }}">{!! $data['our-partners-' . $locale] !!}</div>
 
       <div class="partner-glide glide">
         <div class="partner-glide__track glide__track" data-glide-el="track">
@@ -85,7 +82,7 @@
 
     <section class="last-news">
       <div class="container">
-        <div data-content="main-page-news-{{ $locale }}">{!! $data['main-page-news-' . $locale] !!}</div>
+        <div class="last-news__content" data-content="main-page-news-{{ $locale }}">{!! $data['main-page-news-' . $locale] !!}</div>
 
         <div class="last-news__news">
           @foreach ($data['last-news'] as $news)

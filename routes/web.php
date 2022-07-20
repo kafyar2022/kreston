@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashController;
 use App\Http\Controllers\DirectionController;
@@ -48,5 +49,12 @@ Route::group(['prefix' => '{locale}'], function () {
     Route::get('/dashboard', [DashController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/toggle-state', [DashController::class, 'toggleState']);
     Route::get('/dashboard/toggle-mode', [DashController::class, 'toggleMode'])->name('mode');
+
+    Route::get('/banners', [BannerController::class, 'index'])->name('banners');
+    Route::get('/banners/create', [BannerController::class, 'create'])->name('banners.create');
+    Route::post('/banners/store', [BannerController::class, 'store'])->name('banners.store');
+    Route::get('/banners/edit', [BannerController::class, 'edit'])->name('banners.edit');
+    Route::get('/banners/update', [BannerController::class, 'update'])->name('banners.update');
+    Route::get('/banners/delete', [BannerController::class, 'delete'])->name('banners.delete');
   });
 });
