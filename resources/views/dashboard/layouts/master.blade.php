@@ -30,7 +30,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="{{ asset('simditor/module.js') }}"></script>
   <script src="{{ asset('simditor/hotkeys.js') }}"></script>
-  <script src="{{ asset('simditor/hotkeys.js') }}"></script>
+  <script src="{{ asset('simditor/uploader.js') }}"></script>
   <script src="{{ asset('simditor/simditor.js') }}"></script>
   <script src="{{ asset('js/admin.js') }}" type="module"></script>
   @yield('script')

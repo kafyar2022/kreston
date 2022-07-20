@@ -158,10 +158,10 @@ Module = (function() {
   };
 
   Module.i18n = {
-    'ru-Ru': {}
+    'ru-RU': {}
   };
 
-  Module.locale = 'ru-Ru';
+  Module.locale = 'ru-RU';
 
   return Module;
 

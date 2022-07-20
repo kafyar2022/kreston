@@ -242,7 +242,7 @@ Uploader = (function(superClass) {
 
   Uploader.i18n = {
     'ru-RU': {
-      leaveConfirm: 'Загрузка файла, если вы откажетесь, загрузка будет автоматически отменена'
+      leaveConfirm: '正在上传文件，如果离开上传会自动取消'
     }
   };
 
