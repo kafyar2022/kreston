@@ -16,9 +16,9 @@ class AuthCheck
    */
   public function handle(Request $request, Closure $next)
   {
-    if (!session()->has('loggedUser') && $request->path() != 'ru/auth/login' && $request->path() != 'en/auth/login') {
+    if (!session()->has('loggedUser') && $request->path() != 'auth/login' && $request->path() != 'auth/login') {
 
-      return redirect(route('auth.login', $request->locale))->with('fail', 'Вы должны быть зарегистрированы');
+      return redirect(route('auth.login'))->with('fail', 'Вы должны быть зарегистрированы');
     }
 
     $response = $next($request);

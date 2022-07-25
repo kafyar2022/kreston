@@ -56,7 +56,7 @@ const initLoginForm = () => {
               passwordFailEl.textContent = 'Неверный пароль';
               break;
             case Message.SUCCESS:
-              window.location.href = '/ru/dashboard';
+              window.location.href = '/';
               break;
           }
           submitEl.innerHTML = 'Войти<svg class="login-form__submit-icon" width="10" height="16"><use xlink:href="#more-icon"></use></svg>';

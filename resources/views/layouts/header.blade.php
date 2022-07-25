@@ -1,15 +1,37 @@
 <header class="page-header">
   <div class="container" style="position: relative">
     <ul class="page-header__locale-list locale-list locale-list--hidden">
-      @foreach (config('app.locales') as $lang)
-        <li class="locale-list__item @if ($locale == $lang['locale']) locale-list__item--current @endif">
-          <a class="locale-list__link" @if ($locale != $lang['locale']) href="{{ route($route, ['locale' => $lang['locale'], 'slug' => request('slug')]) }}" @endif>{{ $lang['title'] }}</a>
-          @if ($locale == $lang['locale'])
-            <svg class="locale-list__icon" width="12" height="8">
-              <use xlink:href="#arrow-down"></use>
-            </svg>
+      @foreach (config('app.available_locales') as $lang)
+        @if ($locale == config('app.fallback_locale'))
+          <li class="locale-list__item @if ($locale == $lang['locale']) locale-list__item--current @endif">
+            <a class="locale-list__link" @if ($locale != $lang['locale']) href="/{{ $lang['locale'] . '/' . request()->path() }}" @endif>{{ $lang['title'] }}</a>
+            @if ($locale == $lang['locale'])
+              <svg class="locale-list__icon" width="12" height="8">
+                <use xlink:href="#arrow-down"></use>
+              </svg>
+            @endif
+          </li>
+        @else
+          @if ($lang['locale'] == config('app.fallback_locale'))
+            <li class="locale-list__item @if ($locale == $lang['locale']) locale-list__item--current @endif">
+              <a class="locale-list__link" @if ($locale != $lang['locale']) href="/{{ substr(request()->path(), 3) }}" @endif>{{ $lang['title'] }}</a>
+              @if ($locale == $lang['locale'])
+                <svg class="locale-list__icon" width="12" height="8">
+                  <use xlink:href="#arrow-down"></use>
+                </svg>
+              @endif
+            </li>
+          @else
+            <li class="locale-list__item @if ($locale == $lang['locale']) locale-list__item--current @endif">
+              <a class="locale-list__link" @if ($locale != $lang['locale']) href="/{{ $lang['locale'] . '/' . substr(request()->path(), 3) }}" @endif>{{ $lang['title'] }}</a>
+              @if ($locale == $lang['locale'])
+                <svg class="locale-list__icon" width="12" height="8">
+                  <use xlink:href="#arrow-down"></use>
+                </svg>
+              @endif
+            </li>
           @endif
-        </li>
+        @endif
       @endforeach
     </ul>
   </div>
@@ -20,16 +42,16 @@
         <a class="top-nav-list__link" href="https://www.kreston.com/" target="_blank">@lang('Kreston Global')</a>
       </li>
       <li class="top-nav-list__item @if ($route == 'news' || $route == 'news.show') top-nav-list__item--current @endif">
-        <a class="top-nav-list__link" @if ($route != 'news') href="{{ route('news', $locale) }}" @endif>@lang('Новости Kreston AC')</a>
+        <a class="top-nav-list__link" @if ($route != 'news') href="{{ route('news') }}" @endif>@lang('Новости Kreston AC')</a>
       </li>
       <li class="top-nav-list__item @if ($route == 'regulations') top-nav-list__item--current @endif">
-        <a class="top-nav-list__link" @if ($route != 'regulations') href="{{ route('regulations', $locale) }}" @endif>@lang('Нормативные документы')</a>
+        <a class="top-nav-list__link" @if ($route != 'regulations') href="{{ route('regulations') }}" @endif>@lang('Нормативные документы')</a>
       </li>
     </ul>
   </div>
 
   <div class="page-header__container container">
-    <a class="page-header__logo" @if ($route != 'main') href="{{ route('main', $locale) }}" @endif>
+    <a class="page-header__logo" @if ($route != 'main') href="{{ route('main') }}" @endif>
       <img src="{{ asset('img/logo.svg') }}" alt="@lang('Логотип Kreston AC')" width="172" height="82">
     </a>
 
@@ -75,13 +97,13 @@
 
           <ul class="page-nav__extra-list page-nav__extra-list--hidden">
             <li class="page-nav__extra-item @if ($route == 'about') page-nav__extra-item--current @endif">
-              <a class="page-nav__link" @if ($route != 'about') href="{{ route('about', $locale) }}" @endif>@lang('О нашей компании')</a>
+              <a class="page-nav__link" @if ($route != 'about') href="{{ route('about') }}" @endif>@lang('О нашей компании')</a>
             </li>
             <li class="page-nav__extra-item @if ($route == 'about.advantage') page-nav__extra-item--current @endif">
-              <a class="page-nav__link" @if ($route != 'about.advantage') href="{{ route('about.advantage', $locale) }}" @endif>@lang('Наши преимущества')</a>
+              <a class="page-nav__link" @if ($route != 'about.advantage') href="{{ route('about.advantage') }}" @endif>@lang('Наши преимущества')</a>
             </li>
             <li class="page-nav__extra-item @if ($route == 'about.team') page-nav__extra-item--current @endif">
-              <a class="page-nav__link" @if ($route != 'about.team') href="{{ route('about.team', $locale) }}" @endif>@lang('Наша команда')</a>
+              <a class="page-nav__link" @if ($route != 'about.team') href="{{ route('about.team') }}" @endif>@lang('Наша команда')</a>
             </li>
           </ul>
         </li>
@@ -165,11 +187,11 @@
         </li>
 
         <li class="page-nav__item">
-          <a class="page-nav__link @if ($route == 'experience') page-nav__link--current @endif" @if ($route != 'experience') href="{{ route('experience', $locale) }}" @endif>@lang('Наш опыт')</a>
+          <a class="page-nav__link @if ($route == 'experience') page-nav__link--current @endif" @if ($route != 'experience') href="{{ route('experience') }}" @endif>@lang('Наш опыт')</a>
         </li>
 
         <li class="page-nav__item">
-          <a class="page-nav__link @if ($route == 'contacts') page-nav__link--current @endif" @if ($route != 'contacts') href="{{ route('contacts', $locale) }}" @endif>@lang('Контакты')</a>
+          <a class="page-nav__link @if ($route == 'contacts') page-nav__link--current @endif" @if ($route != 'contacts') href="{{ route('contacts') }}" @endif>@lang('Контакты')</a>
         </li>
       </ul>
     </div>

@@ -8,8 +8,10 @@ use Illuminate\Http\Request;
 
 class ExperienceController extends Controller
 {
-  public function index($locale)
+  public function index()
   {
+    $locale = app()->getLocale();
+    
     $data = Helper::getContents($locale, 'experience');
 
     $data['partners'] = Partner::where('locale', $locale)

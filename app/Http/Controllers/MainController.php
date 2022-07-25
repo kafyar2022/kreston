@@ -9,8 +9,10 @@ use App\Models\Partner;
 
 class MainController extends Controller
 {
-  public function index($locale)
+  public function index()
   {
+    $locale = app()->getLocale();
+    
     $data = Helper::getContents($locale, 'main');
 
     $data['banners'] = Banner::where('locale', $locale)

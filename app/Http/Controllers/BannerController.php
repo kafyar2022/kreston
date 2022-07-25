@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 
 class BannerController extends Controller
 {
-  public function index($locale)
+  public function index()
   {
+    $locale = app()->getLocale();
+
     $data['banners'] = Banner::where('locale', $locale)
       ->orderBy('id', 'asc')
       ->get();

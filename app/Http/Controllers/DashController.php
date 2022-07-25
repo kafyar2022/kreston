@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class DashController extends Controller
 {
-  public function index($locale)
+  public function index()
   {
-    return redirect(route('main', $locale));
+    return redirect(route('main'));
   }
 
   public function toggleState()

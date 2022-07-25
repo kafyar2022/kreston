@@ -37,13 +37,13 @@ class AuthController extends Controller
     }
   }
 
-  public function logout($locale)
+  public function logout()
   {
     if (session()->has('loggedUser')) {
       session()->pull('loggedUser');
       session()->pull('dashboard');
       session()->put('editMode');
-      return redirect(route('main', $locale));
+      return redirect(route('main'));
     }
   }
 }

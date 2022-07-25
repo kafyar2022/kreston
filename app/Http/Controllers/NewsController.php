@@ -8,8 +8,10 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-  public function index($locale)
+  public function index()
   {
+    $locale = app()->getLocale();
+
     $data = Helper::getContents($locale, 'news');
 
     $data['news'] = News::where('locale', $locale)
@@ -19,8 +21,10 @@ class NewsController extends Controller
     return view('pages.news.index', compact('data'));
   }
 
-  public function show($locale, $slug)
+  public function show($slug)
   {
+    $locale = app()->getLocale();
+
     $data = Helper::getContents($locale, 'news.show');
 
     $data['news'] = News::where('slug', $slug)

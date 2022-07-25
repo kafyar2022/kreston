@@ -24,9 +24,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('/', '/ru');
-
-Route::group(['prefix' => '{locale}'], function () {
+Route::prefix(parseLocale())->group(function () {
   Route::get('/', [MainController::class, 'index'])->name('main');
 
   Route::get('/news', [NewsController::class, 'index'])->name('news');
@@ -40,21 +38,34 @@ Route::group(['prefix' => '{locale}'], function () {
   Route::get('/directions/{slug}', [DirectionController::class, 'index'])->name('directions');
   Route::get('/experience', [ExperienceController::class, 'index'])->name('experience');
   Route::get('/contacts', [ContactController::class, 'index'])->name('contacts');
-
-  Route::post('/auth/check', [AuthController::class, 'check'])->name('auth.check');
-  Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
-  Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
-
-  Route::group(['middleware' => ['AuthCheck']], function () {
-    Route::get('/dashboard', [DashController::class, 'index'])->name('dashboard');
-    Route::get('/dashboard/toggle-state', [DashController::class, 'toggleState']);
-    Route::get('/dashboard/toggle-mode', [DashController::class, 'toggleMode'])->name('mode');
-
-    Route::get('/banners', [BannerController::class, 'index'])->name('banners');
-    Route::get('/banners/create', [BannerController::class, 'create'])->name('banners.create');
-    Route::post('/banners/store', [BannerController::class, 'store'])->name('banners.store');
-    Route::get('/banners/edit', [BannerController::class, 'edit'])->name('banners.edit');
-    Route::get('/banners/update', [BannerController::class, 'update'])->name('banners.update');
-    Route::get('/banners/delete', [BannerController::class, 'delete'])->name('banners.delete');
-  });
 });
+
+Route::post('/auth/check', [AuthController::class, 'check'])->name('auth.check');
+Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
+Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
+
+Route::group(['middleware' => ['AuthCheck']], function () {
+  Route::get('/dashboard', [DashController::class, 'index'])->name('dashboard');
+  Route::get('/dashboard/toggle-state', [DashController::class, 'toggleState']);
+  Route::get('/dashboard/toggle-mode', [DashController::class, 'toggleMode'])->name('mode');
+
+  Route::get('/banners', [BannerController::class, 'index'])->name('banners');
+  Route::get('/banners/create', [BannerController::class, 'create'])->name('banners.create');
+  Route::post('/banners/store', [BannerController::class, 'store'])->name('banners.store');
+  Route::get('/banners/edit', [BannerController::class, 'edit'])->name('banners.edit');
+  Route::get('/banners/update', [BannerController::class, 'update'])->name('banners.update');
+  Route::get('/banners/delete', [BannerController::class, 'delete'])->name('banners.delete');
+});
+
+
+function parseLocale()
+{
+  $locale = request()->segment(1);
+  $locales = ['ru', 'en'];
+  $default = config('app.fallback_locale');
+
+  if ($locale !== $default && in_array($locale, $locales)) {
+    app()->setLocale($locale);
+    return $locale;
+  }
+}
