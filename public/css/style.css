@@ -352,6 +352,15 @@ img {
 a {
   text-decoration: none;
 }
+table {
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 4px 8px;
+  min-width: 16px;
+  border: 1px solid;
+}
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -1234,7 +1243,6 @@ a {
 .about-creston {
   position: relative;
   padding: 32px;
-  color: #fff;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1243,6 +1251,7 @@ a {
 }
 .about-creston__content {
   position: relative;
+  color: #fff;
 }
 .about-creston__content h2 {
   font-size: 20px;

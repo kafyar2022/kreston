@@ -34,10 +34,14 @@ class ContentManager {
       toolbar: [
         'title',
         'bold',
+        'italic',
+        'underline',
+        'strikethrough',
         'fontScale',
         'color',
         'ol',
         'ul',
+        'blockquote',
         'table',
         'link',
         'hr',
@@ -46,7 +50,8 @@ class ContentManager {
         'alignment',
       ]
     });
-    console.log(this.#simditor);
+    this.#simditor.body[0].classList.add(this.#element.classList[0]);
+    this.#simditor.body[0].setAttribute('style', 'outline: 1px solid #959595');
   };
 
   destroy = () => {
