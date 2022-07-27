@@ -6,7 +6,7 @@
 
 @section('content')
   <main class="contacts-page container">
-    <div class="contacts-page__content" data-content="contacts-page-content-{{ $locale }}">
+    <div class="contacts-page__content content" data-content="contacts-page-content-{{ $locale }}">
       <h1>Контакты</h1>
       <p>Вы можете с нами связаться по телефону или электронной <br>
         почте, а также рады будем вас приветствовать в нашем офисе за <br>

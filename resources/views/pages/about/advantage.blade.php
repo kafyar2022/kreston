@@ -11,15 +11,15 @@
 
     <div class="advantage-page__grid container">
       <section class="advantage-page__grid-item">
-        <div data-content="advantage-page-advantages-{{ $locale }}">{!! $data['advantage-page-advantages-' . $locale] !!}</div>
+        <div class="content" data-content="advantage-page-advantages-{{ $locale }}">{!! $data['advantage-page-advantages-' . $locale] !!}</div>
       </section>
 
       <section class="advantage-page__grid-item">
-        <div data-content="advantage-page-warranty-{{ $locale }}">{!! $data['advantage-page-warranty-' . $locale] !!}</div>
+        <div class="content" data-content="advantage-page-warranty-{{ $locale }}">{!! $data['advantage-page-warranty-' . $locale] !!}</div>
       </section>
     </div>
 
-    <div class="advantage-page__content container" data-content="advantage-page-content-{{ $locale }}">{!! $data['advantage-page-content-' . $locale] !!}</div>
+    <div class="advantage-page__content content container" data-content="advantage-page-content-{{ $locale }}">{!! $data['advantage-page-content-' . $locale] !!}</div>
 
     <section class="feedback feedback--no-icon container">
       <x-feedback-form />

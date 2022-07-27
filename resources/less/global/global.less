@@ -14,17 +14,6 @@ a {
   text-decoration: none;
 }
 
-table {
-  border-collapse: collapse;
-}
-
-th,
-td {
-  padding: 4px 8px;
-  min-width: 16px;
-  border: 1px solid;
-}
-
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -40,10 +29,10 @@ td {
 }
 
 .container {
+  position: relative;
   width: 100%;
-  max-width: 1280px;
+  max-width: @desktop-width - 128px;
   margin: 0 auto;
-  padding: 0 64px;
 
   @media (max-width: (@desktop-width - 1px)) {
     max-width: @tablet-width;
@@ -56,12 +45,14 @@ td {
   }
 }
 
+// Mixins
+
 .title() {
   margin-top: 0;
-  margin-bottom: 16px;
   font-weight: 600;
   font-size: 20px;
   line-height: 1.4;
+  margin-bottom: 8px;
 }
 
 .button() {

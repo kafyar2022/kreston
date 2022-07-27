@@ -43,7 +43,7 @@ class ContentSeeder extends Seeder
       [
         'slug' => 'main-page-news',
         'page' => 'main',
-        'content' => '<h2>Наши новости</h2><p>Актуальные новости касающиеся <br> нашей деятельности <a href="#">Все новости</a></p>',
+        'content' => '<h2>Наши новости</h2><p>Актуальные новости касающиеся <br> нашей деятельности</p>',
       ],
       [
         'slug' => 'about-page-content',

@@ -23,7 +23,7 @@
   @include('layouts.sprites')
 
   <main class="login-page">
-    <form class="login-form" action="{{ route('auth.check', $locale) }}" method="post">
+    <form class="login-form" action="{{ route('auth.check') }}" method="post">
       <h1 class="login-form__title">Вход</h1>
       @csrf
       <div class="login-form__element login-form__element--login">

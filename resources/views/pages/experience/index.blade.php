@@ -6,19 +6,23 @@
 
 @section('content')
   <main class="experience-page">
-    <div class="experience-page__content container" data-content="experience-page-content-{{ $locale }}">{!! $data['experience-page-content-' . $locale] !!}</div>
+    <div class="experience-page__content content container" data-content="experience-page-content-{{ $locale }}">{!! $data['experience-page-content-' . $locale] !!}</div>
     <div class="experience-page__img" style="background-image: url('/files/experience-page-img.jpg')"></div>
 
     <section class="industry-experience container">
-      <div class="industry-experience__top" data-content="industry-experience-top-{{ $locale }}">{!! $data['industry-experience-top-' . $locale] !!}</div>
-
-      <div class="industry-experience__left" data-content="industry-experience-left-{{ $locale }}">{!! $data['industry-experience-left-' . $locale] !!}</div>
-
-      <div class="industry-experience__right" data-content="industry-experience-right-{{ $locale }}">{!! $data['industry-experience-right-' . $locale] !!}</div>
+      <div class="industry-experience__top">
+        <div class="content" data-content="industry-experience-top-{{ $locale }}">{!! $data['industry-experience-top-' . $locale] !!}</div>
+      </div>
+      <div class="industry-experience__left">
+        <div class="content" data-content="industry-experience-left-{{ $locale }}">{!! $data['industry-experience-left-' . $locale] !!}</div>
+      </div>
+      <div class="industry-experience__right">
+        <div class="content" data-content="industry-experience-right-{{ $locale }}">{!! $data['industry-experience-right-' . $locale] !!}</div>
+      </div>
     </section>
 
     <section class="our-partners container">
-      <div data-content="our-partners-{{ $locale }}">{!! $data['our-partners-' . $locale] !!}</div>
+      <div class="our-partners__content content" data-content="our-partners-{{ $locale }}">{!! $data['our-partners-' . $locale] !!}</div>
 
       <ul class="our-partners__list">
         @foreach ($data['partners'] as $partner)

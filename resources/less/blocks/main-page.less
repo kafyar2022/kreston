@@ -13,3 +13,72 @@
     gap: 16px;
   }
 }
+
+.main-page__grid-item {
+  position: relative;
+  padding: 32px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 8px;
+  color: @basic-white;
+  box-shadow: 0px 74px 80px rgba(115, 115, 115, 0.13),
+    0px 47.963px 46.8519px rgba(115, 115, 115, 0.0987037),
+    0px 28.5037px 25.4815px rgba(115, 115, 115, 0.078963),
+    0px 14.8px 13px rgba(115, 115, 115, 0.065),
+    0px 6.02963px 6.51852px rgba(115, 115, 115, 0.051037),
+    0px 1.37037px 3.14815px rgba(115, 115, 115, 0.0312963);
+
+  &:last-of-type {
+    background-color: @secondary-color;
+  }
+}
+
+.main-page__provide {
+  background-color: @primary-color;
+  color: @basic-white;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-image: url("../../files/advantage-provide-after.svg");
+}
+
+.main-page__provide-container {
+  display: grid;
+  grid-template-columns: 660px 1fr;
+  align-items: center;
+  column-gap: 120px;
+}
+
+.main-page__provide-img {
+  min-height: 370px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
+
+.main-page__news {
+  background-color: @secondary-color;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  color: @basic-white;
+}
+
+.main-page__news-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+
+.main-page__link {
+  .button();
+  position: absolute;
+  right: 0;
+  top: 29px;
+}

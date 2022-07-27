@@ -1,5 +1,3 @@
-import { debounce } from './util.js';
-
 const dashboardEl = document.querySelector('.dashboard');
 const dashboardToggleEl = dashboardEl.querySelector('.dashboard__state-toggle');
 

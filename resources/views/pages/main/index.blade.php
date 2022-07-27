@@ -44,26 +44,26 @@
     @endif
 
     <div class="main-page__grid container">
-      <div class="about-creston" style="background-image: linear-gradient(rgba(24, 156, 216, 0.8), rgba(24, 156, 216, 0.8)), url('/files/main-about-bg.jpg')">
-        <div class="about-creston__content" data-content="main-page-about-{{ $locale }}">{!! $data['main-page-about-' . $locale] !!}</div>
+      <div class="main-page__grid-item" style="background-image: linear-gradient(rgba(24, 156, 216, 0.8), rgba(24, 156, 216, 0.8)), url('/files/main-about-bg.jpg')">
+        <div class="content" data-content="main-page-about-{{ $locale }}">{!! $data['main-page-about-' . $locale] !!}</div>
       </div>
 
-      <div class="our-experience">
-        <div class="our-experience__content" data-content="main-page-experience-{{ $locale }}">{!! $data['main-page-experience-' . $locale] !!}</div>
+      <div class="main-page__grid-item">
+        <div class="content" data-content="main-page-experience-{{ $locale }}">{!! $data['main-page-experience-' . $locale] !!}</div>
       </div>
     </div>
 
     <x-company-in-numbers :locale="$locale" :data="$data" />
 
-    <section class="advantage-provide">
-      <div class="advantage-provide__container container">
-        <div class="advantage-provide__img" style="background-image: url('/files/advantage-provide.jpg')"></div>
-        <div class="our-experience__content" data-content="main-page-advantage-{{ $locale }}">{!! $data['main-page-advantage-' . $locale] !!}</div>
+    <section class="main-page__provide">
+      <div class="main-page__provide-container container">
+        <div class="main-page__provide-img" style="background-image: url('/files/advantage-provide.jpg')"></div>
+        <div class="content" data-content="main-page-advantage-{{ $locale }}">{!! $data['main-page-advantage-' . $locale] !!}</div>
       </div>
     </section>
 
     <section class="our-partners container">
-      <div class="our-partners__content" data-content="our-partners-{{ $locale }}">{!! $data['our-partners-' . $locale] !!}</div>
+      <div class="our-partners__content content" data-content="our-partners-{{ $locale }}">{!! $data['our-partners-' . $locale] !!}</div>
 
       <div class="partner-glide glide">
         <div class="partner-glide__track glide__track" data-glide-el="track">
@@ -80,15 +80,17 @@
       </div>
     </section>
 
-    <section class="last-news">
+    <section class="main-page__news">
       <div class="container">
-        <div class="last-news__content" data-content="main-page-news-{{ $locale }}">{!! $data['main-page-news-' . $locale] !!}</div>
+        <div class="content" data-content="main-page-news-{{ $locale }}">{!! $data['main-page-news-' . $locale] !!}</div>
 
-        <div class="last-news__news">
+        <div class="main-page__news-list">
           @foreach ($data['last-news'] as $news)
             <x-news-card :news="$news" />
           @endforeach
         </div>
+
+        <a class="main-page__link" href="{{ route('news') }}">@lang('Все новости')</a>
       </div>
     </section>
 
