@@ -45,6 +45,24 @@ a {
   }
 }
 
+.modal {
+  color: @basic-white;
+  padding: 8px 16px;
+
+  &--fail {
+    background-color: lighten(@error, 20%);
+  }
+
+  &--success {
+    background-color: lighten(@success, 35%);
+    color: darken(@success, 25%);
+  }
+
+  &--hidden {
+    display: none;
+  }
+}
+
 // Mixins
 
 .title() {

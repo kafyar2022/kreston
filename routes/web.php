@@ -53,9 +53,9 @@ Route::group(['middleware' => ['AuthCheck']], function () {
   Route::get('/banners', [BannerController::class, 'index'])->name('banners');
   Route::get('/banners/create', [BannerController::class, 'create'])->name('banners.create');
   Route::post('/banners/store', [BannerController::class, 'store'])->name('banners.store');
-  Route::get('/banners/edit', [BannerController::class, 'edit'])->name('banners.edit');
-  Route::get('/banners/update', [BannerController::class, 'update'])->name('banners.update');
-  Route::get('/banners/delete', [BannerController::class, 'delete'])->name('banners.delete');
+  Route::get('/banners/edit/{banner}', [BannerController::class, 'edit'])->name('banners.edit');
+  Route::post('/banners/update', [BannerController::class, 'update'])->name('banners.update');
+  Route::get('/banners/delete/{id}', [BannerController::class, 'delete'])->name('banners.delete');
 });
 
 
