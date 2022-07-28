@@ -1,7 +1,9 @@
 import { createElement } from './util.js';
 
 const Template = {
-  EDIT_BUTTON: '<button class="action action--edit">редактировать</button>'
+  EDIT_BUTTON: '<button class="action action--edit">редактировать</button>',
+  SAVE_BUTTON: '<button class="action action--save">сохранить</button>',
+  CANCEL_BUTTON: '<button class="action action--cancel">отмена</button>',
 };
 
 class ContentManager {
@@ -15,6 +17,7 @@ class ContentManager {
 
   init = () => {
     const contentEl = this.#editButtonEl.parentElement;
+    contentEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
     contentEl.removeAttribute('style');
     this.#editButtonEl.remove();
     this.#editButtonEl = null;
@@ -30,7 +33,7 @@ class ContentManager {
     this.#element.replaceWith(this.#textareaEl);
     this.#simditor = new Simditor({
       textarea: this.#textareaEl,
-      placeholder: 'Поле объязательно для заполнения',
+      // placeholder: 'Поле объязательно для заполнения',
       toolbar: [
         'title',
         'bold',
@@ -52,6 +55,47 @@ class ContentManager {
     });
     this.#simditor.body[0].classList.add(this.#element.classList[0]);
     this.#simditor.body[0].setAttribute('style', 'outline: 1px solid #959595');
+
+    const cancelButtonEl = createElement(Template.CANCEL_BUTTON);
+    const saveButtonEl = createElement(Template.SAVE_BUTTON);
+    saveButtonEl.setAttribute('disabled', 'disabled');
+    this.#simditor.body[0].insertAdjacentElement('beforebegin', cancelButtonEl);
+    this.#simditor.el[0].append(saveButtonEl);
+    this.#simditor.on('valuechanged', () => {
+      if (this.#simditor.getValue() === this.#element.innerHTML) {
+        saveButtonEl.setAttribute('disabled', 'disabled');
+        this.#simditor.body[0].setAttribute('style', 'outline: 1px solid #959595;')
+        this.#isEditted = false;
+      } else {
+        saveButtonEl.removeAttribute('disabled');
+        this.#simditor.body[0].setAttribute('style', 'outline: 1px solid #00D72F;')
+        this.#isEditted = true;
+      }
+    });
+
+    cancelButtonEl.addEventListener('click', () => this.destroy());
+    saveButtonEl.addEventListener('click', () => {
+      // if (this.#simditor.body[0].textContent.length === 0) {
+        // this.shake();
+        // return;
+      // }
+      saveButtonEl.textContent = 'Сохранение...';
+      fetch('/contents/update', {
+        headers: {
+          'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        },
+        method: 'post',
+        body: JSON.stringify({
+          slug: this.#element.dataset.content,
+          content: this.#simditor.getValue(),
+        }),
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          this.#element.innerHTML = response.content;
+          this.destroy();
+        });
+    });
   };
 
   destroy = () => {
@@ -60,10 +104,15 @@ class ContentManager {
     this.#element = null;
     this.#textareaEl = null;
     this.#simditor = null;
+    this.#isEditted = false;
   };
 
   shake = () => {
-    console.log('shaked');
+    this.#simditor.body[0].scrollIntoView({ block: 'center' });
+    this.#simditor.el[0].classList.add('shake');
+    setTimeout(() => {
+      this.#simditor.el[0].classList.remove('shake');
+    }, 600);
   };
 
 

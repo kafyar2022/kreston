@@ -7,7 +7,9 @@
 @section('content')
   <main class="news-page">
     <div class="container">
-      <div class="news-page__content content" data-content="news-page-content-{{ $locale }}">{!! $data['news-page-content-' . $locale] !!}</div>
+      <div class="news-page__content">
+        <div class="content" data-content="news-page-content-{{ $locale }}">{!! $data['news-page-content-' . $locale] !!}</div>
+      </div>
 
       <div class="news-page__news" id="news">
         @foreach ($data['news'] as $news)

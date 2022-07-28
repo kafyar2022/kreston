@@ -1,7 +1,9 @@
 @props(['locale', 'data'])
 
 <section class="company-in-numbers container">
-  <div class="company-in-numbers__content content" data-content="company-in-numbers-{{ $locale }}">{!! $data['company-in-numbers-' . $locale] !!}</div>
+  <div class="company-in-numbers__content">
+    <div class="content" data-content="company-in-numbers-{{ $locale }}">{!! $data['company-in-numbers-' . $locale] !!}</div>
+  </div>
 
   <ul class="value-list">
     <li class="value-list__item">

@@ -6,7 +6,9 @@
 
 @section('content')
   <main class="regulations-page container">
-    <div class="regulations-page__content content" data-content="regulations-page-content-{{ $locale }}">{!! $data['regulations-page-content-' . $locale] !!}</div>
+    <div class="regulations-page__content">
+      <div class="content" data-content="regulations-page-content-{{ $locale }}">{!! $data['regulations-page-content-' . $locale] !!}</div>
+    </div>
 
     <ul class="accordion-menu">
       <li class="accordion-menu__item">

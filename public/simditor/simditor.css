@@ -165,14 +165,9 @@
 .simditor .simditor-wrapper .simditor-placeholder {
   display: none;
   position: absolute;
-  left: 0;
+  left: 4px;
   z-index: 0;
-  padding: 22px 15px;
-  font-size: 16px;
-  font-family: arial, sans-serif;
-  line-height: 1.5;
-  color: #999999;
-  background: transparent;
+  color: red;
 }
 
 .simditor .simditor-wrapper .simditor-image-loading {
@@ -259,6 +254,7 @@
   top: calc(100% + 8px) !important;
   box-shadow: 0 2px 6px #959595;
   z-index: 5;
+  min-width: 230px;
 }
 
 .simditor .simditor-toolbar>ul {
@@ -582,7 +578,8 @@
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
   border-radius: 2px;
   position: absolute;
-  z-index: 2;
+  z-index: 5;
+  color: #333333;
 }
 
 .simditor .simditor-popover .settings-field {

@@ -6,7 +6,9 @@
 
 @section('content')
   <main class="experience-page">
-    <div class="experience-page__content content container" data-content="experience-page-content-{{ $locale }}">{!! $data['experience-page-content-' . $locale] !!}</div>
+    <div class="experience-page__content container">
+      <div class="content" data-content="experience-page-content-{{ $locale }}">{!! $data['experience-page-content-' . $locale] !!}</div>
+    </div>
     <div class="experience-page__img" style="background-image: url('/files/experience-page-img.jpg')"></div>
 
     <section class="industry-experience container">
@@ -22,7 +24,9 @@
     </section>
 
     <section class="our-partners container">
-      <div class="our-partners__content content" data-content="our-partners-{{ $locale }}">{!! $data['our-partners-' . $locale] !!}</div>
+      <div class="our-partners__content">
+        <div class="content" data-content="our-partners-{{ $locale }}">{!! $data['our-partners-' . $locale] !!}</div>
+      </div>
 
       <ul class="our-partners__list">
         @foreach ($data['partners'] as $partner)

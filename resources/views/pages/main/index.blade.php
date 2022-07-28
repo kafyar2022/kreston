@@ -63,7 +63,9 @@
     </section>
 
     <section class="our-partners container">
-      <div class="our-partners__content content" data-content="our-partners-{{ $locale }}">{!! $data['our-partners-' . $locale] !!}</div>
+      <div class="our-partners__content">
+        <div class="content" data-content="our-partners-{{ $locale }}">{!! $data['our-partners-' . $locale] !!}</div>
+      </div>
 
       <div class="partner-glide glide">
         <div class="partner-glide__track glide__track" data-glide-el="track">

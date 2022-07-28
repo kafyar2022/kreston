@@ -19,7 +19,10 @@
       </section>
     </div>
 
-    <div class="advantage-page__content content container" data-content="advantage-page-content-{{ $locale }}">{!! $data['advantage-page-content-' . $locale] !!}</div>
+    <div class="advantage-page__content container">
+      <div class="content" data-content="advantage-page-content-left-{{ $locale }}">{!! $data['advantage-page-content-left-' . $locale] !!}</div>
+      <div class="content" data-content="advantage-page-content-right-{{ $locale }}">{!! $data['advantage-page-content-right-' . $locale] !!}</div>
+    </div>
 
     <section class="feedback feedback--no-icon container">
       <x-feedback-form />

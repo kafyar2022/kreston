@@ -7,19 +7,25 @@
 @section('content')
   <main class="team-page">
     <div class="team-page__container container">
-      <div class="team-page__content content" data-content="team-page-content-{{ $locale }}">{!! $data['team-page-content-' . $locale] !!}</div>
+      <div class="team-page__content">
+        <div class="content" data-content="team-page-content-{{ $locale }}">{!! $data['team-page-content-' . $locale] !!}</div>
+      </div>
 
       <section class="team-page__target" style="background-image: linear-gradient( rgba(24, 156, 216, 0.8), rgba(24, 156, 216, 0.8)), url('/files/team-page-target-bg.jpg')">
-        <div class="team-page__target-content content" data-content="team-page-target-{{ $locale }}">{!! $data['team-page-target-' . $locale] !!}</div>
+        <div class="team-page__target-content">
+          <div class="content" data-content="team-page-target-{{ $locale }}">{!! $data['team-page-target-' . $locale] !!}</div>
+        </div>
       </section>
     </div>
 
     <section class="team-page__specialists">
       <div class="container">
-        <div class="content" data-content="team-page-specialists-{{ $locale }}">{!! $data['team-page-specialists-' . $locale] !!}</div>
+        <div class="team-page__specialists-content">
+          <div class="content" data-content="team-page-specialists-{{ $locale }}">{!! $data['team-page-specialists-' . $locale] !!}</div>
+        </div>
 
         <ul class="team-page__specialist-list">
-          @foreach (range(1,8) as $key)
+          @foreach (range(1, 8) as $key)
             <li class="team-page__specialist-item">
               <x-specialist-card />
             </li>
@@ -30,7 +36,9 @@
 
     <section class="meta-section">
       <div class="container">
-        <div class="meta-section__content content" data-content="team-page-meta-{{ $locale }}">{!! $data['team-page-meta-' . $locale] !!}</div>
+        <div class="meta-section__content">
+          <div class="content" data-content="team-page-meta-{{ $locale }}">{!! $data['team-page-meta-' . $locale] !!}</div>
+        </div>
       </div>
     </section>
   </main>

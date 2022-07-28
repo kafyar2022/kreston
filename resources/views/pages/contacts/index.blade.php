@@ -6,11 +6,8 @@
 
 @section('content')
   <main class="contacts-page container">
-    <div class="contacts-page__content content" data-content="contacts-page-content-{{ $locale }}">
-      <h1>Контакты</h1>
-      <p>Вы можете с нами связаться по телефону или электронной <br>
-        почте, а также рады будем вас приветствовать в нашем офисе за <br>
-        чашечкой чая или кофе.</p>
+    <div class="contacts-page__content">
+      <div class="content" data-content="contacts-page-content-{{ $locale }}">{!! $data['contacts-page-content-' . $locale] !!}</div>
     </div>
 
     <div class="contacts-page__details">
@@ -56,10 +53,8 @@
       <div class="contacts-page__map" id="map"></div>
     </div>
 
-    <footer class="contacts-page__footer" data-content="contacts-page-footer">
-      <p>ООО “КРЕСТОН АС” <br>
-        Республика Таджикистан, 734025, <br>
-        г. Душанбе, ул. Пушкина, 10, офис 207.</p>
+    <footer class="contacts-page__footer" data-content="contacts-page-footer-{{ $locale }}">
+      <div class="content">{!! $data['contacts-page-footer-' . $locale] !!}</div>
     </footer>
   </main>
 @endsection

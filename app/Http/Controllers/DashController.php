@@ -31,4 +31,15 @@ class DashController extends Controller
 
     return back();
   }
+
+  public function updateContent(Request $request)
+  {
+    $content = Content::where('slug', $request->json('slug'))
+      ->first();
+
+    $content->content = $request->json('content');
+    $content->update();
+
+    return json_encode($content);
+  }
 }

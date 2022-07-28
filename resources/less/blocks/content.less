@@ -1,5 +1,7 @@
 .content {
   position: relative;
+  min-height: 22px;
+  width: 100%;
 
   h1,
   h2,
@@ -51,4 +53,8 @@
     min-width: 16px;
     border: 1px solid;
   }
+}
+
+.action--cancel:hover+.content {
+  outline: 1px solid @error  !important;
 }
