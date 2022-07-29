@@ -107,7 +107,7 @@ class TextsSeeder extends Seeder
     foreach ($texts as $text) {
       Text::create([
         'locale' => 'ru',
-        'slug' => $text['slug'] . '-ru',
+        'slug' => $text['slug'],
         'page' => $text['page'],
         'text' => $text['text'],
       ]);
