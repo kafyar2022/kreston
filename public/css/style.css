@@ -852,6 +852,11 @@ a {
   font-weight: 600;
   font-size: 20px;
   line-height: 1.4;
+  margin-bottom: 0;
+}
+.content h1:last-of-type,
+.content h2:last-of-type,
+.content h3:last-of-type {
   margin-bottom: 8px;
 }
 .content p {
@@ -1829,7 +1834,7 @@ a {
   font-weight: 600;
   font-size: 20px;
   line-height: 1.4;
-  margin-bottom: 8px;
+  margin-bottom: 0;
   margin-bottom: 16px;
   color: #243746;
 }
@@ -1902,7 +1907,7 @@ a {
   font-weight: 600;
   font-size: 20px;
   line-height: 1.4;
-  margin-bottom: 8px;
+  margin-bottom: 0;
   white-space: pre-line;
 }
 .certificate__description {
@@ -1939,6 +1944,7 @@ a {
   font-weight: 600;
   font-size: 20px;
   line-height: 1.4;
+  margin-bottom: 0;
   font-weight: 700;
   margin-bottom: 8px;
 }
@@ -2182,7 +2188,7 @@ a {
   font-weight: 600;
   font-size: 20px;
   line-height: 1.4;
-  margin-bottom: 8px;
+  margin-bottom: 0;
   margin-bottom: 16px;
   color: #243746;
 }
@@ -2444,6 +2450,10 @@ a {
   line-height: 1.4;
   font-weight: 700;
   margin-top: 0;
+  margin-bottom: 0;
+}
+.about-page__our-mission h1:last-of-type,
+.about-page__our-mission h2:last-of-type {
   margin-bottom: 16px;
 }
 .about-page__forum {
@@ -2523,6 +2533,10 @@ a {
   font-weight: 700;
   font-size: 34px;
   margin-top: 0;
+  margin-bottom: 0;
+}
+.team-page__target-content h1:last-of-type,
+.team-page__target-content h2:last-of-type {
   margin-bottom: 16px;
 }
 .team-page__specialists {
@@ -2580,7 +2594,7 @@ a {
   font-weight: 600;
   font-size: 20px;
   line-height: 1.4;
-  margin-bottom: 8px;
+  margin-bottom: 0;
   white-space: pre-line;
 }
 .news-show-page__links {

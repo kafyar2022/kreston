@@ -53,8 +53,8 @@
       <div class="contacts-page__map" id="map"></div>
     </div>
 
-    <footer class="contacts-page__footer" data-content="contacts-page-footer-{{ $locale }}">
-      <div class="content">{!! $data['contacts-page-footer-' . $locale] !!}</div>
+    <footer class="contacts-page__footer">
+      <div class="content" data-content="contacts-page-footer-{{ $locale }}">{!! $data['contacts-page-footer-' . $locale] !!}</div>
     </footer>
   </main>
 @endsection
