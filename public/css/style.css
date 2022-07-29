@@ -1700,9 +1700,11 @@ a {
 }
 .value-list__term {
   font-weight: 600;
+  margin-top: 0;
   margin-bottom: 8px;
 }
 .value-list__description {
+  margin-top: 0;
   font-size: 14px;
   color: #243746;
   white-space: pre-line;
@@ -2682,6 +2684,9 @@ a {
 .contacts-page__map {
   height: 480px;
   background-color: lightgray;
+}
+.contacts-page .company-details__item:not(:last-of-type) {
+  margin-right: 80px;
 }
 .login-page {
   display: flex;

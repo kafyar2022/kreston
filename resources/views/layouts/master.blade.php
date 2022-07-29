@@ -49,6 +49,7 @@
     <script src="{{ asset('simditor/uploader.js') }}"></script>
     <script src="{{ asset('simditor/simditor.js') }}"></script>
     <script src="{{ asset('js/content-manager.js') }}" type="module"></script>
+    <script src="{{ asset('js/text-manager.js') }}" type="module"></script>
   @endif
   <script src="{{ asset('glide/glide.min.js') }}"></script>
   <script src="{{ asset('js/master.js') }}" type="module"></script>

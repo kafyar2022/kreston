@@ -23,6 +23,15 @@ class Helper
       $response[$content->slug] = $content->content;
     }
 
+    $texts = Text::where('locale', $locale)
+      ->where('page', $pageName)
+      ->orWhere('page', null)
+      ->get();
+
+    foreach ($texts as $text) {
+      $response[$text->slug] = $text->text;
+    }
+
     return $response;
   }
 }

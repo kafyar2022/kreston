@@ -57,23 +57,23 @@
 
     <dl class="page-header__company-details company-details">
       <div class="company-details__item">
-        <dt class="company-details__term">Связь с нами:</dt>
+        <dt class="company-details__term" data-text="details-phone-term-{{ $locale }}">{{ $data['details-phone-term-' . $locale] }}</dt>
         <dd class="company-details__description">
           <svg class="company-details__icon" width="18" height="18">
             <use xlink:href="#phone"></use>
           </svg>
-          <a class="company-details__link" href="tel:907032322">90 703 23 222</a>
+          <a class="company-details__link" href="tel:{{ str_replace([' ', '(', ')', '-'], '', $data['details-phone-desc-' . $locale]) }}" data-text="details-phone-desc-{{ $locale }}">{{ $data['details-phone-desc-' . $locale] }}</a>
         </dd>
       </div>
       <div class="company-details__item">
-        <dt class="company-details__term">Время работы:</dt>
-        <dd class="company-details__description">
-          <svg class="company-details__icon" width="20" height="20">
-            <use xlink:href="#time"></use>
-          </svg>
-          пн-пт с 09:00 - 18:00
-        </dd>
-      </div>
+          <dt class="company-details__term" data-text="details-worktime-term-{{ $locale }}">{{ $data['details-worktime-term-' . $locale] }}</dt>
+          <dd class="company-details__description">
+            <svg class="company-details__icon" width="20" height="20">
+              <use xlink:href="#time"></use>
+            </svg>
+            <a class="company-details__link" data-text="details-worktime-desc-{{ $locale }}">{{ $data['details-worktime-desc-' . $locale] }}</a>
+          </dd>
+        </div>
     </dl>
 
     <button class="page-header__feedback-button button button--feedback" type="button">

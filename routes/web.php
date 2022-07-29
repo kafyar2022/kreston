@@ -49,6 +49,7 @@ Route::group(['middleware' => ['AuthCheck']], function () {
   Route::get('/dashboard/toggle-state', [DashController::class, 'toggleState']);
   Route::get('/dashboard/toggle-mode', [DashController::class, 'toggleMode'])->name('mode');
   Route::post('/contents/update', [DashController::class, 'updateContent']);
+  Route::post('/texts/update', [DashController::class, 'updateText']);
 
   Route::get('/banners', [BannerController::class, 'index'])->name('banners');
   Route::get('/banners/create', [BannerController::class, 'create'])->name('banners.create');
