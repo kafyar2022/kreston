@@ -1,9 +1,9 @@
 import { createElement } from './util.js';
 
 const Template = {
-  EDIT_BUTTON: '<button class="action action--edit">редактировать</button>',
-  SAVE_BUTTON: '<button class="action action--save">сохранить</button>',
-  CANCEL_BUTTON: '<button class="action action--cancel">отмена</button>',
+  EDIT_BUTTON: '<button class="action action--edit" type="button">редактировать</button>',
+  SAVE_BUTTON: '<button class="action action--save" type="button">сохранить</button>',
+  CANCEL_BUTTON: '<button class="action action--cancel" type="button">отмена</button>',
 };
 
 class ContentManager {

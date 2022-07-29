@@ -14,6 +14,7 @@ class Helper
 {
   public static function getContents($locale, $pageName)
   {
+    $response = [];
     $contents = Content::where('locale', $locale)
       ->where('page', $pageName)
       ->orWhere('page', null)
