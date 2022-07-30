@@ -45,18 +45,13 @@ Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout
 Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
 
 Route::group(['middleware' => ['AuthCheck']], function () {
-  Route::get('/dashboard', [DashController::class, 'index'])->name('dashboard');
-  Route::get('/dashboard/toggle-state', [DashController::class, 'toggleState']);
-  Route::get('/dashboard/toggle-mode', [DashController::class, 'toggleMode'])->name('mode');
-  Route::post('/contents/update', [DashController::class, 'updateContent']);
-  Route::post('/texts/update', [DashController::class, 'updateText']);
+  Route::get('/dashboard/{action?}', [DashController::class, 'get'])->name('dashboard');
+  Route::post('/dashboard/{action?}', [DashController::class, 'post']);
 
-  Route::get('/banners', [BannerController::class, 'index'])->name('banners');
-  Route::get('/banners/create', [BannerController::class, 'create'])->name('banners.create');
-  Route::post('/banners/store', [BannerController::class, 'store'])->name('banners.store');
-  Route::get('/banners/edit/{banner}', [BannerController::class, 'edit'])->name('banners.edit');
-  Route::post('/banners/update', [BannerController::class, 'update'])->name('banners.update');
-  Route::get('/banners/delete/{id}', [BannerController::class, 'delete'])->name('banners.delete');
+  Route::get('/banners/{action?}/{banner?}', [DashController::class, 'banners'])->name('banners');
+  Route::post('/banners/{ation?}', [DashController::class, 'bannersPost'])->name('banners.post');
+
+  
 });
 
 

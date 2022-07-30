@@ -26,11 +26,11 @@
       @else
         @if ($data['locale'] == 'ru')
           <h1 class="page__title">Добавление на русском</h1>
-          <a class="page__link" href="{{ route($route) }}?locale=en">Добавить английский вариант</a>
+          <a class="page__link" href="/{{ request()->path() }}?locale=en">Добавить английский вариант</a>
         @endif
         @if ($data['locale'] == 'en')
           <h1 class="page__title">Добавление на английском</h1>
-          <a class="page__link" href="{{ route($route) }}?locale=ru">Добавить русский вариант</a>
+          <a class="page__link" href="/{{ request()->path() }}?locale=ru">Добавить русский вариант</a>
         @endif
       @endif
       <a class="page__link" data-action="submit">{{ $data['banner'] ? 'Редактировать' : 'Сохранить' }} баннер</a>
@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <form class="form-dash" @if ($data['banner']) action="{{ route('banners.update') }}" @else action="{{ route('banners.store') }}" @endif method="post" enctype="multipart/form-data">
+    <form class="form-dash" @if ($data['banner']) action="{{ route('banners.post', ['action' => 'update']) }}" @else action="{{ route('banners.post', ['action' => 'store']) }}" @endif method="post" enctype="multipart/form-data">
       @csrf
       @if ($data['banner'])
         <input type="hidden" name="id" value="{{ $data['banner']->id }}">

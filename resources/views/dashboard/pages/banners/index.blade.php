@@ -23,7 +23,7 @@
         <h1 class="page__title">Баннеры на английском</h1>
         <a class="page__link" href="{{ route($route) }}">Посмотреть баннеры на русском</a>
       @endif
-      <a class="page__link" href="{{ route('banners.create') }}">Добавить новый баннер</a>
+      <a class="page__link" href="{{ route('banners', ['action' => 'create']) }}">Добавить новый баннер</a>
     </div>
 
     @if (count($data['banners']) != 0)
@@ -44,7 +44,7 @@
                 <div>{{ $banner->content }}</div>
               </td>
               <td>
-                <a href="{{ route('banners.edit', $banner) }}">Редактировать</a>
+                <a href="{{ route('banners', ['action' => 'edit', 'banner' => $banner->id]) }}">Редактировать</a>
               </td>
               <td>
                 <a data-action="delete" data-id="{{ $banner->id }}">Удалить</a>

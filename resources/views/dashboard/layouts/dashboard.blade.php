@@ -8,7 +8,7 @@
   </button>
 
   <div class="dashboard__inner">
-    <a class="dashboard__mode-toggle" href="{{ route('mode') }}">
+    <a class="dashboard__mode-toggle" href="{{ route('dashboard', ['action' => 'toggle-mode']) }}">
       @if (session('editMode'))
         Выключить режим редактирования
       @else
@@ -17,7 +17,7 @@
     </a>
 
     <ul class="dashboard__menu">
-      <li class="dashboard__menu-item @if ($route == 'banners' || $route == 'banners.show' || $route == 'banners.create') dashboard__menu-item--current @endif">
+      <li class="dashboard__menu-item @if ($route == 'banners') dashboard__menu-item--current @endif">
         <a class="dashboard__link" href="{{ route('banners') }}">Баннеры</a>
       </li>
       <li class="dashboard__menu-item">

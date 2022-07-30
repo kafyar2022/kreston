@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
       ContentSeeder::class,
       TextsSeeder::class,
       BannersSeeder::class,
-      PartnersSeeder::class,
+      // PartnersSeeder::class,
       NewsSeeder::class,
     ]);
   }

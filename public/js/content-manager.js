@@ -80,7 +80,7 @@ class ContentManager {
         // return;
       // }
       saveButtonEl.textContent = 'Сохранение...';
-      fetch('/contents/update', {
+      fetch('/dashboard/update-content', {
         headers: {
           'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
         },
