@@ -32,8 +32,8 @@
       <li class="dashboard__menu-item @if ($route == 'dashboard.specialists') dashboard__menu-item--current @endif">
         <a class="dashboard__link" href="{{ route('dashboard.specialists') }}">Специалисты</a>
       </li>
-      <li class="dashboard__menu-item">
-        <a class="dashboard__link" href="#">Услуги</a>
+      <li class="dashboard__menu-item @if ($route == 'dashboard.services') dashboard__menu-item--current @endif">
+        <a class="dashboard__link" href="{{ route('dashboard.services') }}">Услуги</a>
       </li>
       <li class="dashboard__menu-item">
         <a class="dashboard__link" href="#">Направления</a>

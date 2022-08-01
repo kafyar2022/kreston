@@ -8,6 +8,7 @@ use App\Models\Certificate;
 use App\Models\Content;
 use App\Models\News;
 use App\Models\Partner;
+use App\Models\Service;
 use App\Models\Specialist;
 use App\Models\Text;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -443,6 +444,64 @@ class DashController extends Controller
         $specialist->update();
 
         return back()->with('success', 'Данные успешно сохранены');
+    }
+  }
+
+  public function services(Request $request)
+  {
+    switch ($request->action) {
+      case 'create':
+        $locale = $request->locale ?? 'ru';
+        $data['locale'] = $locale;
+        $data['service'] = null;
+
+        return view('dashboard.pages.services.show', compact('data'));
+
+      case 'edit':
+        $service = Service::find($request->service);
+        $data['locale'] = $service->locale;
+        $data['service'] = $service;
+        return view('dashboard.pages.services.show', compact('data'));
+
+      case 'delete':
+        $service = Service::find($request->service);
+        $service->delete();
+
+        return back();
+
+      default:
+        $locale = $request->locale ?? 'ru';
+        $data['locale'] = $locale;
+        $data['services'] = Service::where('locale', $locale)->get();
+
+        return view('dashboard.pages.services.index', compact('data'));
+    }
+  }
+
+  public function servicesPost(Request $request)
+  {
+    $request->validate(['title' => 'required']);
+
+    switch ($request->action) {
+      case 'store':
+        $service = new Service();
+        $service->locale = $request->locale;
+        $service->title = $request->title;
+        $service->slug = SlugService::createSlug(News::class, 'slug', $service->title);
+        $service->content = $request->content;
+        $service->block = $request->block;
+        $service->save();
+
+        return back()->with('success', 'Услуга успешно сохранена');
+
+      case 'update':
+        $service = Service::find($request->id);
+        $service->title = $request->title;
+        $service->content = $request->content;
+        $service->block = $request->block;
+        $service->update();
+
+        return back()->with('success', 'Услуга успешно сохранена');
     }
   }
 }

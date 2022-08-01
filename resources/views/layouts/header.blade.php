@@ -117,33 +117,11 @@
           </button>
 
           <ul class="page-nav__extra-list page-nav__extra-list--hidden">
-            <li class="page-nav__extra-item">
-              <a class="page-nav__link" href="#">Аудиторские услуги</a>
-            </li>
-            <li class="page-nav__extra-item">
-              <a class="page-nav__link" href="#">Бухгалтерские услуги</a>
-            </li>
-            <li class="page-nav__extra-item">
-              <a class="page-nav__link" href="#">Оценка</a>
-            </li>
-            <li class="page-nav__extra-item">
-              <a class="page-nav__link" href="#">Инвентаризация</a>
-            </li>
-            <li class="page-nav__extra-item">
-              <a class="page-nav__link" href="#">Аутсорсинг</a>
-            </li>
-            <li class="page-nav__extra-item">
-              <a class="page-nav__link" href="#">Налоговый консалтинг</a>
-            </li>
-            <li class="page-nav__extra-item">
-              <a class="page-nav__link" href="#">Юридический консалтинг</a>
-            </li>
-            <li class="page-nav__extra-item">
-              <a class="page-nav__link" href="#">Маркетинговый консалтинг</a>
-            </li>
-            <li class="page-nav__extra-item">
-              <a class="page-nav__link" href="#">Бизнес консалтинг</a>
-            </li>
+            @foreach ($services as $service)
+              <li class="page-nav__extra-item">
+                <a class="page-nav__link" href="{{ route('services', $service->slug) }}">{{ $service->title }}</a>
+              </li>
+            @endforeach
           </ul>
         </li>
 

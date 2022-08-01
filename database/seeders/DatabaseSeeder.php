@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
       NewsSeeder::class,
       CertificatesSeeder::class,
       SpecialistsSeeder::class,
+      ServicesSeeder::class,
     ]);
   }
 }
