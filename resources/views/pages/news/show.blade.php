@@ -10,7 +10,7 @@
       <time class="news-show-page__date" datetime="{{ $data['news']->created_at }}">{{ date_format($data['news']->created_at, 'd.m.Y') }}</time>
       <h1 class="news-show-page__title">{{ $data['news']->title }}</h1>
 
-      <div class="news-show-page__content">{!! $data['news']->content !!}</div>
+      <div class="news-show-page__content content">{!! $data['news']->content !!}</div>
 
       <div class="news-show-page__links">
         <a class="news-show-page__link news-show-page__link--prev button" href="#">

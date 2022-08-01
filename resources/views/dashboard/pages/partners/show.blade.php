@@ -46,17 +46,17 @@
         <img style="justify-self: center; object-fit: contain;" width="180" height="64">
       @endif
       <label class="form-dash__element" style="grid-row-start: 2">
-        <span class="form-dash__label">Логотип</span>
+        <span class="form-dash__label">Логотип*</span>
         <input class="visually-hidden" name="logo" type="file" accept="image/*">
         <input class="form-dash__field" type="text" placeholder="Выберите файл" value="{{ $data['partner']->logo ?? '' }}" readonly>
       </label>
       <label class="form-dash__element">
         <span class="form-dash__label">Название*</span>
-        <input class="form-dash__field" name="title" type="text" placeholder="Таджик эйр" value="{{ $data['partner']->title ?? '' }}" required data-pristine-required-message="Объязательное поле">
+        <input class="form-dash__field" name="title" type="text" placeholder="Таджик эйр" value="{{ $data['partner']->title ?? '' }}" required>
       </label>
       <label class="form-dash__element" style="grid-row-start: 2">
-        <span class="form-dash__label">Ссылка</span>
-        <input class="form-dash__field" name="url" type="url" placeholder="http://www.tajikairlines.com" value="{{ $data['partner']->url ?? '' }}">
+        <span class="form-dash__label">Ссылка*</span>
+        <input class="form-dash__field" name="url" type="url" placeholder="http://www.tajikairlines.com" value="{{ $data['partner']->url ?? '' }}" required>
       </label>
     </form>
   </main>

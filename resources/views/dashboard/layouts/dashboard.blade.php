@@ -20,11 +20,11 @@
       <li class="dashboard__menu-item @if ($route == 'banners') dashboard__menu-item--current @endif">
         <a class="dashboard__link" href="{{ route('banners') }}">Баннеры</a>
       </li>
-      <li class="dashboard__menu-item">
+      <li class="dashboard__menu-item @if ($route == 'partners') dashboard__menu-item--current @endif"">
         <a class="dashboard__link" href="{{ route('partners') }}">Наши партнеры</a>
       </li>
-      <li class="dashboard__menu-item">
-        <a class="dashboard__link" href="#">Новости Kreston</a>
+      <li class="dashboard__menu-item @if ($route == 'dashboard.news') dashboard__menu-item--current @endif"">
+        <a class="dashboard__link" href="{{ route('dashboard.news') }}">Новости Kreston</a>
       </li>
       <li class="dashboard__menu-item">
         <a class="dashboard__link" href="#">Сертификаты</a>

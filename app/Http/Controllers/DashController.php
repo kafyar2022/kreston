@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Models\Banner;
 use App\Models\Content;
+use App\Models\News;
 use App\Models\Partner;
 use App\Models\Text;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -193,6 +195,86 @@ class DashController extends Controller
         $partner->update();
 
         return back()->with('success', 'Компания успешно сохранена');
+    }
+  }
+
+  public function news(Request $request)
+  {
+    switch ($request->action) {
+      case 'create':
+        $locale = $request->locale ?? 'ru';
+        $data['locale'] = $locale;
+        $data['news'] = null;
+
+        return view('dashboard.pages.news.show', compact('data'));
+
+      case 'edit':
+        $news = News::find($request->news);
+        $data['locale'] = $news->locale;
+        $data['news'] = $news;
+        return view('dashboard.pages.news.show', compact('data'));
+
+      case 'delete':
+        $news = News::find($request->news);
+        if ($news->img) {
+          unlink('files/news/img/' . $news->img);
+          unlink('files/news/img/thumbs/' . $news->img);
+        }
+        $news->delete();
+
+        return back();
+
+      default:
+        $locale = $request->locale ?? 'ru';
+        $data['locale'] = $locale;
+        $data['news'] = News::where('locale', $locale)->get();
+
+        return view('dashboard.pages.news.index', compact('data'));
+    }
+  }
+
+  public function newsPost(Request $request)
+  {
+    $request->validate(['title' => 'required']);
+
+    switch ($request->action) {
+      case 'store':
+        $news = new News();
+        $news->locale = $request->locale;
+        $news->title = $request->title;
+        $news->slug = SlugService::createSlug(News::class, 'slug', $news->title);
+        $news->content = $request->content;
+
+        $file = $request->file('img');
+        if ($file) {
+          $fileName = $news->slug . '.' . $file->extension();
+          $file->move(public_path('files/news/img'), $fileName);
+          Helper::resize_crop_image(270, 220, public_path('files/news/img/' . $fileName), public_path('files/news/img/thumbs/' . $fileName));
+          $news->img = $fileName;
+        }
+
+        $news->save();
+
+        return back()->with('success', 'Новость успешно сохранена');
+
+      case 'update':
+        $news = News::find($request->id);
+        $news->title = $request->title;
+        $news->content = $request->content;
+        $file = $request->file('img');
+        if ($file) {
+          if ($news->img && file_exists('files/news/img/' . $news->img)) {
+            unlink('files/news/img/' . $news->img);
+            unlink('files/news/img/thumbs/' . $news->img);
+          }
+          $fileName = $news->slug . '.' . $file->extension();
+          $file->move(public_path('files/news/img'), $fileName);
+          Helper::resize_crop_image(270, 220, public_path('files/news/img/' . $fileName), public_path('files/news/img/thumbs/' . $fileName));
+          $news->img = $fileName;
+        }
+        $news->update();
+
+        return back()->with('success', 'Новость успешно сохранена');
     }
   }
 }
