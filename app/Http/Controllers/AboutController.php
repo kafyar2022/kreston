@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
+use App\Models\Certificate;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -12,6 +13,7 @@ class AboutController extends Controller
     $locale = app()->getLocale();
 
     $data = Helper::getContents($locale, 'about');
+    $data['certificates'] = Certificate::where('locale', $locale)->get();
 
     return view('pages.about.index', compact('data'));
   }
@@ -19,7 +21,7 @@ class AboutController extends Controller
   public function advantage()
   {
     $locale = app()->getLocale();
-    
+
     $data = Helper::getContents($locale, 'about.advantage');
 
     return view('pages.about.advantage', compact('data'));

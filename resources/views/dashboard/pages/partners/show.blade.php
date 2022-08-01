@@ -12,7 +12,7 @@
         </svg>
       </li>
       <li class="page__breadcrumb">
-        <a href="{{ route('partners') }}?locale=ru">Партнеры</a>
+        <a href="{{ route('partners') }}">Партнеры</a>
         <svg width="10" height="16">
           <use xlink:href="#more-icon"></use>
         </svg>

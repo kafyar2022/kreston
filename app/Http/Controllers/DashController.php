@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
 use App\Models\Banner;
+use App\Models\Certificate;
 use App\Models\Content;
 use App\Models\News;
 use App\Models\Partner;
@@ -159,9 +160,7 @@ class DashController extends Controller
 
   public function partnersPost(Request $request)
   {
-    $request->validate([
-      'title' => 'required',
-    ]);
+    $request->validate(['title' => 'required']);
 
     switch ($request->action) {
       case 'store':
@@ -275,6 +274,81 @@ class DashController extends Controller
         $news->update();
 
         return back()->with('success', 'Новость успешно сохранена');
+    }
+  }
+
+  public function certificates(Request $request)
+  {
+    switch ($request->action) {
+      case 'create':
+        $locale = $request->locale ?? 'ru';
+        $data['locale'] = $locale;
+        $data['certificate'] = null;
+
+        return view('dashboard.pages.certificates.show', compact('data'));
+
+      case 'edit':
+        $certificate = Certificate::find($request->certificate);
+        $data['locale'] = $certificate->locale;
+        $data['certificate'] = $certificate;
+        return view('dashboard.pages.certificates.show', compact('data'));
+
+      case 'delete':
+        $certificate = Certificate::find($request->certificate);
+        $certificate->img && file_exists('files/certificates/img/' . $certificate->img)
+          ? unlink('files/certificates/img/' . $certificate->img)
+          : '';
+        $certificate->delete();
+
+        return back();
+
+      default:
+        $locale = $request->locale ?? 'ru';
+        $data['locale'] = $locale;
+        $data['certificates'] = Certificate::where('locale', $locale)->get();
+
+        return view('dashboard.pages.certificates.index', compact('data'));
+    }
+  }
+
+  public function certificatesPost(Request $request)
+  {
+    $request->validate(['title' => 'required']);
+
+    switch ($request->action) {
+      case 'store':
+        $certificate = new Certificate();
+        $certificate->locale = $request->locale;
+        $certificate->title = $request->title;
+        $certificate->description = $request->description;
+
+        $file = $request->file('img');
+        if ($file) {
+          $fileName = uniqid() . '.' . $file->extension();
+          $file->move(public_path('files/certificates/img'), $fileName);
+          $certificate->img = $fileName;
+        }
+
+        $certificate->save();
+
+        return back()->with('success', 'Сертификат успешно сохранен');
+
+      case 'update':
+        $certificate = Certificate::find($request->id);
+        $certificate->title = $request->title;
+        $certificate->description = $request->description;
+        $file = $request->file('img');
+        if ($file) {
+          if ($certificate->img && file_exists('files/certificates/img/' . $certificate->img)) {
+            unlink('files/certificates/img/' . $certificate->img);
+          }
+          $fileName = uniqid() . '.' . $file->extension();
+          $file->move(public_path('files/certificates/img'), $fileName);
+          $certificate->img = $fileName;
+        }
+        $certificate->update();
+
+        return back()->with('success', 'Сертификат успешно сохранен');
     }
   }
 }

@@ -33,18 +33,18 @@
         </div>
 
         <ul class="certificate__list">
-          @foreach (range(1, 6) as $key)
+          @foreach ($data['certificates'] as $certificate)
             <li class="certificate__item">
-              <h3 class="certificate__title">Сертификат регистрации №0265444</h3>
-              <p class="certificate__description">LLC "KRESTON AC" was registered
-                on April 12, 2014 in Dushanbe
-                Republic of Tajikistan</p>
-              <a class="certificate__link button button--view" href="#">
-                <svg width="23" height="16">
-                  <use xlink:href="#view-icon"></use>
-                </svg>
-                @lang('Посмотреть')
-              </a>
+              <h3 class="certificate__title">{{ $certificate->title }}</h3>
+              <p class="certificate__description">{{ $certificate->description }}</p>
+              @if ($certificate->img)
+                <a class="certificate__link button button--view" href="{{ asset('files/certificates/img/' . $certificate->img) }}" target="_blank">
+                  <svg width="23" height="16">
+                    <use xlink:href="#view-icon"></use>
+                  </svg>
+                  @lang('Посмотреть')
+                </a>
+              @endif
             </li>
           @endforeach
         </ul>
