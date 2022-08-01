@@ -25,9 +25,9 @@
         </div>
 
         <ul class="team-page__specialist-list">
-          @foreach (range(1, 8) as $key)
+          @foreach ($data['specialists'] as $specialist)
             <li class="team-page__specialist-item">
-              <x-specialist-card />
+              <x-specialist-card :specialist="$specialist" />
             </li>
           @endforeach
         </ul>

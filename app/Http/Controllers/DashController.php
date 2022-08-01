@@ -8,6 +8,7 @@ use App\Models\Certificate;
 use App\Models\Content;
 use App\Models\News;
 use App\Models\Partner;
+use App\Models\Specialist;
 use App\Models\Text;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
@@ -349,6 +350,99 @@ class DashController extends Controller
         $certificate->update();
 
         return back()->with('success', 'Сертификат успешно сохранен');
+    }
+  }
+
+  public function specialists(Request $request)
+  {
+    switch ($request->action) {
+      case 'create':
+        $locale = $request->locale ?? 'ru';
+        $data['locale'] = $locale;
+        $data['specialist'] = null;
+
+        return view('dashboard.pages.specialists.show', compact('data'));
+
+      case 'edit':
+        $specialist = Specialist::find($request->specialist);
+        $data['locale'] = $specialist->locale;
+        $data['specialist'] = $specialist;
+        return view('dashboard.pages.specialists.show', compact('data'));
+
+      case 'delete':
+        $specialist = Specialist::find($request->specialist);
+        $specialist->avatar && file_exists('files/specialists/img/' . $specialist->avatar)
+          ? unlink('files/specialists/img/' . $specialist->avatar)
+          : '';
+        $specialist->cv && file_exists('files/specialists/' . $specialist->cv)
+          ? unlink('files/specialists/' . $specialist->cv)
+          : '';
+        $specialist->delete();
+
+        return back();
+
+      default:
+        $locale = $request->locale ?? 'ru';
+        $data['locale'] = $locale;
+        $data['specialists'] = Specialist::where('locale', $locale)->get();
+
+        return view('dashboard.pages.specialists.index', compact('data'));
+    }
+  }
+
+  public function specialistsPost(Request $request)
+  {
+    $request->validate(['name' => 'required']);
+
+    switch ($request->action) {
+      case 'store':
+        $specialist = new Specialist();
+        $specialist->locale = $request->locale;
+        $specialist->name = $request->name;
+        $specialist->position = $request->position;
+        $specialist->slug = SlugService::createSlug(Specialist::class, 'slug', $specialist->name);
+
+        $file = $request->file('avatar');
+        if ($file) {
+          $fileName = $specialist->slug . '.' . $file->extension();
+          $file->move(public_path('files/specialists/img'), $fileName);
+          $specialist->avatar = $fileName;
+        }
+        $file = $request->file('cv');
+        if ($file) {
+          $fileName = $specialist->slug . '.' . $file->extension();
+          $file->move(public_path('files/specialists'), $fileName);
+          $specialist->cv = $fileName;
+        }
+        $specialist->save();
+
+        return back()->with('success', 'Данные успешно сохранены');
+
+      case 'update':
+        $specialist = Specialist::find($request->id);
+        $specialist->name = $request->name;
+        $specialist->position = $request->position;
+        $file = $request->file('avatar');
+        if ($file) {
+          if ($specialist->avatar && file_exists('files/specialists/img/' . $specialist->avatar)) {
+            unlink('files/specialists/img/' . $specialist->avatar);
+          }
+          $fileName = $specialist->slug . '.' . $file->extension();
+          $file->move(public_path('files/specialists/img'), $fileName);
+          $specialist->avatar = $fileName;
+        }
+        $file = $request->file('cv');
+        if ($file) {
+          if ($specialist->cv && file_exists('files/specialists/' . $specialist->cv)) {
+            unlink('files/specialists/' . $specialist->cv);
+          }
+          $fileName = $specialist->slug . '.' . $file->extension();
+          $file->move(public_path('files/specialists'), $fileName);
+          $specialist->cv = $fileName;
+        }
+        $specialist->update();
+
+        return back()->with('success', 'Данные успешно сохранены');
     }
   }
 }

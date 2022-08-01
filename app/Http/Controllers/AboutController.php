@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
 use App\Models\Certificate;
+use App\Models\Specialist;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -32,6 +33,7 @@ class AboutController extends Controller
     $locale = app()->getLocale();
 
     $data = Helper::getContents($locale, 'about.team');
+    $data['specialists'] = Specialist::where('locale', $locale)->get();
 
     return view('pages.about.team', compact('data'));
   }
