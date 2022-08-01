@@ -63,5 +63,5 @@
 @endsection
 
 @section('script')
-  <script src="{{ asset('js/pages/banners-create.js') }}"></script>
+  <script src="{{ asset('js/pages/banners-show.js') }}"></script>
 @endsection

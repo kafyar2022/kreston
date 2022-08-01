@@ -21,7 +21,7 @@
         <a class="dashboard__link" href="{{ route('banners') }}">Баннеры</a>
       </li>
       <li class="dashboard__menu-item">
-        <a class="dashboard__link" href="#">Наши партнеры</a>
+        <a class="dashboard__link" href="{{ route('partners') }}">Наши партнеры</a>
       </li>
       <li class="dashboard__menu-item">
         <a class="dashboard__link" href="#">Новости Kreston</a>

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use App\Models\Content;
+use App\Models\Partner;
 use App\Models\Text;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 
 class DashController extends Controller
@@ -116,6 +118,81 @@ class DashController extends Controller
         $banner->update();
 
         return back()->with('success', 'Баннер успешно сохранен');
+    }
+  }
+
+  public function partners(Request $request)
+  {
+    switch ($request->action) {
+      case 'create':
+        $locale = $request->locale ?? 'ru';
+        $data['locale'] = $locale;
+        $data['partner'] = null;
+
+        return view('dashboard.pages.partners.show', compact('data'));
+
+      case 'edit':
+        $partner = Partner::find($request->partner);
+        $data['locale'] = $partner->locale;
+        $data['partner'] = $partner;
+        return view('dashboard.pages.partners.show', compact('data'));
+
+      case 'delete':
+        $partner = Partner::find($request->partner);
+        $partner->logo && file_exists('files/partners/img/' . $partner->logo)
+          ? unlink('files/partners/img/' . $partner->logo)
+          : '';
+        $partner->delete();
+
+        return back();
+
+      default:
+        $locale = $request->locale ?? 'ru';
+        $data['locale'] = $locale;
+        $data['partners'] = Partner::where('locale', $locale)->get();
+
+        return view('dashboard.pages.partners.index', compact('data'));
+    }
+  }
+
+  public function partnersPost(Request $request)
+  {
+    $request->validate([
+      'title' => 'required',
+    ]);
+
+    switch ($request->action) {
+      case 'store':
+        $partner = new Partner();
+        $partner->locale = $request->locale;
+        $partner->title = $request->title;
+        $file = $request->file('logo');
+        if ($file) {
+          $fileName = SlugService::createSlug(Partner::class, 'logo', $partner->title) . '.' . $file->extension();
+          $file->move(public_path('files/partners/img'), $fileName);
+          $partner->logo = $fileName;
+        }
+        $partner->url = $request->url;
+        $partner->save();
+
+        return back()->with('success', 'Компания успешно сохранена');
+
+      case 'update':
+        $partner = Partner::find($request->id);
+        $partner->title = $request->title;
+        $file = $request->file('logo');
+        if ($file) {
+          $partner->logo && file_exists('files/partners/img/' . $partner->logo)
+            ? unlink('files/partners/img/' . $partner->logo)
+            : '';
+          $fileName = SlugService::createSlug(Partner::class, 'logo', $partner->title) . '.' . $file->extension();
+          $file->move(public_path('files/partners/img'), $fileName);
+          $partner->logo = $fileName;
+        }
+        $partner->url = $request->url;
+        $partner->update();
+
+        return back()->with('success', 'Компания успешно сохранена');
     }
   }
 }

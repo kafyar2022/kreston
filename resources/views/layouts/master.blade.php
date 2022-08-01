@@ -51,6 +51,7 @@
     <script src="{{ asset('js/content-manager.js') }}" type="module"></script>
     <script src="{{ asset('js/text-manager.js') }}" type="module"></script>
   @endif
+  <script src="{{ asset('pristine/pristine.min.js') }}"></script>
   <script src="{{ asset('glide/glide.min.js') }}"></script>
   <script src="{{ asset('js/master.js') }}" type="module"></script>
   @yield('script')

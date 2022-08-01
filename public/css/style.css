@@ -821,9 +821,6 @@ a {
 .page__link:hover {
   color: #43bbc7;
 }
-.page__link:last-of-type {
-  margin-left: auto;
-}
 .page__table {
   border-spacing: 2px;
 }

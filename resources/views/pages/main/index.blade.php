@@ -67,19 +67,21 @@
         <div class="content" data-content="our-partners-{{ $locale }}">{!! $data['our-partners-' . $locale] !!}</div>
       </div>
 
-      <div class="partner-glide glide">
-        <div class="partner-glide__track glide__track" data-glide-el="track">
-          <ul class="partner-glide__slides glide__slides">
-            @foreach ($data['partners'] as $partner)
-              <li class="partner-glide__slide glide__slide">
-                <a class="partner-glide__link" @if ($partner->url) href="{{ $partner->url }}" @endif>
-                  <img class="partner-glide__img" src="{{ asset('files/partners/img/' . $partner->logo) }}" width="180" height="64" alt="{{ $partner->title }}">
-                </a>
-              </li>
-            @endforeach
-          </ul>
+      @if (count($data['partners']) != 0)
+        <div class="partner-glide glide">
+          <div class="partner-glide__track glide__track" data-glide-el="track">
+            <ul class="partner-glide__slides glide__slides">
+              @foreach ($data['partners'] as $partner)
+                <li class="partner-glide__slide glide__slide">
+                  <a class="partner-glide__link" @if ($partner->url) href="{{ $partner->url }}" @endif>
+                    <img class="partner-glide__img" src="{{ asset('files/partners/img/' . $partner->logo) }}" width="180" height="64" alt="{{ $partner->title }}">
+                  </a>
+                </li>
+              @endforeach
+            </ul>
+          </div>
         </div>
-      </div>
+      @endif
     </section>
 
     <section class="main-page__news">
