@@ -2,12 +2,21 @@
   position: relative;
   margin-top: 80px;
   margin-bottom: 40px;
+
+  @media (max-width: (@desktop-width - 1px)) {
+    margin-top: 40px;
+    margin-bottom: 24px;
+  }
 }
 
 .about-page__content {
   max-width: 640px;
   min-height: 300px;
   margin-left: auto;
+
+  @media (max-width: (@desktop-width - 1px)) {
+    max-width: 360px;
+  }
 }
 
 .about-page__our-mission {
@@ -39,6 +48,12 @@
       margin-bottom: 16px;
     }
   }
+
+  @media (max-width: (@desktop-width - 1px)) {
+    width: 380px;
+    height: 506px;
+    padding: 40px 32px;
+  }
 }
 
 .about-page__forum {
@@ -52,4 +67,8 @@
 .about-page__forum-content {
   max-width: 640px;
   margin-left: auto;
+
+  @media (max-width: (@desktop-width - 1px)) {
+    margin-left: 32px;
+  }
 }

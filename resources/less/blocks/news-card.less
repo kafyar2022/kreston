@@ -13,6 +13,11 @@
   line-height: 1.4;
   margin: 0 24px 16px 24px;
   white-space: pre-line;
+
+  @media (max-width: (@desktop-width - 1px)) {
+    margin: 16px;
+    margin-top: 0;
+  }
 }
 
 .news-card__datetime {
@@ -21,6 +26,11 @@
   color: @gray;
   font-size: 11px;
   order: -1;
+
+  @media (max-width: (@desktop-width - 1px)) {
+    margin: 16px;
+    margin-bottom: 0;
+  }
 }
 
 .news-card__img {
@@ -42,6 +52,10 @@
   p {
     margin: 0;
   }
+
+  @media (max-width: (@desktop-width - 1px)) {
+    margin: 0 16px;
+  }
 }
 
 .news-card__link {
@@ -51,4 +65,10 @@
   margin-left: 24px;
   margin-bottom: 24px;
   width: max-content;
+
+  @media (max-width: (@desktop-width - 1px)) {
+    margin-left: 16px;
+    margin-bottom: 16px;
+    margin-top: 24px;
+  }
 }

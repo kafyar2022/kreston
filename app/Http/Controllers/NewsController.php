@@ -30,6 +30,10 @@ class NewsController extends Controller
     $data['news'] = News::where('slug', $slug)
       ->first();
 
+    $data['prev'] = News::where('id', '<', $data['news']->id)->max('slug');
+
+    $data['next'] = News::where('id', '>', $data['news']->id)->min('slug');
+
     return view('pages.news.show', compact('data'));
   }
 }

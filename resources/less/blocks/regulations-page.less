@@ -2,10 +2,18 @@
   margin-top: 80px;
   margin-bottom: 80px;
 
+  @media (max-width: (@desktop-width - 1px)) {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
 }
 
 .regulations-page__content {
   margin-bottom: 40px;
+
+  @media (max-width: (@desktop-width - 1px)) {
+    margin-bottom: 24px;
+  }
 }
 
 .regulations-page__regulations-category {
@@ -16,6 +24,10 @@
 .regulation-page__regulation {
   display: block;
   padding: 4px 64px 12px 64px;
+
+  @media (max-width: (@desktop-width - 1px)) {
+    padding: 4px 32px 12px 32px;
+  }
 }
 
 .regulation-page__regulation-icon {
@@ -23,6 +35,9 @@
   margin: 2px;
   margin-right: 20px;
   vertical-align: top;
+  @media (max-width: (@desktop-width - 1px)) {
+    margin-right: 8px;
+  }
 }
 
 .regulation-page__regulation-title {

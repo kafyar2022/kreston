@@ -13,13 +13,13 @@
       <div class="news-show-page__content content">{!! $data['news']->content !!}</div>
 
       <div class="news-show-page__links">
-        <a class="news-show-page__link news-show-page__link--prev button" href="#">
+        <a class="news-show-page__link news-show-page__link--prev button" @if ($data['prev']) href="{{ route('news.show', $data['prev']) }}" @endif>
           <svg width="10" height="16">
             <use xlink:href="#more-icon"></use>
           </svg>
           @lang('Предыдущая')
         </a>
-        <a class="news-show-page__link news-show-page__link--next button button--more" href="#">@lang('Следующая')</a>
+        <a class="news-show-page__link news-show-page__link--next button button--more" @if ($data['next']) href="{{ route('news.show', $data['next']) }}" @endif>@lang('Следующая')</a>
       </div>
     </div>
 
