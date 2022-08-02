@@ -14,6 +14,7 @@ use App\Models\RegulationsCategory;
 use App\Models\Service;
 use App\Models\Specialist;
 use App\Models\Text;
+use App\Models\Vacancy;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 
@@ -649,6 +650,61 @@ class DashController extends Controller
         $category = RegulationsCategory::find($request->json('id'));
         $category->delete();
         return;
+    }
+  }
+
+  public function vacancies(Request $request)
+  {
+    switch ($request->action) {
+      case 'create':
+        $locale = $request->locale ?? 'ru';
+        $data['locale'] = $locale;
+        $data['vacancy'] = null;
+
+        return view('dashboard.pages.vacancies.show', compact('data'));
+
+      case 'edit':
+        $vacancy = Vacancy::find($request->vacancy);
+        $data['locale'] = $vacancy->locale;
+        $data['vacancy'] = $vacancy;
+        return view('dashboard.pages.vacancies.show', compact('data'));
+
+      case 'delete':
+        $vacancy = Vacancy::find($request->vacancy);
+        $vacancy->delete();
+
+        return back();
+
+      default:
+        $locale = $request->locale ?? 'ru';
+        $data['locale'] = $locale;
+        $data['vacancies'] = Vacancy::where('locale', $locale)->get();
+
+        return view('dashboard.pages.vacancies.index', compact('data'));
+    }
+  }
+
+  public function vacanciesPost(Request $request)
+  {
+    $request->validate(['title' => 'required']);
+
+    switch ($request->action) {
+      case 'store':
+        $vacancy = new Vacancy();
+        $vacancy->locale = $request->locale;
+        $vacancy->title = $request->title;
+        $vacancy->content = $request->content;
+        $vacancy->save();
+
+        return back()->with('success', 'Вакансия успешно сохранена');
+
+      case 'update':
+        $vacancy = Vacancy::find($request->id);
+        $vacancy->title = $request->title;
+        $vacancy->content = $request->content;
+        $vacancy->update();
+
+        return back()->with('success', 'Вакансия успешно сохранена');
     }
   }
 }

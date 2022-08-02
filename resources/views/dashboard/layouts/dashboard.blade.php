@@ -41,6 +41,9 @@
       <li class="dashboard__menu-item @if ($route == 'dashboard.regulations') dashboard__menu-item--current @endif">
         <a class="dashboard__link" href="{{ route('dashboard.regulations') }}">Нормативные документы</a>
       </li>
+      <li class="dashboard__menu-item @if ($route == 'dashboard.vacancies') dashboard__menu-item--current @endif">
+        <a class="dashboard__link" href="{{ route('dashboard.vacancies') }}">Вакансии</a>
+      </li>
       <li class="dashboard__menu-item">
         <a class="dashboard__link admin-panel__link--logout" href="{{ route('auth.logout', $locale) }}">Выйти</a>
       </li>

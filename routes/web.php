@@ -73,6 +73,9 @@ Route::group(['middleware' => ['AuthCheck']], function () {
 
   Route::get('/dash-regulations', [DashController::class, 'regulations'])->name('dashboard.regulations');
   Route::post('/dash-regulations/{action?}/{id?}', [DashController::class, 'regulationsPost'])->name('regulations.post');
+
+  Route::get('/dash-vacancies/{action?}/{vacancy?}', [DashController::class, 'vacancies'])->name('dashboard.vacancies');
+  Route::post('/dash-vacancies/{action?}', [DashController::class, 'vacanciesPost'])->name('vacancies.post');
 });
 
 
