@@ -2902,6 +2902,24 @@ a {
   height: 24px;
   margin-left: 4px;
 }
+.carrier-page {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+.carrier-page__content {
+  margin-bottom: 40px;
+}
+.carrier-page__img {
+  width: 100%;
+  height: 504px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-position: center;
+  margin-bottom: 40px;
+}
+.carrier-page__vacancy {
+  margin: 16px 64px 40px 64px;
+}
 
 
 /*# sourceMappingURL=style.css.map*/

@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
       ServicesSeeder::class,
       DirectionsSeeder::class,
       RegulationsSeeder::class,
+      VacanciesSeeder::class,
     ]);
   }
 }

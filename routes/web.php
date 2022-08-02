@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\CarrierController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashController;
 use App\Http\Controllers\DirectionController;
@@ -38,6 +39,7 @@ Route::prefix(parseLocale())->group(function () {
   Route::get('/directions/{slug}', [DirectionController::class, 'index'])->name('directions');
   Route::get('/experience', [ExperienceController::class, 'index'])->name('experience');
   Route::get('/contacts', [ContactController::class, 'index'])->name('contacts');
+  Route::get('/carrier', [CarrierController::class, 'index'])->name('carrier');
 });
 
 Route::post('/auth/check', [AuthController::class, 'check'])->name('auth.check');

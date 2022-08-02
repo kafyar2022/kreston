@@ -149,6 +149,10 @@
         <li class="page-nav__item">
           <a class="page-nav__link @if ($route == 'contacts') page-nav__link--current @endif" @if ($route != 'contacts') href="{{ route('contacts') }}" @endif>@lang('Контакты')</a>
         </li>
+
+        <li class="page-nav__item">
+          <a class="page-nav__link @if ($route == 'carrier') page-nav__link--current @endif" @if ($route != 'carrier') href="{{ route('carrier') }}" @endif>@lang('Карьера')</a>
+        </li>
       </ul>
     </div>
   </nav>
