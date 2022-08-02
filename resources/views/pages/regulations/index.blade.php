@@ -11,285 +11,35 @@
     </div>
 
     <ul class="accordion-menu">
-      <li class="accordion-menu__item">
-        <button class="accordion-menu__dropdown-button">
-          Конституция Республики Таджикистан
-          <svg class="accordion-menu__dropdown-icon" width="10" height="16">
-            <use xlink:href="#more-icon"></use>
-          </svg>
-        </button>
+      @foreach ($data['regulation_categories'] as $category)
+        <li class="accordion-menu__item">
+          <button class="accordion-menu__dropdown-button">
+            {{ $category->title }}
+            <svg class="accordion-menu__dropdown-icon" width="10" height="16">
+              <use xlink:href="#more-icon"></use>
+            </svg>
+          </button>
 
-        <ul class="accordion-menu__list">
-          <li class="accordion-menu__list-item">
-            <a class="regulation-page__regulation" href="#">
-              <svg class="regulation-page__regulation-icon" width="20" height="20">
-                <use xlink:href="#word-icon"></use>
-              </svg>
-              <p class="regulation-page__regulation-title">
-                Конституция Республики Таджикистана
-                <small class="regulation-page__redulation-info">
-                  <span class="regulation-page__redulation-extension">.doc</span>,
-                  <span class="regulation-page__redulation-size">53 kb</span>
-                </small>
-              </p>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="accordion-menu__item">
-        <button class="accordion-menu__dropdown-button">
-          Международно-правовые акты
-          <svg class="accordion-menu__dropdown-icon" width="10" height="16">
-            <use xlink:href="#more-icon"></use>
-          </svg>
-        </button>
-
-        <ul class="accordion-menu__list">
-          <li class="accordion-menu__list-item">
-            <a class="regulation-page__regulation" href="#">
-              <svg class="regulation-page__regulation-icon" width="20" height="20">
-                <use xlink:href="#word-icon"></use>
-              </svg>
-              <p class="regulation-page__regulation-title">
-                Конституция Республики Таджикистана
-                <small class="regulation-page__redulation-info">
-                  <span class="regulation-page__redulation-extension">.doc</span>,
-                  <span class="regulation-page__redulation-size">53 kb</span>
-                </small>
-              </p>
-            </a>
-          </li>
-          <li class="accordion-menu__list-item">
-            <a class="regulation-page__regulation" href="#">
-              <svg class="regulation-page__regulation-icon" width="20" height="20">
-                <use xlink:href="#word-icon"></use>
-              </svg>
-              <p class="regulation-page__regulation-title">
-                Конституция Республики Таджикистана
-                <small class="regulation-page__redulation-info">
-                  <span class="regulation-page__redulation-extension">.doc</span>,
-                  <span class="regulation-page__redulation-size">53 kb</span>
-                </small>
-              </p>
-            </a>
-          </li>
-          <li class="accordion-menu__list-item">
-            <a class="regulation-page__regulation" href="#">
-              <svg class="regulation-page__regulation-icon" width="20" height="20">
-                <use xlink:href="#word-icon"></use>
-              </svg>
-              <p class="regulation-page__regulation-title">
-                Конституция Республики Таджикистана
-                <small class="regulation-page__redulation-info">
-                  <span class="regulation-page__redulation-extension">.doc</span>,
-                  <span class="regulation-page__redulation-size">53 kb</span>
-                </small>
-              </p>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="accordion-menu__item">
-        <button class="accordion-menu__dropdown-button">
-          Конституционные законы Республики Таджикистан
-          <svg class="accordion-menu__dropdown-icon" width="10" height="16">
-            <use xlink:href="#more-icon"></use>
-          </svg>
-        </button>
-
-        <ul class="accordion-menu__list">
-          <li class="accordion-menu__list-item">
-            <a class="regulation-page__regulation" href="#">
-              <svg class="regulation-page__regulation-icon" width="20" height="20">
-                <use xlink:href="#word-icon"></use>
-              </svg>
-              <p class="regulation-page__regulation-title">
-                Конституция Республики Таджикистана
-                <small class="regulation-page__redulation-info">
-                  <span class="regulation-page__redulation-extension">.doc</span>,
-                  <span class="regulation-page__redulation-size">53 kb</span>
-                </small>
-              </p>
-            </a>
-          </li>
-          <li class="accordion-menu__list-item">
-            <a class="regulation-page__regulation" href="#">
-              <svg class="regulation-page__regulation-icon" width="20" height="20">
-                <use xlink:href="#word-icon"></use>
-              </svg>
-              <p class="regulation-page__regulation-title">
-                Конституция Республики Таджикистана
-                <small class="regulation-page__redulation-info">
-                  <span class="regulation-page__redulation-extension">.doc</span>,
-                  <span class="regulation-page__redulation-size">53 kb</span>
-                </small>
-              </p>
-            </a>
-          </li>
-          <li class="accordion-menu__list-item">
-            <a class="regulation-page__regulation" href="#">
-              <svg class="regulation-page__regulation-icon" width="20" height="20">
-                <use xlink:href="#word-icon"></use>
-              </svg>
-              <p class="regulation-page__regulation-title">
-                Конституция Республики Таджикистана
-                <small class="regulation-page__redulation-info">
-                  <span class="regulation-page__redulation-extension">.doc</span>,
-                  <span class="regulation-page__redulation-size">53 kb</span>
-                </small>
-              </p>
-            </a>
-          </li>
-          <li class="accordion-menu__list-item">
-            <a class="regulation-page__regulation" href="#">
-              <svg class="regulation-page__regulation-icon" width="20" height="20">
-                <use xlink:href="#word-icon"></use>
-              </svg>
-              <p class="regulation-page__regulation-title">
-                Конституция Республики Таджикистана
-                <small class="regulation-page__redulation-info">
-                  <span class="regulation-page__redulation-extension">.doc</span>,
-                  <span class="regulation-page__redulation-size">53 kb</span>
-                </small>
-              </p>
-            </a>
-          </li>
-          <li class="accordion-menu__list-item">
-            <a class="regulation-page__regulation" href="#">
-              <svg class="regulation-page__regulation-icon" width="20" height="20">
-                <use xlink:href="#word-icon"></use>
-              </svg>
-              <p class="regulation-page__regulation-title">
-                Конституция Республики Таджикистана
-                <small class="regulation-page__redulation-info">
-                  <span class="regulation-page__redulation-extension">.doc</span>,
-                  <span class="regulation-page__redulation-size">53 kb</span>
-                </small>
-              </p>
-            </a>
-          </li>
-          <li class="accordion-menu__list-item">
-            <a class="regulation-page__regulation" href="#">
-              <svg class="regulation-page__regulation-icon" width="20" height="20">
-                <use xlink:href="#word-icon"></use>
-              </svg>
-              <p class="regulation-page__regulation-title">
-                Конституция Республики Таджикистана
-                <small class="regulation-page__redulation-info">
-                  <span class="regulation-page__redulation-extension">.doc</span>,
-                  <span class="regulation-page__redulation-size">53 kb</span>
-                </small>
-              </p>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="accordion-menu__item">
-        <button class="accordion-menu__dropdown-button">
-          Кодексы Руспублики Таджикистан
-          <svg class="accordion-menu__dropdown-icon" width="10" height="16">
-            <use xlink:href="#more-icon"></use>
-          </svg>
-        </button>
-
-        <ul class="accordion-menu__list">
-          <li class="accordion-menu__list-item">
-            <a class="regulation-page__regulation" href="#">
-              <svg class="regulation-page__regulation-icon" width="20" height="20">
-                <use xlink:href="#word-icon"></use>
-              </svg>
-              <p class="regulation-page__regulation-title">
-                Конституция Республики Таджикистана
-                <small class="regulation-page__redulation-info">
-                  <span class="regulation-page__redulation-extension">.doc</span>,
-                  <span class="regulation-page__redulation-size">53 kb</span>
-                </small>
-              </p>
-            </a>
-          </li>
-          <li class="accordion-menu__list-item">
-            <a class="regulation-page__regulation" href="#">
-              <svg class="regulation-page__regulation-icon" width="20" height="20">
-                <use xlink:href="#word-icon"></use>
-              </svg>
-              <p class="regulation-page__regulation-title">
-                Конституция Республики Таджикистана
-                <small class="regulation-page__redulation-info">
-                  <span class="regulation-page__redulation-extension">.doc</span>,
-                  <span class="regulation-page__redulation-size">53 kb</span>
-                </small>
-              </p>
-            </a>
-          </li>
-          <li class="accordion-menu__list-item">
-            <a class="regulation-page__regulation" href="#">
-              <svg class="regulation-page__regulation-icon" width="20" height="20">
-                <use xlink:href="#word-icon"></use>
-              </svg>
-              <p class="regulation-page__regulation-title">
-                Конституция Республики Таджикистана
-                <small class="regulation-page__redulation-info">
-                  <span class="regulation-page__redulation-extension">.doc</span>,
-                  <span class="regulation-page__redulation-size">53 kb</span>
-                </small>
-              </p>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="accordion-menu__item">
-        <button class="accordion-menu__dropdown-button">
-          Законы Республики Таджикистан
-          <svg class="accordion-menu__dropdown-icon" width="10" height="16">
-            <use xlink:href="#more-icon"></use>
-          </svg>
-        </button>
-
-        <ul class="accordion-menu__list">
-          <li class="accordion-menu__list-item">
-            <a class="regulation-page__regulation" href="#">
-              <svg class="regulation-page__regulation-icon" width="20" height="20">
-                <use xlink:href="#word-icon"></use>
-              </svg>
-              <p class="regulation-page__regulation-title">
-                Конституция Республики Таджикистана
-                <small class="regulation-page__redulation-info">
-                  <span class="regulation-page__redulation-extension">.doc</span>,
-                  <span class="regulation-page__redulation-size">53 kb</span>
-                </small>
-              </p>
-            </a>
-          </li>
-          <li class="accordion-menu__list-item">
-            <a class="regulation-page__regulation" href="#">
-              <svg class="regulation-page__regulation-icon" width="20" height="20">
-                <use xlink:href="#word-icon"></use>
-              </svg>
-              <p class="regulation-page__regulation-title">
-                Конституция Республики Таджикистана
-                <small class="regulation-page__redulation-info">
-                  <span class="regulation-page__redulation-extension">.doc</span>,
-                  <span class="regulation-page__redulation-size">53 kb</span>
-                </small>
-              </p>
-            </a>
-          </li>
-          <li class="accordion-menu__list-item">
-            <a class="regulation-page__regulation" href="#">
-              <svg class="regulation-page__regulation-icon" width="20" height="20">
-                <use xlink:href="#word-icon"></use>
-              </svg>
-              <p class="regulation-page__regulation-title">
-                Конституция Республики Таджикистана
-                <small class="regulation-page__redulation-info">
-                  <span class="regulation-page__redulation-extension">.doc</span>,
-                  <span class="regulation-page__redulation-size">53 kb</span>
-                </small>
-              </p>
-            </a>
-          </li>
-        </ul>
-      </li>
+          <ul class="accordion-menu__list">
+            @foreach ($category->regulations as $regulation)
+              <li class="accordion-menu__list-item">
+                <a class="regulation-page__regulation" href="{{ asset('files/regulations/' . $regulation->filename) }}" target="_blank">
+                  <svg class="regulation-page__regulation-icon" width="20" height="20">
+                    <use xlink:href="#word-icon"></use>
+                  </svg>
+                  <p class="regulation-page__regulation-title">
+                    {{ $regulation->title }}
+                    <small class="regulation-page__redulation-info">
+                      <span class="regulation-page__redulation-extension">{{ pathinfo(public_path('files/regulations/' . $regulation->filename), PATHINFO_EXTENSION) }}</span>,
+                      <span class="regulation-page__redulation-size">{{ round(filesize(public_path('files/regulations/' . $regulation->filename)) / 1024)}} kb</span>
+                    </small>
+                  </p>
+                </a>
+              </li>
+            @endforeach
+          </ul>
+        </li>
+      @endforeach
     </ul>
   </main>
 @endsection

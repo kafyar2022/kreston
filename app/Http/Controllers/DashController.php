@@ -9,6 +9,7 @@ use App\Models\Content;
 use App\Models\Direction;
 use App\Models\News;
 use App\Models\Partner;
+use App\Models\RegulationsCategory;
 use App\Models\Service;
 use App\Models\Specialist;
 use App\Models\Text;
@@ -577,6 +578,38 @@ class DashController extends Controller
         $direction->update();
 
         return back()->with('success', 'Данные успешно сохранены');
+    }
+  }
+
+  public function regulations(Request $request)
+  {
+    $locale = $request->locale ?? 'ru';
+    $data['locale'] = $locale;
+    $data['regulation_categories'] = RegulationsCategory::where('locale', $locale)->get();
+
+    return view('dashboard.pages.regulations.index', compact('data'));
+  }
+
+  public function regulationsPost(Request $request)
+  {
+    switch ($request->action) {
+      case 'store-category':
+        RegulationsCategory::create([
+          'locale' => $request->json('locale'),
+          'title' => $request->json('category'),
+        ]);
+        return;
+
+      case 'update-category':
+        $category = RegulationsCategory::find($request->json('id'));
+        $category->title = $request->json('category');
+        $category->save();
+        return;
+
+      case 'destroy-category':
+        $category = RegulationsCategory::find($request->json('id'));
+        $category->delete();
+        return;
     }
   }
 }

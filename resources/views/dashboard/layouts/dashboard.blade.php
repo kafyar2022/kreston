@@ -38,8 +38,8 @@
       <li class="dashboard__menu-item @if ($route == 'dashboard.directions') dashboard__menu-item--current @endif">
         <a class="dashboard__link" href="{{ route('dashboard.directions') }}">Направления</a>
       </li>
-      <li class="dashboard__menu-item">
-        <a class="dashboard__link" href="#">Нормативные документы</a>
+      <li class="dashboard__menu-item @if ($route == 'dashboard.regulations') dashboard__menu-item--current @endif">
+        <a class="dashboard__link" href="{{ route('dashboard.regulations') }}">Нормативные документы</a>
       </li>
       <li class="dashboard__menu-item">
         <a class="dashboard__link admin-panel__link--logout" href="{{ route('auth.logout', $locale) }}">Выйти</a>

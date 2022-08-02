@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
       SpecialistsSeeder::class,
       ServicesSeeder::class,
       DirectionsSeeder::class,
+      RegulationsSeeder::class,
     ]);
   }
 }
