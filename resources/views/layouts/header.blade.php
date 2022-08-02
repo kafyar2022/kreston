@@ -66,14 +66,14 @@
         </dd>
       </div>
       <div class="company-details__item">
-          <dt class="company-details__term" data-text="details-worktime-term-{{ $locale }}">{{ $data['details-worktime-term-' . $locale] }}</dt>
-          <dd class="company-details__description">
-            <svg class="company-details__icon" width="20" height="20">
-              <use xlink:href="#time"></use>
-            </svg>
-            <a class="company-details__link" data-text="details-worktime-desc-{{ $locale }}">{{ $data['details-worktime-desc-' . $locale] }}</a>
-          </dd>
-        </div>
+        <dt class="company-details__term" data-text="details-worktime-term-{{ $locale }}">{{ $data['details-worktime-term-' . $locale] }}</dt>
+        <dd class="company-details__description">
+          <svg class="company-details__icon" width="20" height="20">
+            <use xlink:href="#time"></use>
+          </svg>
+          <a class="company-details__link" data-text="details-worktime-desc-{{ $locale }}">{{ $data['details-worktime-desc-' . $locale] }}</a>
+        </dd>
+      </div>
     </dl>
 
     <button class="page-header__feedback-button button button--feedback" type="button">
@@ -108,7 +108,7 @@
           </ul>
         </li>
 
-        <li class="page-nav__item @if ($route == 'service') page-nav__item--current @endif">
+        <li class="page-nav__item @if ($route == 'services') page-nav__item--current @endif">
           <button class="page-nav__button">
             @lang('Услуги')
             <svg class="page-nav__icon" width="12" height="8">
@@ -125,7 +125,7 @@
           </ul>
         </li>
 
-        <li class="page-nav__item">
+        <li class="page-nav__item @if ($route == 'directions') page-nav__item--current @endif">
           <button class="page-nav__button">
             @lang('Направления')
             <svg class="page-nav__icon" width="12" height="8">
@@ -134,33 +134,11 @@
           </button>
 
           <ul class="page-nav__extra-list page-nav__extra-list--hidden">
-            <li class="page-nav__extra-item">
-              <a class="page-nav__link" href="#">Промышленное производство</a>
-            </li>
-            <li class="page-nav__extra-item">
-              <a class="page-nav__link" href="#">Строительство</a>
-            </li>
-            <li class="page-nav__extra-item">
-              <a class="page-nav__link" href="#">Телекоммуникации</a>
-            </li>
-            <li class="page-nav__extra-item">
-              <a class="page-nav__link" href="#">Торговля</a>
-            </li>
-            <li class="page-nav__extra-item">
-              <a class="page-nav__link" href="#">Энергетика</a>
-            </li>
-            <li class="page-nav__extra-item">
-              <a class="page-nav__link" href="#">Агропромышленный сектор</a>
-            </li>
-            <li class="page-nav__extra-item">
-              <a class="page-nav__link" href="#">Банковское дело и финансы</a>
-            </li>
-            <li class="page-nav__extra-item">
-              <a class="page-nav__link" href="#">Горнодобывающая промышленность, нефть и газ</a>
-            </li>
-            <li class="page-nav__extra-item">
-              <a class="page-nav__link" href="#">Гостиницы</a>
-            </li>
+            @foreach ($directions as $direction)
+              <li class="page-nav__extra-item">
+                <a class="page-nav__link" href="{{ route('directions', $direction->slug) }}">{{ $direction->title }}</a>
+              </li>
+            @endforeach
           </ul>
         </li>
 

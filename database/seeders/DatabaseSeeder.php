@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
       CertificatesSeeder::class,
       SpecialistsSeeder::class,
       ServicesSeeder::class,
+      DirectionsSeeder::class,
     ]);
   }
 }

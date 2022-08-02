@@ -35,8 +35,8 @@
       <li class="dashboard__menu-item @if ($route == 'dashboard.services') dashboard__menu-item--current @endif">
         <a class="dashboard__link" href="{{ route('dashboard.services') }}">Услуги</a>
       </li>
-      <li class="dashboard__menu-item">
-        <a class="dashboard__link" href="#">Направления</a>
+      <li class="dashboard__menu-item @if ($route == 'dashboard.directions') dashboard__menu-item--current @endif">
+        <a class="dashboard__link" href="{{ route('dashboard.directions') }}">Направления</a>
       </li>
       <li class="dashboard__menu-item">
         <a class="dashboard__link" href="#">Нормативные документы</a>

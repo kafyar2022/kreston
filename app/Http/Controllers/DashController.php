@@ -6,6 +6,7 @@ use App\Helpers\Helper;
 use App\Models\Banner;
 use App\Models\Certificate;
 use App\Models\Content;
+use App\Models\Direction;
 use App\Models\News;
 use App\Models\Partner;
 use App\Models\Service;
@@ -502,6 +503,80 @@ class DashController extends Controller
         $service->update();
 
         return back()->with('success', 'Услуга успешно сохранена');
+    }
+  }
+
+  public function directions(Request $request)
+  {
+    switch ($request->action) {
+      case 'create':
+        $locale = $request->locale ?? 'ru';
+        $data['locale'] = $locale;
+        $data['direction'] = null;
+
+        return view('dashboard.pages.directions.show', compact('data'));
+
+      case 'edit':
+        $direction = Direction::find($request->direction);
+        $data['locale'] = $direction->locale;
+        $data['direction'] = $direction;
+        return view('dashboard.pages.directions.show', compact('data'));
+
+      case 'delete':
+        $direction = Direction::find($request->direction);
+        $direction->img && file_exists('files/directions/img/' . $direction->img)
+          ? unlink('files/directions/img/' . $direction->img)
+          : '';
+        $direction->delete();
+
+        return back();
+
+      default:
+        $locale = $request->locale ?? 'ru';
+        $data['locale'] = $locale;
+        $data['directions'] = Direction::where('locale', $locale)->get();
+
+        return view('dashboard.pages.directions.index', compact('data'));
+    }
+  }
+
+  public function directionsPost(Request $request)
+  {
+    $request->validate(['title' => 'required']);
+
+    switch ($request->action) {
+      case 'store':
+        $direction = new Direction();
+        $direction->locale = $request->locale;
+        $direction->title = $request->title;
+        $direction->slug = SlugService::createSlug(Direction::class, 'slug', $direction->title);
+        $file = $request->file('img');
+        if ($file) {
+          $fileName = $direction->slug . '.' . $file->extension();
+          $file->move(public_path('files/directions/img'), $fileName);
+          $direction->img = $fileName;
+        }
+        $direction->content = $request->content;
+        $direction->save();
+
+        return back()->with('success', 'Данные успешно сохранены');
+
+      case 'update':
+        $direction = Direction::find($request->id);
+        $direction->title = $request->title;
+        $file = $request->file('img');
+        if ($file) {
+          if ($direction->img && file_exists('files/directions/img/' . $direction->img)) {
+            unlink('files/directions/img/' . $direction->img);
+          }
+          $fileName = $direction->slug . '.' . $file->extension();
+          $file->move(public_path('files/directions/img'), $fileName);
+          $direction->img = $fileName;
+        }
+        $direction->content = $request->content;
+        $direction->update();
+
+        return back()->with('success', 'Данные успешно сохранены');
     }
   }
 }

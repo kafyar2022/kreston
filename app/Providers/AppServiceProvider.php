@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Direction;
 use App\Models\Service;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
@@ -30,14 +31,21 @@ class AppServiceProvider extends ServiceProvider
     Paginator::useBootstrap();
 
     view()->composer('*', function ($view) {
+      $locale = app()->getLocale();
+
       $services = Service::select('slug', 'locale', 'title')
-        ->where('locale', app()->getLocale())
+        ->where('locale', $locale)
+        ->get();
+
+      $directions = Direction::select('slug', 'locale', 'title')
+        ->where('locale', $locale)
         ->get();
 
       return $view->with([
         'route' => \Route::currentRouteName(),
-        'locale' => app()->getLocale(),
+        'locale' => $locale,
         'services' => $services,
+        'directions' => $directions,
       ]);
     });
   }
