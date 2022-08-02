@@ -36,7 +36,9 @@
           @foreach ($data['certificates'] as $certificate)
             <li class="certificate__item">
               <h3 class="certificate__title">{{ $certificate->title }}</h3>
-              <p class="certificate__description">{{ $certificate->description }}</p>
+              <div class="certificate__description">
+                <div class="content">{!! $certificate->description !!}</div>
+              </div>
               @if ($certificate->img)
                 <a class="certificate__link button button--view" href="{{ asset('files/certificates/img/' . $certificate->img) }}" target="_blank">
                   <svg width="23" height="16">
