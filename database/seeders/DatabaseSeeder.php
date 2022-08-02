@@ -27,10 +27,10 @@ class DatabaseSeeder extends Seeder
       PartnersSeeder::class,
       NewsSeeder::class,
       CertificatesSeeder::class,
-      
       SpecialistsSeeder::class,
       ServicesSeeder::class,
       DirectionsSeeder::class,
+
       RegulationsSeeder::class,
       VacanciesSeeder::class,
     ]);
