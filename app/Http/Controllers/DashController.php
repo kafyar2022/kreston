@@ -9,6 +9,7 @@ use App\Models\Content;
 use App\Models\Direction;
 use App\Models\News;
 use App\Models\Partner;
+use App\Models\Regulation;
 use App\Models\RegulationsCategory;
 use App\Models\Service;
 use App\Models\Specialist;
@@ -593,6 +594,44 @@ class DashController extends Controller
   public function regulationsPost(Request $request)
   {
     switch ($request->action) {
+      case 'store':
+        $regulation = new Regulation();
+        $regulation->locale = $request->locale;
+        $regulation->title = $request->title;
+        $regulation->category_id = $request->category_id;
+        $file = $request->file('file');
+        if ($file) {
+          $fileName = uniqid() . '.' . $file->extension();
+          $file->move(public_path('files/regulations'), $fileName);
+          $regulation->filename = $fileName;
+        }
+        $regulation->save();
+
+        return;
+
+      case 'update':
+        $regulation = Regulation::find($request->id);
+        $regulation->title = $request->title;
+        $file = $request->file('file');
+        if ($file) {
+          if ($regulation->filename && file_exists('files/regulations/' . $regulation->filename)) {
+            unlink('files/regulations/' . $regulation->filename);
+          }
+          $fileName = uniqid() . '.' . $file->extension();
+          $file->move(public_path('files/regulations'), $fileName);
+          $regulation->filename = $fileName;
+        }
+        $regulation->update();
+        break;
+
+      case 'destroy':
+        $regulation = Regulation::find($request->json('id'));
+        if ($regulation->filename && file_exists('files/regulations/' . $regulation->filename)) {
+          unlink('files/regulations/' . $regulation->filename);
+        }
+        $regulation->delete();
+        return;
+
       case 'store-category':
         RegulationsCategory::create([
           'locale' => $request->json('locale'),

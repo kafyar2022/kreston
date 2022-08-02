@@ -43,12 +43,12 @@
                 <li class="regulation-list__extra-item">
                   <span class="regulation-list__count">{{ $key + 1 }}</span>
                   <span class="regulation-list__title">{{ $regulation->title }}</span>
-                  <button class="regulation-list__action regulation-list__action--edit" type="button" data-action="edit" data-regulation="{{ $category->id }}">Редактировать</button>
-                  <button class="regulation-list__action regulation-list__action--delete" type="button" data-action="delete" data-regulation="{{ $category->id }}">Удалить</button>
+                  <button class="regulation-list__action regulation-list__action--edit" type="button" data-action="edit" data-id="{{ $regulation->id }}">Редактировать</button>
+                  <button class="regulation-list__action regulation-list__action--delete" type="button" data-action="delete" data-id="{{ $regulation->id }}">Удалить</button>
                 </li>
               @endforeach
               <li class="regulation-list__extra-item">
-                <button class="regulation-list__action regulation-list__action--add">Добавить документ</button>
+                <button class="regulation-list__action regulation-list__action--add" data-action="add" data-id="{{ $category->id }}">Добавить документ</button>
               </li>
             </ul>
           </li>
@@ -60,7 +60,13 @@
         </li>
       </ul>
     @else
-      <p>Нет данных</p>
+      <ul class="regulation-list accordion-menu">
+        <li class="regulation-list__item">
+          <div class="regulation-list__item-inner">
+            <button class="regulation-list__action regulation-list__action--add" data-action="add-category">Добавить категорию</button>
+          </div>
+        </li>
+      </ul>
     @endif
   </main>
 @endsection
